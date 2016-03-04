@@ -20,7 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
+    backendless.messaging.registerForRemoteNotifications()
     return true
+  }
+
+  func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+    backendless.messaging.registerDeviceWithTokenData(deviceToken, response: { (response) -> Void in
+        print("Successfully registeredDeviceWithTokenData: \(response)")
+      }) { (fault) -> Void in
+        print("registerDeviceWithTokenData failed w/ fault: \(fault)")
+    }
   }
 
   func applicationWillResignActive(application: UIApplication) {
