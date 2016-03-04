@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,9 +19,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   let SECRET_KEY = "8EB4108E-DCD3-CDAB-FF85-9BD80BD98000"
   let VERSION_NUM = "v1"
 
+  var soundID: SystemSoundID = 0
+
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
-    backendless.messaging.registerForRemoteNotifications()
+
+    pushSetup(application, launchOptions: launchOptions)
+    //TODO: Present this after user signs up
+    UIApplication.sharedApplication().registerForRemoteNotifications()
+
     return true
   }
 
@@ -30,6 +37,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }) { (fault) -> Void in
         print("registerDeviceWithTokenData failed w/ fault: \(fault)")
     }
+  }
+
+  func pushSetup(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
+
+    if application.respondsToSelector("registerUserNotificationSettings:") {
+      let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+      application.registerUserNotificationSettings(settings)
+    } else {
+      application.registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
+    }
+  }
+
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+    playSoundWithUserInfo(userInfo)
+  }
+
+  func playSoundWithUserInfo(userInfo: [NSObject : AnyObject]) {
+    let soundFileName = userInfo["ios-sound"] as! String
+    let soundPath = NSBundle.mainBundle().pathForResource(soundFileName, ofType: nil)
+    let fileURL = NSURL.fileURLWithPath(soundPath!) as CFURLRef
+    AudioServicesCreateSystemSoundID(fileURL, &soundID)
+    AudioServicesPlaySystemSound(soundID)
   }
 
   func applicationWillResignActive(application: UIApplication) {

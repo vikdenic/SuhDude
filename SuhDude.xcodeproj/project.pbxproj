@@ -26,6 +26,7 @@
 		93BCBC2A1C890752005D2AF7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBC291C890752005D2AF7 /* SystemConfiguration.framework */; };
 		93BCBC2C1C89075C005D2AF7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBC2B1C89075C005D2AF7 /* libsqlite3.tbd */; };
 		93BCBC2E1C890762005D2AF7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBC2D1C890762005D2AF7 /* libz.tbd */; };
+		93BCBC351C894648005D2AF7 /* suhDude2NL.aif in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC341C893DCB005D2AF7 /* suhDude2NL.aif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +222,7 @@
 		93BCBC291C890752005D2AF7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		93BCBC2B1C89075C005D2AF7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		93BCBC2D1C890762005D2AF7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		93BCBC341C893DCB005D2AF7 /* suhDude2NL.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = suhDude2NL.aif; path = ../../../../Desktop/suhDude2NL.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -270,9 +272,10 @@
 		93BCBB3E1C88F2F9005D2AF7 /* SuhDude */ = {
 			isa = PBXGroup;
 			children = (
-				93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */,
-				93BCBB411C88F2F9005D2AF7 /* ViewController.swift */,
 				93BCBB431C88F2F9005D2AF7 /* Main.storyboard */,
+				93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */,
+				93BCBC331C892C7D005D2AF7 /* Controllers */,
+				93BCBC321C892C74005D2AF7 /* Audio */,
 				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
 				93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */,
 				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
@@ -656,6 +659,22 @@
 			name = Backendless;
 			sourceTree = "<group>";
 		};
+		93BCBC321C892C74005D2AF7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBC341C893DCB005D2AF7 /* suhDude2NL.aif */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
+		93BCBC331C892C7D005D2AF7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBB411C88F2F9005D2AF7 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -715,6 +734,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BCBB4A1C88F2F9005D2AF7 /* LaunchScreen.storyboard in Resources */,
+				93BCBC351C894648005D2AF7 /* suhDude2NL.aif in Resources */,
 				93BCBB471C88F2F9005D2AF7 /* Assets.xcassets in Resources */,
 				93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */,
 			);
@@ -843,7 +863,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
 				INFOPLIST_FILE = SuhDude/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -857,6 +879,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Debug;
@@ -865,7 +888,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
 				INFOPLIST_FILE = SuhDude/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -879,6 +904,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Release;
