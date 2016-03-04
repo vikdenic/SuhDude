@@ -251,10 +251,7 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
-				93BCBC2D1C890762005D2AF7 /* libz.tbd */,
-				93BCBC2B1C89075C005D2AF7 /* libsqlite3.tbd */,
-				93BCBC291C890752005D2AF7 /* SystemConfiguration.framework */,
-				93BCBB511C890747005D2AF7 /* lib */,
+				93BCBC2F1C890B15005D2AF7 /* Backendless */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
 			);
@@ -646,6 +643,17 @@
 				93BCBC1D1C890747005D2AF7 /* libx264.a */,
 			);
 			path = lib;
+			sourceTree = "<group>";
+		};
+		93BCBC2F1C890B15005D2AF7 /* Backendless */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBC2D1C890762005D2AF7 /* libz.tbd */,
+				93BCBC2B1C89075C005D2AF7 /* libsqlite3.tbd */,
+				93BCBC291C890752005D2AF7 /* SystemConfiguration.framework */,
+				93BCBB511C890747005D2AF7 /* lib */,
+			);
+			name = Backendless;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

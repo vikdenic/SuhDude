@@ -12,12 +12,6 @@ class ViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    let backendless = Backendless.sharedInstance()
-    let user: BackendlessUser = BackendlessUser()
-    user.email = "michael@backendless.com"
-    user.password = "my_super_password"
-    backendless.userService.registering(user)
   }
 
 }
