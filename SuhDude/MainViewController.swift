@@ -67,4 +67,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     cell.textLabel?.text = friend.name
     return cell
   }
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+  }
 }

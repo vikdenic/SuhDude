@@ -68,7 +68,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.65490196078431373" green="0.10196078431372549" blue="0.066666666666666666" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.78823529411764703" green="0.0" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="UUX-1v-m1O" secondAttribute="trailing" constant="-20" id="7Vf-GO-BvJ"/>
                             <constraint firstItem="EUO-Ka-Miu" firstAttribute="centerY" secondItem="2aY-eq-d6M" secondAttribute="centerY" constant="-86" id="A2u-6D-ODs"/>
@@ -154,7 +154,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.65490196079999996" green="0.1019607843" blue="0.066666666669999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.78823529411764703" green="0.0" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dBD-qX-tba" firstAttribute="leading" secondItem="iLS-gm-8eJ" secondAttribute="leadingMargin" constant="-20" id="5Yk-qX-n8e"/>
                             <constraint firstItem="Qwm-o8-OJK" firstAttribute="leading" secondItem="iLS-gm-8eJ" secondAttribute="leadingMargin" constant="-20" id="HMV-Ac-zFZ"/>
@@ -269,7 +269,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="br3-PK-ycj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.69803921570000005" green="0.0" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.78823529411764703" green="0.0" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
