@@ -29,7 +29,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="xOL-co-qXD" kind="show" id="YpE-71-dT2"/>
+                                    <segue destination="xOL-co-qXD" kind="show" identifier="signUpToRegister" id="YpE-71-dT2"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUX-1v-m1O">
@@ -81,6 +81,9 @@
                     <navigationItem key="navigationItem" id="hIU-ye-WG1">
                         <barButtonItem key="rightBarButtonItem" title="login" id="qHa-PC-zsF">
                             <color key="tintColor" red="0.69803921570000005" green="0.0" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onLoginBarButtonTapped:" destination="TwN-Oa-ocW" id="Je8-wJ-8pJ"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
