@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
+    backendless.userService.setStayLoggedIn(true)
 
     pushSetup(application, launchOptions: launchOptions)
     //TODO: Present this after user signs up
