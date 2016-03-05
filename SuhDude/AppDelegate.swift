@@ -25,9 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
     backendless.userService.setStayLoggedIn(true)
 
-    pushSetup(application, launchOptions: launchOptions)
     //TODO: Present this after user signs up
-    UIApplication.sharedApplication().registerForRemoteNotifications()
+//    UIApplication.sharedApplication().registerForRemoteNotifications()
 
     return true
   }
@@ -37,16 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Successfully registeredDeviceWithTokenData: \(response)")
       }) { (fault) -> Void in
         print("registerDeviceWithTokenData failed w/ fault: \(fault)")
-    }
-  }
-
-  func pushSetup(application: UIApplication, launchOptions: [NSObject: AnyObject]?) {
-
-    if application.respondsToSelector("registerUserNotificationSettings:") {
-      let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-      application.registerUserNotificationSettings(settings)
-    } else {
-      application.registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
     }
   }
 
