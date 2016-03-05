@@ -169,7 +169,42 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mt7-bc-AGq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mainCell" textLabel="NIC-gw-b86" rowHeight="66" style="IBUITableViewCellStyleDefault" id="GeM-Z4-aJY">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="66"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GeM-Z4-aJY" id="nvJ-IX-Eas">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NIC-gw-b86">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="uWa-7p-Fe8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="NPr-1F-gPr"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mt7-bc-AGq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="6xt-qC-nqA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mt7-bc-AGq" secondAttribute="trailing" constant="-20" id="96S-LE-Adx"/>
+                            <constraint firstItem="Mt7-bc-AGq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Bsh-P5-ARd"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mt7-bc-AGq" secondAttribute="bottom" id="KV0-00-2Wy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ORf-Iz-t5f">
                         <barButtonItem key="leftBarButtonItem" title="logout" id="nlp-OF-GEd">
@@ -179,6 +214,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tableView" destination="Mt7-bc-AGq" id="Ggl-ni-AuF"/>
                         <segue destination="fJC-XU-ebn" kind="presentation" identifier="mainToSignUp" id="xHl-X3-d1u"/>
                     </connections>
                 </viewController>

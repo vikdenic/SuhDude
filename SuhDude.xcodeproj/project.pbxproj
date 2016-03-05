@@ -30,6 +30,7 @@
 		93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */; };
 		93BCBC3D1C8B37A5005D2AF7 /* suhDude2NL.aif in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */; };
 		93BCBC421C8B57D5005D2AF7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC411C8B57D5005D2AF7 /* Extensions.swift */; };
+		93BCBC451C8B6314005D2AF7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC441C8B6314005D2AF7 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -229,6 +230,7 @@
 		93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = suhDude2NL.aif; sourceTree = "<group>"; };
 		93BCBC411C8B57D5005D2AF7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		93BCBC441C8B6314005D2AF7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,6 +283,7 @@
 				93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */,
 				93BCBB431C88F2F9005D2AF7 /* Main.storyboard */,
 				93BCBC331C892C7D005D2AF7 /* Controllers */,
+				93BCBC431C8B6302005D2AF7 /* Model */,
 				93BCBC401C8B551A005D2AF7 /* Utilities */,
 				93BCBC321C892C74005D2AF7 /* Audio */,
 				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
@@ -692,6 +695,14 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		93BCBC431C8B6302005D2AF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBC441C8B6314005D2AF7 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -766,6 +777,7 @@
 			files = (
 				93BCBC421C8B57D5005D2AF7 /* Extensions.swift in Sources */,
 				93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */,
+				93BCBC451C8B6314005D2AF7 /* User.swift in Sources */,
 				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
