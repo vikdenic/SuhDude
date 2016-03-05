@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */; };
-		93BCBB421C88F2F9005D2AF7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB411C88F2F9005D2AF7 /* ViewController.swift */; };
+		93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */; };
 		93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB431C88F2F9005D2AF7 /* Main.storyboard */; };
 		93BCBB471C88F2F9005D2AF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */; };
 		93BCBB4A1C88F2F9005D2AF7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */; };
@@ -26,13 +26,15 @@
 		93BCBC2A1C890752005D2AF7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBC291C890752005D2AF7 /* SystemConfiguration.framework */; };
 		93BCBC2C1C89075C005D2AF7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBC2B1C89075C005D2AF7 /* libsqlite3.tbd */; };
 		93BCBC2E1C890762005D2AF7 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBC2D1C890762005D2AF7 /* libz.tbd */; };
-		93BCBC351C894648005D2AF7 /* suhDude2NL.aif in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC341C893DCB005D2AF7 /* suhDude2NL.aif */; };
+		93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */; };
+		93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */; };
+		93BCBC3D1C8B37A5005D2AF7 /* suhDude2NL.aif in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		93BCBB3C1C88F2F9005D2AF7 /* SuhDude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SuhDude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		93BCBB411C88F2F9005D2AF7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		93BCBB441C88F2F9005D2AF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		93BCBB491C88F2F9005D2AF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -222,7 +224,9 @@
 		93BCBC291C890752005D2AF7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		93BCBC2B1C89075C005D2AF7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		93BCBC2D1C890762005D2AF7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		93BCBC341C893DCB005D2AF7 /* suhDude2NL.aif */ = {isa = PBXFileReference; lastKnownFileType = file; name = suhDude2NL.aif; path = ../../../../Desktop/suhDude2NL.aif; sourceTree = "<group>"; };
+		93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
+		93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = suhDude2NL.aif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,8 +257,8 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
-				93BCBC2F1C890B15005D2AF7 /* Backendless */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
+				93BCBC2F1C890B15005D2AF7 /* Backendless */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
 			);
 			indentWidth = 2;
@@ -662,7 +666,7 @@
 		93BCBC321C892C74005D2AF7 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				93BCBC341C893DCB005D2AF7 /* suhDude2NL.aif */,
+				93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -670,7 +674,9 @@
 		93BCBC331C892C7D005D2AF7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				93BCBB411C88F2F9005D2AF7 /* ViewController.swift */,
+				93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */,
+				93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */,
+				93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -734,8 +740,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BCBB4A1C88F2F9005D2AF7 /* LaunchScreen.storyboard in Resources */,
-				93BCBC351C894648005D2AF7 /* suhDude2NL.aif in Resources */,
 				93BCBB471C88F2F9005D2AF7 /* Assets.xcassets in Resources */,
+				93BCBC3D1C8B37A5005D2AF7 /* suhDude2NL.aif in Resources */,
 				93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -747,7 +753,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93BCBB421C88F2F9005D2AF7 /* ViewController.swift in Sources */,
+				93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */,
+				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
+				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
