@@ -20,7 +20,7 @@ class SignUpViewController: UIViewController {
     navigationController?.setNavBarToClear()
 
     loginBarButton.setTitleTextAttributes([
-      NSFontAttributeName : UIFont(name: "HelveticaNeue-Bold", size: 18)!],
+      NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
       forState: UIControlState.Normal)
   }
 
