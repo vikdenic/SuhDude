@@ -13,6 +13,7 @@ class RegisterUserViewController: UIViewController {
   @IBOutlet var usernameTextField: UITextField!
   @IBOutlet var passwordTextField: UITextField!
   @IBOutlet var continueButton: UIButton!
+  @IBOutlet var continueButtonYconstraint: NSLayoutConstraint!
 
   var backendless = Backendless.sharedInstance()
   var loggingIn = false
@@ -22,9 +23,23 @@ class RegisterUserViewController: UIViewController {
     navigationController?.setNavBarToClear()
     usernameTextField.becomeFirstResponder()
 
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+
     if loggingIn {
       continueButton.setTitle("log in", forState: .Normal)
     }
+  }
+
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
+  }
+
+  func keyboardWillShow(notification: NSNotification) {
+    let screenHeight = UIScreen.mainScreen().bounds.height
+    guard let kbHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.height else { return }
+
+    let newY = screenHeight - kbHeight
+    continueButtonYconstraint.constant = kbHeight
   }
 
   override func prefersStatusBarHidden() -> Bool {
