@@ -27,6 +27,14 @@ class RegisterUserViewController: UIViewController {
   }
 
   @IBAction func onContinueButtonTapped(sender: UIButton) {
+    if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
+      UIAlertController.showAlert("Please enter a username and password", message: nil, viewController: self)
+      return
+    } else if !usernameTextField.text!.containsValidCharacters() {
+      UIAlertController.showAlert("Username must only contain letters, numbers, and underscores", message: nil, viewController: self)
+      return
+    }
+
     if loggingIn {
       loginUser()
     } else {
@@ -47,6 +55,7 @@ class RegisterUserViewController: UIViewController {
         self.loginUser()
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
+        UIAlertController.showAlertWithFault(fault, forVC: self)
     }
   }
 
@@ -56,6 +65,7 @@ class RegisterUserViewController: UIViewController {
       self.dismissViewControllerAnimated(true, completion: nil)
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
+        UIAlertController.showAlertWithFault(fault, forVC: self)
     }
   }
 

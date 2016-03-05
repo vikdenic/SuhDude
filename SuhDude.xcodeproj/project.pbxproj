@@ -29,6 +29,7 @@
 		93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */; };
 		93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */; };
 		93BCBC3D1C8B37A5005D2AF7 /* suhDude2NL.aif in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */; };
+		93BCBC421C8B57D5005D2AF7 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC411C8B57D5005D2AF7 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +228,7 @@
 		93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		93BCBC3C1C8B37A5005D2AF7 /* suhDude2NL.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = suhDude2NL.aif; sourceTree = "<group>"; };
+		93BCBC411C8B57D5005D2AF7 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,9 +278,10 @@
 		93BCBB3E1C88F2F9005D2AF7 /* SuhDude */ = {
 			isa = PBXGroup;
 			children = (
-				93BCBB431C88F2F9005D2AF7 /* Main.storyboard */,
 				93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */,
+				93BCBB431C88F2F9005D2AF7 /* Main.storyboard */,
 				93BCBC331C892C7D005D2AF7 /* Controllers */,
+				93BCBC401C8B551A005D2AF7 /* Utilities */,
 				93BCBC321C892C74005D2AF7 /* Audio */,
 				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
 				93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */,
@@ -681,6 +684,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		93BCBC401C8B551A005D2AF7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBC411C8B57D5005D2AF7 /* Extensions.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -753,6 +764,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93BCBC421C8B57D5005D2AF7 /* Extensions.swift in Sources */,
 				93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */,
 				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,

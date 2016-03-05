@@ -31,5 +31,13 @@ class MainViewController: UIViewController {
     }
   }
 
+  @IBAction func onLogoutButtonTapped(sender: AnyObject) {
+    backendless.userService.logout({ (object) -> Void in
+      self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
+      self.navigationController?.popToRootViewControllerAnimated(true)
+      }) { (fault) -> Void in
+        print("Server reported an error: \(fault)")
+    }
+  }
 }
 
