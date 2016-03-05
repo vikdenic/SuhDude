@@ -24,6 +24,10 @@ class SignUpViewController: UIViewController {
       forState: UIControlState.Normal)
   }
 
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
+
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     loggingIn = false

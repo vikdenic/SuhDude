@@ -27,6 +27,10 @@ class RegisterUserViewController: UIViewController {
     }
   }
 
+  override func prefersStatusBarHidden() -> Bool {
+    return true
+  }
+
   @IBAction func onContinueButtonTapped(sender: UIButton) {
     if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
       UIAlertController.showAlert("Please enter a username and password", message: nil, viewController: self)
