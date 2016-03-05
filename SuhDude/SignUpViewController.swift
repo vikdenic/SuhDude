@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class SignUpViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class SignUpViewController: UIViewController {
 
   var loggingIn = false
   let kSegueSignUpToRegister = "signUpToRegister"
+
+  var soundID: SystemSoundID = 0
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,6 +39,14 @@ class SignUpViewController: UIViewController {
   @IBAction func onLoginBarButtonTapped(sender: UIBarButtonItem) {
     loggingIn = true
     performSegueWithIdentifier(kSegueSignUpToRegister, sender: self)
+  }
+
+  @IBAction func onDefinitionTapped(sender: UIButton) {
+    let soundFileName = "suhDude2NL.aif"
+    let soundPath = NSBundle.mainBundle().pathForResource(soundFileName, ofType: nil)
+    let fileURL = NSURL.fileURLWithPath(soundPath!) as CFURLRef
+    AudioServicesCreateSystemSoundID(fileURL, &soundID)
+    AudioServicesPlaySystemSound(soundID)
   }
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -48,6 +48,15 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suh Dude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUO-Ka-Miu">
+                                <rect key="frame" x="0.0" y="195" width="600" height="63"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="X0f-6E-VIu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="56"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6I-1g-Twn">
                                 <rect key="frame" x="173" y="247" width="254" height="105"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -60,29 +69,33 @@
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suh Dude" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUO-Ka-Miu">
-                                <rect key="frame" x="0.0" y="195" width="600" height="63"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="63" id="X0f-6E-VIu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Knewave" family="Knewave" pointSize="56"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SdU-sX-hEq">
+                                <rect key="frame" x="173" y="247" width="254" height="105"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDefinitionTapped:" destination="TwN-Oa-ocW" eventType="touchUpInside" id="d5h-eU-hJJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.78823529411764703" green="0.0" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="SdU-sX-hEq" firstAttribute="width" secondItem="D6I-1g-Twn" secondAttribute="width" id="55b-A0-0Fv"/>
+                            <constraint firstItem="SdU-sX-hEq" firstAttribute="height" secondItem="D6I-1g-Twn" secondAttribute="height" id="5Ok-Ai-TTq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UUX-1v-m1O" secondAttribute="trailing" constant="-20" id="7Vf-GO-BvJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wqU-IJ-FaM" secondAttribute="trailing" constant="-20" id="BPF-Kd-DPW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="EUO-Ka-Miu" secondAttribute="trailing" constant="-20" id="BjL-JH-7Gq"/>
                             <constraint firstItem="UUX-1v-m1O" firstAttribute="leading" secondItem="2aY-eq-d6M" secondAttribute="leadingMargin" constant="-20" id="V5U-2Y-DKc"/>
                             <constraint firstItem="D6I-1g-Twn" firstAttribute="centerY" secondItem="2aY-eq-d6M" secondAttribute="centerY" id="VQV-Zu-Syn"/>
                             <constraint firstItem="EUO-Ka-Miu" firstAttribute="leading" secondItem="2aY-eq-d6M" secondAttribute="leadingMargin" constant="-20" id="Y3i-En-PBc"/>
+                            <constraint firstItem="SdU-sX-hEq" firstAttribute="centerY" secondItem="D6I-1g-Twn" secondAttribute="centerY" id="bb9-c5-LwC"/>
                             <constraint firstItem="wqU-IJ-FaM" firstAttribute="leading" secondItem="2aY-eq-d6M" secondAttribute="leadingMargin" constant="-20" id="feZ-rI-lwD"/>
                             <constraint firstItem="D6I-1g-Twn" firstAttribute="centerX" secondItem="2aY-eq-d6M" secondAttribute="centerX" id="iP6-Cc-6fg"/>
                             <constraint firstItem="wqU-IJ-FaM" firstAttribute="top" secondItem="UUX-1v-m1O" secondAttribute="bottom" id="m4e-AS-cKl"/>
                             <constraint firstItem="lX9-bQ-aam" firstAttribute="top" secondItem="wqU-IJ-FaM" secondAttribute="bottom" id="pbm-7s-xP4"/>
                             <constraint firstItem="D6I-1g-Twn" firstAttribute="top" secondItem="EUO-Ka-Miu" secondAttribute="bottom" constant="-11" id="vSd-q5-zuk"/>
+                            <constraint firstItem="SdU-sX-hEq" firstAttribute="centerX" secondItem="D6I-1g-Twn" secondAttribute="centerX" id="zZk-iG-7kl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hIU-ye-WG1">
@@ -133,11 +146,11 @@
                                     <constraint firstAttribute="height" constant="66" id="1Y4-TL-j3X"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.55000000000000004" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -147,11 +160,11 @@
                                     <constraint firstAttribute="height" constant="66" id="xOO-np-wnf"/>
                                 </constraints>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.55000000000000004" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.0" green="0.0" blue="0.0" alpha="0.33000000000000002" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
