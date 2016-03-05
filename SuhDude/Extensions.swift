@@ -54,3 +54,13 @@ extension String {
     return true
   }
 }
+
+extension UINavigationController {
+  func setNavBarToClear() {
+    self.navigationBarHidden = false
+    self.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+    self.navigationBar.shadowImage = UIImage()
+    self.navigationController?.navigationBar.translucent = true
+    self.view.backgroundColor = UIColor.clearColor()
+  }
+}

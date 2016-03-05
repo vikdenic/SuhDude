@@ -19,6 +19,7 @@ class RegisterUserViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.setNavBarToClear()
     usernameTextField.becomeFirstResponder()
 
     if loggingIn {

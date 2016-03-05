@@ -10,12 +10,18 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+  @IBOutlet var loginBarButton: UIBarButtonItem!
+
   var loggingIn = false
   let kSegueSignUpToRegister = "signUpToRegister"
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.setNavBarToClear()
 
+    loginBarButton.setTitleTextAttributes([
+      NSFontAttributeName : UIFont(name: "HelveticaNeue-Bold", size: 18)!],
+      forState: UIControlState.Normal)
   }
 
   override func viewWillAppear(animated: Bool) {
