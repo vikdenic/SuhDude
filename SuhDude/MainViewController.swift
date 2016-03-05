@@ -53,6 +53,25 @@ class MainViewController: UIViewController {
         print("Server reported an error: \(fault)")
     }
   }
+
+  func publishMessageAsPushNotificationAsync(message: String, deviceId: String) {
+
+    let deliveryOptions = DeliveryOptions()
+    deliveryOptions.pushSinglecast = [deviceId]
+    deliveryOptions.pushPolicy(PUSH_ONLY)
+
+    let publishOptions = PublishOptions()
+    publishOptions.headers = ["alert-text":"Notification for iOS "]
+
+    backendless.messaging.publish("default", message: message, publishOptions:publishOptions, deliveryOptions:deliveryOptions,
+      response:{ ( messageStatus : MessageStatus!) -> () in
+        print("MessageStatus = \(messageStatus.status) ['\(messageStatus.messageId)']")
+      },
+      error: { ( fault : Fault!) -> () in
+        print("Server reported an error: \(fault)")
+      }
+    )
+  }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
@@ -69,6 +88,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    publishMessageAsPushNotificationAsync("Suh dood.", deviceId: "5128B7CE-0D23-4E48-A71B-B535718E3D")
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 }
