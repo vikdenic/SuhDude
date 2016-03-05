@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    self.tableView.tableFooterView = UIView(frame: CGRect.zero)
   }
 
   override func viewDidAppear(animated: Bool) {
