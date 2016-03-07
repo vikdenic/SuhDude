@@ -91,7 +91,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     let selectedUser = friends[indexPath.row]
-    guard let someDeviceId = selectedUser.getProperty("deviceId") as! String! else {
+    guard let someDeviceId = selectedUser.getProperty("deviceId") as? String else {
       return
     }
 
