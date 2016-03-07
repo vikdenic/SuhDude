@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     super.viewDidAppear(animated)
     checkForCurrentUser()
 
-    User.retrieveAllUsers { (users, fault) -> Void in
+    UserManager.retrieveAllUsers { (users, fault) -> Void in
       guard let friends = users else {
         print("Server reported an error: \(fault)")
         return
@@ -61,7 +61,7 @@ class MainViewController: UIViewController {
     deliveryOptions.pushPolicy(PUSH_ONLY)
 
     let publishOptions = PublishOptions()
-    publishOptions.headers = ["alert-text":"Notification for iOS "]
+    publishOptions.headers = ["ios-sound":"suhDude2NL.aif"]
 
     backendless.messaging.publish("default", message: message, publishOptions:publishOptions, deliveryOptions:deliveryOptions,
       response:{ ( messageStatus : MessageStatus!) -> () in
@@ -88,7 +88,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    publishMessageAsPushNotificationAsync("Suh dood.", deviceId: "5128B7CE-0D23-4E48-A71B-B535718E3D")
+    //TODO: consider only passing in User object, and then within method querying for Device objects
+    //who point to that user, and publishing Push to all those Device objects' deviceId's
+    publishMessageAsPushNotificationAsync("Suh dood.", deviceId: "5128B7CE-0D23-4E48-A71B-B535718E3D7B")
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 }

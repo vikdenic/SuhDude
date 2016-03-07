@@ -21,6 +21,7 @@ class RegisterUserViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     navigationController?.setNavBarToClear()
+    navigationController?.navigationBar.topItem?.title = ""
     usernameTextField.becomeFirstResponder()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
@@ -35,10 +36,8 @@ class RegisterUserViewController: UIViewController {
   }
 
   func keyboardWillShow(notification: NSNotification) {
-    let screenHeight = UIScreen.mainScreen().bounds.height
     guard let kbHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.height else { return }
 
-    let newY = screenHeight - kbHeight
     continueButtonYconstraint.constant = kbHeight
   }
 
@@ -98,6 +97,6 @@ class RegisterUserViewController: UIViewController {
     } else {
       application.registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
     }
+    application.registerForRemoteNotifications()
   }
-
 }

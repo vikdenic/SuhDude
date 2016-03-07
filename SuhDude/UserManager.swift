@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User {
+class UserManager {
 
   class func retrieveAllUsers(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
     let backendless = Backendless.sharedInstance()
@@ -24,4 +24,18 @@ class User {
         completed(users: nil, fault: fault)
     }
   }
+
+  class func saveUserWithDeviceId(completed : (fault : Fault?) -> Void) {
+    let backendless = Backendless.sharedInstance()
+    let currentUser = Backendless.sharedInstance().userService.currentUser
+
+    currentUser.setProperty("deviceId", object: backendless.messagingService.currentDevice().deviceId)
+
+    backendless.userService.update(currentUser, response: { (updatedUser) -> Void in
+        print("Successfully updated user: \(currentUser)")
+      }) { (fault) -> Void in
+        print("Server reported an error: \(fault)")
+    }
+  }
+
 }
