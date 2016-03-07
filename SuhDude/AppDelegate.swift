@@ -57,8 +57,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
   }
 
-  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-    playSoundWithUserInfo(userInfo)
+//  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+//    playSoundWithUserInfo(userInfo)
+//  }
+
+  func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+
+    if application.applicationState == .Active {
+      playSoundWithUserInfo(userInfo)
+    }
+
+    completionHandler(.NewData)
   }
 
   func playSoundWithUserInfo(userInfo: [NSObject : AnyObject]) {

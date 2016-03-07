@@ -88,9 +88,13 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    //TODO: consider only passing in User object, and then within method querying for Device objects
-    //who point to that user, and publishing Push to all those Device objects' deviceId's
-    publishMessageAsPushNotificationAsync("Suh dood.", deviceId: "5128B7CE-0D23-4E48-A71B-B535718E3D7B")
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
+    let selectedUser = friends[indexPath.row]
+    guard let someDeviceId = selectedUser.getProperty("deviceId") as! String! else {
+      return
+    }
+
+    publishMessageAsPushNotificationAsync("Suh dood.", deviceId: someDeviceId)
   }
 }
