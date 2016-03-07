@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
     UserManager.saveUserAndClearDeviceId({ (fault) -> Void in
       //
     })
-    
+
     backendless.userService.logout({ (object) -> Void in
       self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
       self.navigationController?.popToRootViewControllerAnimated(true)
