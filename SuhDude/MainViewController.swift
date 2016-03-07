@@ -25,7 +25,12 @@ class MainViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     checkForCurrentUser()
+    retrieveUsersAndSetData { () -> Void in
+      //
+    }
+  }
 
+  func retrieveUsersAndSetData(completed : () -> Void) {
     UserManager.retrieveAllUsers { (users, fault) -> Void in
       guard let friends = users else {
         print("Server reported an error: \(fault)")
@@ -33,6 +38,7 @@ class MainViewController: UIViewController {
       }
       self.friends = friends
       self.tableView.reloadData()
+      completed()
     }
   }
 
@@ -57,25 +63,6 @@ class MainViewController: UIViewController {
         print("Server reported an error: \(fault)")
     }
   }
-
-  func publishMessageAsPushNotificationAsync(message: String, deviceId: String) {
-
-    let deliveryOptions = DeliveryOptions()
-    deliveryOptions.pushSinglecast = [deviceId]
-    deliveryOptions.pushPolicy(PUSH_ONLY)
-
-    let publishOptions = PublishOptions()
-    publishOptions.headers = ["ios-sound":"suhDude2NL.aif"]
-
-    backendless.messaging.publish("default", message: message, publishOptions:publishOptions, deliveryOptions:deliveryOptions,
-      response:{ ( messageStatus : MessageStatus!) -> () in
-        print("MessageStatus = \(messageStatus.status) ['\(messageStatus.messageId)']")
-      },
-      error: { ( fault : Fault!) -> () in
-        print("Server reported an error: \(fault)")
-      }
-    )
-  }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
@@ -96,9 +83,15 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
     let selectedUser = friends[indexPath.row]
     guard let someDeviceId = selectedUser.getProperty("deviceId") as? String else {
+      retrieveUsersAndSetData({ () -> Void in
+        guard let _ = selectedUser.getProperty("deviceId") as? String else {
+          UIAlertController.showAlert("\(selectedUser.name) is not currently logged in", message: "tell them to log back in dude", viewController: self)
+          return
+        }
+      })
       return
     }
 
-    publishMessageAsPushNotificationAsync("Suh dood.", deviceId: someDeviceId)
+    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", deviceId: someDeviceId)
   }
 }

@@ -34,6 +34,7 @@
 		93BCBC481C8B742A005D2AF7 /* knewave-outline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC461C8B742A005D2AF7 /* knewave-outline.ttf */; };
 		93BCBC491C8B742A005D2AF7 /* knewave.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC471C8B742A005D2AF7 /* knewave.ttf */; };
 		93BCBC4F1C8BA27C005D2AF7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC4E1C8BA27C005D2AF7 /* Device.swift */; };
+		93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC501C8D488F005D2AF7 /* PushManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +238,7 @@
 		93BCBC461C8B742A005D2AF7 /* knewave-outline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "knewave-outline.ttf"; sourceTree = "<group>"; };
 		93BCBC471C8B742A005D2AF7 /* knewave.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = knewave.ttf; sourceTree = "<group>"; };
 		93BCBC4E1C8BA27C005D2AF7 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		93BCBC501C8D488F005D2AF7 /* PushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -708,6 +710,7 @@
 			children = (
 				93BCBC441C8B6314005D2AF7 /* UserManager.swift */,
 				93BCBC4E1C8BA27C005D2AF7 /* Device.swift */,
+				93BCBC501C8D488F005D2AF7 /* PushManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -793,6 +796,7 @@
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
 				93BCBC4F1C8BA27C005D2AF7 /* Device.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
+				93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
