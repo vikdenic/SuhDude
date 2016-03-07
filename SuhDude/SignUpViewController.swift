@@ -27,6 +27,12 @@ class SignUpViewController: UIViewController {
       forState: UIControlState.Normal)
   }
 
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(true)
+    let value = UIInterfaceOrientation.Portrait.rawValue
+    UIDevice.currentDevice().setValue(value, forKey: "orientation")
+  }
+
   override func prefersStatusBarHidden() -> Bool {
     return true
   }

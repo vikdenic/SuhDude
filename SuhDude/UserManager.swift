@@ -38,4 +38,17 @@ class UserManager {
     }
   }
 
+  class func saveUserAndClearDeviceId(completed : (fault : Fault?) -> Void) {
+    let backendless = Backendless.sharedInstance()
+    let currentUser = Backendless.sharedInstance().userService.currentUser
+
+    currentUser.setProperty("deviceId", object: nil)
+
+    backendless.userService.update(currentUser, response: { (updatedUser) -> Void in
+      print("Successfully updated user: \(currentUser)")
+      }) { (fault) -> Void in
+        print("Server reported an error: \(fault)")
+    }
+  }
+
 }

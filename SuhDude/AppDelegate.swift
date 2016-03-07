@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
 
-    if application.applicationState == .Active {
+    if application.applicationState == .Active && backendless.userService.currentUser != nil {
       playSoundWithUserInfo(userInfo)
     }
 

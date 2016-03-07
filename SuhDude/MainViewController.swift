@@ -46,6 +46,10 @@ class MainViewController: UIViewController {
   }
 
   @IBAction func onLogoutButtonTapped(sender: AnyObject) {
+    UserManager.saveUserAndClearDeviceId({ (fault) -> Void in
+      //
+    })
+    
     backendless.userService.logout({ (object) -> Void in
       self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
       self.navigationController?.popToRootViewControllerAnimated(true)
