@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
 
   var backendless = Backendless.sharedInstance()
   let kSegueMainToSignUp = "mainToSignUp"
+  let kCellIDMain = "mainCell"
 
   var friends = [BackendlessUser]()
 
@@ -47,8 +48,12 @@ class MainViewController: UIViewController {
       print("No current user")
       performSegueWithIdentifier(kSegueMainToSignUp, sender: self)
     } else {
-      print("Current user is: \(Backendless().userService.currentUser)")
+      print("Current user is: \(Backendless().userService.currentUser.name)")
     }
+  }
+
+  @IBAction func onAddButtonTapped(sender: AnyObject) {
+    
   }
 
   @IBAction func onLogoutButtonTapped(sender: AnyObject) {
@@ -72,7 +77,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("mainCell")!
+    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIDMain)!
     let friend = friends[indexPath.row]
     cell.textLabel?.text = friend.name
     return cell

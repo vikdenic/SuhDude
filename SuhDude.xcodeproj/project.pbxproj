@@ -35,6 +35,8 @@
 		93BCBE2B1C8F59B1005D2AF7 /* MediaLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBE111C8F59B1005D2AF7 /* MediaLibiOS.a */; };
 		93BCBE2C1C8F59B1005D2AF7 /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBE1C1C8F59B1005D2AF7 /* libspeex.a */; };
 		93BCBE2D1C8F59B1005D2AF7 /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBE221C8F59B1005D2AF7 /* libx264.a */; };
+		93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */; };
+		93BCBE361C8FD29C005D2AF7 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -238,6 +240,8 @@
 		93BCBE1F1C8F59B1005D2AF7 /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		93BCBE201C8F59B1005D2AF7 /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		93BCBE221C8F59B1005D2AF7 /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
+		93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,13 +293,11 @@
 			children = (
 				93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */,
 				93BCBB431C88F2F9005D2AF7 /* Main.storyboard */,
-				93BCBC331C892C7D005D2AF7 /* Controllers */,
 				93BCBC431C8B6302005D2AF7 /* Model */,
+				93BCBC331C892C7D005D2AF7 /* Controllers */,
+				93BCBE321C8FBD1B005D2AF7 /* Cells */,
 				93BCBC401C8B551A005D2AF7 /* Utilities */,
-				93BCBC321C892C74005D2AF7 /* Audio */,
-				93BCBC461C8B742A005D2AF7 /* knewave-outline.ttf */,
-				93BCBC471C8B742A005D2AF7 /* knewave.ttf */,
-				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
+				93BCBE2F1C8F8FDB005D2AF7 /* Resources */,
 				93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */,
 				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
 			);
@@ -324,9 +326,10 @@
 		93BCBC331C892C7D005D2AF7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */,
 				93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */,
 				93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */,
+				93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */,
+				93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -713,6 +716,33 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		93BCBE2E1C8F8FCA005D2AF7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBC461C8B742A005D2AF7 /* knewave-outline.ttf */,
+				93BCBC471C8B742A005D2AF7 /* knewave.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		93BCBE2F1C8F8FDB005D2AF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
+				93BCBC321C892C74005D2AF7 /* Audio */,
+				93BCBE2E1C8F8FCA005D2AF7 /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		93BCBE321C8FBD1B005D2AF7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -788,11 +818,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BCBC421C8B57D5005D2AF7 /* Extensions.swift in Sources */,
+				93BCBE361C8FD29C005D2AF7 /* AddFriendTableViewCell.swift in Sources */,
 				93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */,
 				93BCBC451C8B6314005D2AF7 /* UserManager.swift in Sources */,
 				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
 				93BCBC4F1C8BA27C005D2AF7 /* Device.swift in Sources */,
+				93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
 				93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */,
 			);

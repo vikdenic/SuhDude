@@ -10,18 +10,18 @@ import Foundation
 
 class UserManager {
 
-  class func retrieveAllUsers(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
+  class func retrieveAllUsers(completed : ((users : [BackendlessUser]?, fault : Fault?) -> Void)?) {
     let backendless = Backendless.sharedInstance()
     let query = BackendlessDataQuery()
     // Use backendless.persistenceService to obtain a ref to a data store for the class
 
     let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass()) as IDataStore
     dataStore.find(query, response: { (retrievedCollection) -> Void in
-      print("Successfully retrieved: \(retrievedCollection)")
-      completed(users: retrievedCollection.data as? [BackendlessUser], fault: nil)
+      print("Successfully retrieved collection")
+      completed!(users: retrievedCollection.data as? [BackendlessUser], fault: nil)
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
-        completed(users: nil, fault: fault)
+        completed!(users: nil, fault: fault)
     }
   }
 
