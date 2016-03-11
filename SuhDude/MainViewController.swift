@@ -61,6 +61,8 @@ class MainViewController: UIViewController {
     backendless.userService.logout({ (object) -> Void in
       self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
       self.navigationController?.popToRootViewControllerAnimated(true)
+      PushManager.cancelDeviceRegistrationAsync()
+
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
     }
@@ -84,16 +86,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     let selectedUser = friends[indexPath.row]
-    guard let someDeviceId = selectedUser.getProperty("deviceId") as? String else {
-      retrieveUsersAndSetData({ () -> Void in
-        guard let _ = selectedUser.getProperty("deviceId") as? String else {
-          UIAlertController.showAlert("\(selectedUser.name) is not currently logged in", message: "tell them to log back in dude", viewController: self)
-          return
-        }
-      })
-      return
-    }
 
-    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", deviceId: someDeviceId)
+    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channel: selectedUser.objectId)
   }
 }

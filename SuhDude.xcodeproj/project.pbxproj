@@ -22,7 +22,6 @@
 		93BCBC451C8B6314005D2AF7 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC441C8B6314005D2AF7 /* UserManager.swift */; };
 		93BCBC481C8B742A005D2AF7 /* knewave-outline.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC461C8B742A005D2AF7 /* knewave-outline.ttf */; };
 		93BCBC491C8B742A005D2AF7 /* knewave.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC471C8B742A005D2AF7 /* knewave.ttf */; };
-		93BCBC4F1C8BA27C005D2AF7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC4E1C8BA27C005D2AF7 /* Device.swift */; };
 		93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC501C8D488F005D2AF7 /* PushManager.swift */; };
 		93BCBE231C8F59B1005D2AF7 /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBD591C8F59B1005D2AF7 /* backendless.a */; };
 		93BCBE241C8F59B1005D2AF7 /* CommLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93BCBD9D1C8F59B1005D2AF7 /* CommLibiOS.a */; };
@@ -57,7 +56,6 @@
 		93BCBC441C8B6314005D2AF7 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		93BCBC461C8B742A005D2AF7 /* knewave-outline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "knewave-outline.ttf"; sourceTree = "<group>"; };
 		93BCBC471C8B742A005D2AF7 /* knewave.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = knewave.ttf; sourceTree = "<group>"; };
-		93BCBC4E1C8BA27C005D2AF7 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		93BCBC501C8D488F005D2AF7 /* PushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
 		93BCBD591C8F59B1005D2AF7 /* backendless.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = backendless.a; sourceTree = "<group>"; };
 		93BCBD5B1C8F59B1005D2AF7 /* AbstractProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractProperty.h; sourceTree = "<group>"; };
@@ -346,7 +344,6 @@
 			isa = PBXGroup;
 			children = (
 				93BCBC441C8B6314005D2AF7 /* UserManager.swift */,
-				93BCBC4E1C8BA27C005D2AF7 /* Device.swift */,
 				93BCBC501C8D488F005D2AF7 /* PushManager.swift */,
 			);
 			name = Model;
@@ -823,7 +820,6 @@
 				93BCBC451C8B6314005D2AF7 /* UserManager.swift in Sources */,
 				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
-				93BCBC4F1C8BA27C005D2AF7 /* Device.swift in Sources */,
 				93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
 				93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */,

@@ -1,4 +1,4 @@
-//
+                                                               //
 //  AppDelegate.swift
 //  SuhDude
 //
@@ -25,16 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
     backendless.userService.setStayLoggedIn(true)
 
-    //TODO: Present this after user signs up
-//    UIApplication.sharedApplication().registerForRemoteNotifications()
-
     return true
   }
 
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
 
     backendless.messagingService.registerDevice([backendless.userService.currentUser.objectId], expiration: nil, token: deviceToken, response: { (deviceRegId) -> Void in
-      //
+        //
       }) { (fault) -> Void in
         //
     }
