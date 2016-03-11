@@ -81,23 +81,12 @@ class RegisterUserViewController: UIViewController {
   func loginUser() {
     backendless.userService.login(usernameTextField.text, password: passwordTextField.text, response: { (loggedInUser) -> Void in
       print("User has been logged in: \(loggedInUser)")
-      self.pushSetup()
+      PushManager.registerForPush()
       self.dismissViewControllerAnimated(true, completion: nil)
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
         UIAlertController.showAlertWithFault(fault, forVC: self)
     }
-  }
-
-  func pushSetup() {
-    let application = UIApplication.sharedApplication()
-    if application.respondsToSelector("registerUserNotificationSettings:") {
-      let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
-      application.registerUserNotificationSettings(settings)
-    } else {
-      application.registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
-    }
-    application.registerForRemoteNotifications()
   }
 
 }

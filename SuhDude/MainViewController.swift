@@ -23,6 +23,12 @@ class MainViewController: UIViewController {
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
   }
 
+  override func viewWillAppear(animated: Bool) {
+    if backendless.userService.currentUser != nil {
+      pubSub()
+    }
+  }
+
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     checkForCurrentUser()
@@ -58,7 +64,9 @@ class MainViewController: UIViewController {
 
   @IBAction func onLogoutButtonTapped(sender: AnyObject) {
     UserManager.saveUserAndClearDeviceId({ (fault) -> Void in
-      //
+      if fault != nil {
+        print("Error clearing and saving device id: \(fault?.message)")
+      }
     })
 
     backendless.userService.logout({ (object) -> Void in
@@ -67,6 +75,19 @@ class MainViewController: UIViewController {
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
     }
+  }
+
+  func pubSub() {
+    let responder = Responder(responder: self, selResponseHandler: "handler:", selErrorHandler: "errorHandler:")
+    PushManager.subscribe(backendless.messagingService.currentDevice().deviceId, responder: responder)
+  }
+
+  func handler(response: AnyObject?) {
+
+  }
+
+  func errorHandler(fault: Fault?) {
+
   }
 }
 
@@ -97,6 +118,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
       return
     }
 
-    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", deviceId: someDeviceId)
+    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channelName: someDeviceId)
+//    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", deviceId: someDeviceId)
   }
 }

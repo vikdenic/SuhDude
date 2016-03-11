@@ -33,29 +33,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
 
-    backendless.messagingService.registerDeviceToken(deviceToken, response: { (deviceRegId) -> Void in
-
-      //Two ways to associate User with deviceiD
-      //A. Save deviceId to BackendlessUser
-      UserManager.saveUserWithDeviceId({ (fault) -> Void in
-        //TODO: Handle fault
+      backendless.messagingService.registerDevice([backendless.messagingService.currentDevice().deviceId], expiration: nil, token: deviceToken, response: { (deviceRegId) -> Void in
+        UserManager.saveUserWithDeviceId({ (fault) -> Void in
       })
-
-      //B. Save to custom Device object (graph of users and devices)
-      //        let device = Device(deviceId: self.backendless.messagingService.currentDevice().deviceId, user: self.backendless.userService.currentUser)
-      //
-      //        device.save { (success, fault) -> Void in
-      //          if fault != nil {
-      //            print("save Device failed w/ fault: \(fault)")
-      //
-      //          } else {
-      //            print("successfully saved Device w/ id: \(self.backendless.messagingService.currentDevice().deviceId)")
-      //          }
-      //        }
-
-      }) { (fault) -> Void in
+    }) { (fault) -> Void in
         //
-    }
+  }
+
+//    backendless.messagingService.registerDeviceToken(deviceToken, response: { (deviceRegId) -> Void in
+//
+//      //Two ways to associate User with deviceiD
+//      //A. Save deviceId to BackendlessUser
+//      UserManager.saveUserWithDeviceId({ (fault) -> Void in
+//        //TODO: Handle fault
+//      })
+//
+//      //B. Save to custom Device object (graph of users and devices)
+//      //        let device = Device(deviceId: self.backendless.messagingService.currentDevice().deviceId, user: self.backendless.userService.currentUser)
+//      //
+//      //        device.save { (success, fault) -> Void in
+//      //          if fault != nil {
+//      //            print("save Device failed w/ fault: \(fault)")
+//      //
+//      //          } else {
+//      //            print("successfully saved Device w/ id: \(self.backendless.messagingService.currentDevice().deviceId)")
+//      //          }
+//      //        }
+//
+//      }) { (fault) -> Void in
+//        //
+//    }
   }
 
   func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
