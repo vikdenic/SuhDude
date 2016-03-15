@@ -66,25 +66,34 @@ class RegisterUserViewController: UIViewController {
     user.name = usernameTextField.text
     user.password = passwordTextField.text
 
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     backendless.userService.registering(user,
       response: { (registeredUser) -> Void in
-        print("User has been registered: \(registeredUser)")
+        print("User has been registered: \(registeredUser.name)")
 
-        //Still need to log the user in
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
         self.loginUser()
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
         UIAlertController.showAlertWithFault(fault, forVC: self)
     }
   }
 
   func loginUser() {
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
     backendless.userService.login(usernameTextField.text, password: passwordTextField.text, response: { (loggedInUser) -> Void in
-      print("User has been logged in: \(loggedInUser)")
+      print("User has been logged in: \(loggedInUser.name)")
       self.pushSetup()
       self.dismissViewControllerAnimated(true, completion: nil)
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+
+      loggedInUser.setProperty("selected", object: false)
+      self.backendless.userService.update(loggedInUser)
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
         UIAlertController.showAlertWithFault(fault, forVC: self)
     }
   }

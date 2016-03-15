@@ -1,0 +1,11 @@
+2016-03-12 22:04:42,048 [INFO] CodeRunner(tm) Backendless Debugging Utility
+2016-03-12 22:04:42,050 [INFO] Copyright(C) 2016 Backendless Corp. All rights reserved. 
+2016-03-12 22:04:42,050 [INFO] Version: 3.0.10 Build date: 20160309-0738
+2016-03-12 22:04:42,062 [INFO] CodeRunner session is running for 2 hour and will be terminated on 00:04:42.056[UTC]
+2016-03-12 22:04:42,204 [INFO] Registering runner on: https://api.backendless.com with secretKey: 5F9DA2B2-ADDB-0DF3-FF82-9A993B1DD700
+2016-03-12 22:04:43,830 [INFO] Runner successfully registered
+2016-03-12 22:04:43,842 [INFO] Parsing event model...
+2016-03-12 22:04:44,071 [INFO] Build successfully: 0 handlers, 0 timers
+2016-03-12 22:04:44,072 [ERROR] There is no code, which can be deployed to Backendless.
+2016-03-12 22:04:44,272 [INFO] Debugging Utility disconnected successfully
+2016-03-12 22:04:44,272 [INFO] Thank you for using Backendless

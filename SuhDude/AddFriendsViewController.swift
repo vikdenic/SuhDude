@@ -12,6 +12,7 @@ class AddFriendsViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
 
+  var backendless = Backendless.sharedInstance()
   var users = [BackendlessUser]()
 
   let kCellIdAddFriend = "addFriendCell"
@@ -19,15 +20,28 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
+//    Friendship.retrieveAllFriendships { (friendships, fault) -> Void in
+//      guard let friendships = friendships else { return }
+//
+//      for friendship in friendships {
+//        for member in friendship.members! {
+//          print(member.name)
+//        }
+//      }
+//    }
   }
 
   func retrieveUsersAndSetData() {
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
     UserManager.retrieveAllUsers { (users, fault) -> Void in
       guard let friends = users else {
         print("Server reported an error: \(fault)")
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
       }
       self.users = friends
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
       self.tableView.reloadData()
     }
   }
@@ -49,9 +63,12 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     let selectedUser = users[indexPath.row]
-    print("was \(selectedUser.getProperty("selected").boolValue)")
-    selectedUser.setProperty("selected", object: !selectedUser.getProperty("selected").boolValue)
-    print("is \(selectedUser.getProperty("selected").boolValue)")
+//    selectedUser.setProperty("selected", object: true)
     tableView.reloadData()
+
+    let friendship = Friendship(members: [backendless.userService.currentUser, selectedUser])
+    friendship.save { (fault) -> Void in
+      //
+    }
   }
 }

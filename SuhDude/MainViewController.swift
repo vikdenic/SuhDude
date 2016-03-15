@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+
+    Friendship.retrieveAllFriendships()
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -29,16 +31,21 @@ class MainViewController: UIViewController {
     retrieveUsersAndSetData { () -> Void in
       //
     }
+
+//    Friendship.retrieveAllFriendships()
   }
 
   func retrieveUsersAndSetData(completed : () -> Void) {
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     UserManager.retrieveAllUsers { (users, fault) -> Void in
       guard let friends = users else {
         print("Server reported an error: \(fault)")
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
       }
       self.friends = friends
       self.tableView.reloadData()
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
       completed()
     }
   }
@@ -58,13 +65,19 @@ class MainViewController: UIViewController {
 
   @IBAction func onLogoutButtonTapped(sender: AnyObject) {
 
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     backendless.userService.logout({ (object) -> Void in
+      print("Successfully logged out user")
       self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
-      self.navigationController?.popToRootViewControllerAnimated(true)
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
       PushManager.cancelDeviceRegistrationAsync()
 
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
+        if self.backendless.userService.currentUser == nil { //current workaround for bug
+          self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
+        }
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
   }
 }
@@ -86,7 +99,9 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     let selectedUser = friends[indexPath.row]
+    selectedUser.setProperty("selected", object: false)
+    self.backendless.userService.update(selectedUser)
 
-    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channel: selectedUser.objectId)
+//    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channel: selectedUser.objectId)
   }
 }

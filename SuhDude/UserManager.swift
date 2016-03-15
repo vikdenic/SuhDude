@@ -25,4 +25,30 @@ class UserManager {
     }
   }
 
+  class func retrieveCurrentUsersFriends(completed : ((users : [BackendlessUser]?, fault : Fault?) -> Void)?) {
+    let backendless = Backendless.sharedInstance()
+
+    UserManager.retrieveAllUsers { (users, fault) -> Void in
+      guard let users = users else { return }
+
+//      Friendship.retrieveAllFriendships({ (friendships, fault) -> Void in
+//        guard let friendships = friendships else { return }
+//        var friends = [BackendlessUser]()
+//
+////        for friendship in friendships {
+////          let members = friendship.members! as [BackendlessUser]
+////
+////          for member in members {
+////            if member.objectId != backendless.userService.currentUser.objectId {
+////              friends.append(member)
+////            }
+////          }
+////        }
+////        print("friends are: ")
+////        for friend in friends {
+////          print(friend.name)
+////        }
+//      })
+    }
+  }
 }

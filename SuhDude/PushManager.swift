@@ -14,7 +14,8 @@ class PushManager {
     let backendless = Backendless.sharedInstance()
 
     let deliveryOptions = DeliveryOptions()
-    deliveryOptions.pushBroadcast(FOR_ALL)
+//    deliveryOptions.pushBroadcast(FOR_ALL)
+    deliveryOptions.pushBroadcast(FOR_ALL.rawValue)
     deliveryOptions.pushPolicy(PUSH_ONLY)
 
     let publishOptions = PublishOptions()

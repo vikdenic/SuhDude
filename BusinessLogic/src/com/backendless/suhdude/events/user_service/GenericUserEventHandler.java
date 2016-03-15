@@ -21,18 +21,11 @@ public class GenericUserEventHandler extends com.backendless.servercode.extensio
 {
     
   @Override
-  public void beforeRegister( RunnerContext context, HashMap userValue ) throws Exception
+  public void beforeUpdate( RunnerContext context, HashMap userValue ) throws Exception
   {
-//    userValue.put("name", userValue.get("name").toString().toLowerCase());
-//    userValue.put("password", userValue.get("password").toString().toLowerCase());
+    // add your code here
+    userValue.put("selected", false);
   }
 
-  @Override
-  public void beforeLogin( RunnerContext context, String login, String password ) throws Exception
-  {
-//    login = login.toLowerCase();
-//    password = password.toLowerCase();
-  }
-    
 }
         
