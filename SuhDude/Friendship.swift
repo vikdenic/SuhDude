@@ -35,7 +35,7 @@ class Friendship: NSObject {
 
     //retrieves related objects
     let queryOptions = QueryOptions()
-    queryOptions.related = ["members"];
+    queryOptions.related = ["members", "members.friends"];
     query.queryOptions = queryOptions
 
     let dataStore = backendless.persistenceService.of(Friendship.ofClass()) as IDataStore

@@ -15,6 +15,8 @@ class AddFriendsViewController: UIViewController {
   var backendless = Backendless.sharedInstance()
   var users = [BackendlessUser]()
 
+  
+
   let kCellIdAddFriend = "addFriendCell"
 
   override func viewDidLoad() {
@@ -66,9 +68,13 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
 //    selectedUser.setProperty("selected", object: true)
     tableView.reloadData()
 
-    let friendship = Friendship(members: [backendless.userService.currentUser, selectedUser])
-    friendship.save { (fault) -> Void in
-      //
+    UserManager.fetchUser(backendless.userService.currentUser.objectId) { (user, fault) -> Void in
+      guard let currentUser = user else { return }
+
+      let friendship = Friendship(members: [currentUser, selectedUser])
+      friendship.save { (fault) -> Void in
+        //
+      }
     }
   }
 }

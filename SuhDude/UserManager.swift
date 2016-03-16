@@ -51,4 +51,18 @@ class UserManager {
 //      })
     }
   }
+
+  
+  class func fetchUser(objectId : String, completed : (user : BackendlessUser?, fault : Fault!) -> Void) {
+    let backendless = Backendless.sharedInstance()
+
+    let dataStore = backendless.data.of(BackendlessUser.ofClass())
+
+    dataStore.findID(objectId, response: { (user) -> Void in
+      completed(user: user as? BackendlessUser, fault: nil)
+      }) { (fault) -> Void in
+        print("Server reported an error: \(fault)")
+        completed(user: nil, fault: fault)
+    }
+  }
 }

@@ -1,12 +1,14 @@
 package com.backendless.suhdude.events.persistence_service;
 
+import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.servercode.ExecutionResult;
 import com.backendless.servercode.RunnerContext;
 import com.backendless.servercode.annotation.Asset;
 import com.backendless.suhdude.models.Friendship;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
 * FriendshipTableEventHandler handles events for all entities. This is accomplished
@@ -18,28 +20,30 @@ import java.util.List;
 @Asset( "Friendship" )
 public class FriendshipTableEventHandler extends com.backendless.servercode.extension.PersistenceExtender<Friendship>
 {
+    @Override
+    public void afterCreate( RunnerContext context, Friendship friendship, ExecutionResult<Friendship> result ) throws Exception
+    {
+        if (!friendship.getGroup()) {
+            BackendlessUser user = friendship.getMembers().get(0);
+            BackendlessUser friend = friendship.getMembers().get(1);
+            updateFriendsForUser(user, friend);
+            updateFriendsForUser(friend, user);
+        }
+    }
 
-  @Override
-  public void afterCreate( RunnerContext context, Friendship friendship, ExecutionResult<Friendship> result ) throws Exception
-  {
-      if (!friendship.getGroup()) {
-          List<BackendlessUser> members = friendship.getMembers();
-          for (int i = 0; i < members.size(); i++) {
-              BackendlessUser user = members.get(i);
-              List<BackendlessUser> friends = (List<BackendlessUser>) user.getProperty("friends");
+    public void updateFriendsForUser(BackendlessUser user, BackendlessUser friend) {
 
-              if (i == 0) {
-                  friends.add(members.get(1));
-              } else {
-                  friends.add(members.get(0));
-              }
+        ArrayList<BackendlessUser> updatedFriends = new ArrayList<BackendlessUser>();
+        Object[] objects = (Object[]) user.getProperty("friends");
+        if (objects.length > 0) {
+            BackendlessUser[] previousFriends = (BackendlessUser[]) objects;
+            updatedFriends.addAll(Arrays.asList(previousFriends));
+        }
+        updatedFriends.add(friend);
 
-              user.setProperty("friends", user.getProperty("friends"));
-
-              System.out.println(user.getProperty("name").toString());
-          }
-      }
-  }
+        user.setProperty("friends", updatedFriends);
+        Backendless.UserService.update(user);
+    }
 
 }
         
