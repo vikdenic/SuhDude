@@ -76,6 +76,7 @@ class MainViewController: UIViewController {
         print("Server reported an error: \(fault)")
         if self.backendless.userService.currentUser == nil { //current workaround for bug
           self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
+          MBProgressHUD.hideHUDForView(self.view, animated: true)
         }
         MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
@@ -99,8 +100,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     let selectedUser = friends[indexPath.row]
-    selectedUser.setProperty("selected", object: false)
-    self.backendless.userService.update(selectedUser)
 
 //    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channel: selectedUser.objectId)
   }

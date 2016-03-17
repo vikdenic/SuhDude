@@ -23,26 +23,34 @@ public class FriendshipTableEventHandler extends com.backendless.servercode.exte
     @Override
     public void afterCreate( RunnerContext context, Friendship friendship, ExecutionResult<Friendship> result ) throws Exception
     {
-        if (!friendship.getGroup()) {
-            BackendlessUser user = friendship.getMembers().get(0);
-            BackendlessUser friend = friendship.getMembers().get(1);
-            updateFriendsForUser(user, friend);
-            updateFriendsForUser(friend, user);
-        }
+//        if (!friendship.getGroup()) {
+//            BackendlessUser user = friendship.getMembers().get(0);
+//            BackendlessUser friend = friendship.getMembers().get(1);
+//            updateFriendsForUser(user, friend);
+//            updateFriendsForUser(friend, user);
+//        }
     }
 
     public void updateFriendsForUser(BackendlessUser user, BackendlessUser friend) {
 
-        ArrayList<BackendlessUser> updatedFriends = new ArrayList<BackendlessUser>();
-        Object[] objects = (Object[]) user.getProperty("friends");
-        if (objects.length > 0) {
-            BackendlessUser[] previousFriends = (BackendlessUser[]) objects;
-            updatedFriends.addAll(Arrays.asList(previousFriends));
-        }
-        updatedFriends.add(friend);
+        Object[] obj = (Object[]) user.getProperty("friends");
 
-        user.setProperty("friends", updatedFriends);
-        Backendless.UserService.update(user);
+        if (obj.length > 0) {
+            BackendlessUser[] currentFriends = (BackendlessUser[]) obj;
+            ArrayList<BackendlessUser> updatedList = new ArrayList<BackendlessUser>();
+
+            updatedList.addAll(Arrays.asList(currentFriends));
+            updatedList.add(friend);
+            user.setProperty("friends", updatedList);
+
+            Backendless.UserService.update(user);
+        } else {
+            ArrayList<BackendlessUser> newList = new ArrayList<BackendlessUser>();
+            newList.add(friend);
+            user.setProperty("friends", newList);
+
+            Backendless.UserService.update(user);
+        }
     }
 
 }

@@ -14,14 +14,17 @@ class AddFriendsViewController: UIViewController {
 
   var backendless = Backendless.sharedInstance()
   var users = [BackendlessUser]()
+  var currentUser = BackendlessUser?()
 
-  
+  var selectedIndexPaths = NSMutableSet()
+  var loadingIndexPaths = NSMutableSet()
 
   let kCellIdAddFriend = "addFriendCell"
 
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
+    setCurrentUser()
 //    Friendship.retrieveAllFriendships { (friendships, fault) -> Void in
 //      guard let friendships = friendships else { return }
 //
@@ -47,6 +50,13 @@ class AddFriendsViewController: UIViewController {
       self.tableView.reloadData()
     }
   }
+
+  func setCurrentUser() {
+    UserManager.fetchUser(backendless.userService.currentUser.objectId) { (user, fault) -> Void in
+      guard let currentUser = user else { return }
+      self.currentUser = currentUser
+    }
+  }
 }
 
 extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
@@ -58,6 +68,9 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdAddFriend)! as! AddFriendTableViewCell
     cell.user = users[indexPath.row]
+    cell.isLoading = loadingIndexPaths.containsObject(indexPath)
+    cell.selected = selectedIndexPaths.containsObject(indexPath)
+
     return cell
   }
 
@@ -65,16 +78,41 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     let selectedUser = users[indexPath.row]
-//    selectedUser.setProperty("selected", object: true)
-    tableView.reloadData()
 
     UserManager.fetchUser(backendless.userService.currentUser.objectId) { (user, fault) -> Void in
       guard let currentUser = user else { return }
 
+      self.loadingIndexPaths.addObject(indexPath)
+      self.tableView.reloadData()
+
       let friendship = Friendship(members: [currentUser, selectedUser])
       friendship.save { (fault) -> Void in
-        //
+        if fault != nil {
+          //TODO: Handle friendship creation error
+        } else {
+
+          self.loadingIndexPaths.removeObject(indexPath)
+          self.selectedIndexPaths.addObject(indexPath)
+          self.tableView.reloadData()
+
+          UserManager.addFriend(toUser: currentUser, friend: selectedUser, completed: { (user, fault) -> Void in
+            if fault != nil {
+              //TODO: Handle friend adding error
+            } else {
+
+            }
+          })
+
+          UserManager.addFriend(toUser: selectedUser, friend: currentUser, completed: { (user, fault) -> Void in
+            if fault != nil {
+              //TODO: Handle friend adding error
+            } else {
+              
+            }
+          })
+        }
       }
     }
+
   }
 }

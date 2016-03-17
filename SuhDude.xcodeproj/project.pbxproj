@@ -38,6 +38,7 @@
 		93DD16A31C95CA05004DBCEE /* MediaLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD16891C95CA05004DBCEE /* MediaLibiOS.a */; };
 		93DD16A41C95CA05004DBCEE /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD16941C95CA05004DBCEE /* libspeex.a */; };
 		93DD16A51C95CA05004DBCEE /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD169A1C95CA05004DBCEE /* libx264.a */; };
+		93E472E51C9B29B500456713 /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93E472E41C9B29B500456713 /* TestTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -245,6 +246,7 @@
 		93DD16971C95CA05004DBCEE /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		93DD16981C95CA05004DBCEE /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		93DD169A1C95CA05004DBCEE /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		93E472E41C9B29B500456713 /* TestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */,
+				93E472E41C9B29B500456713 /* TestTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -827,6 +830,7 @@
 				93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */,
 				93463C301C95D6A00069B52B /* Friendship.swift in Sources */,
 				93DD15CE1C951187004DBCEE /* MBProgressHUD.m in Sources */,
+				93E472E51C9B29B500456713 /* TestTableViewCell.swift in Sources */,
 				93BCBC451C8B6314005D2AF7 /* UserManager.swift in Sources */,
 				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,

@@ -65,4 +65,19 @@ class UserManager {
         completed(user: nil, fault: fault)
     }
   }
+
+  class func addFriend(toUser user : BackendlessUser, friend : BackendlessUser, completed : (user : BackendlessUser?, fault : Fault!) -> Void) {
+    let backendless = Backendless.sharedInstance()
+
+    var friendsList = user.getProperty("friends") as? [BackendlessUser] ?? [BackendlessUser]()
+    friendsList.append(friend)
+    user.setProperty("friends", object: friendsList)
+    backendless.userService.update(user, response: { (user) -> Void in
+      print("Successfully updated user with friend")
+        completed(user: user, fault: nil)
+      }) { (fault) -> Void in
+        print("Server reported an error: \(fault)")
+        completed(user: nil, fault: fault)
+    }
+  }
 }

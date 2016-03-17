@@ -12,6 +12,9 @@ class AddFriendTableViewCell: UITableViewCell {
 
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var addImageView: UIImageView!
+  @IBOutlet var spinner: UIActivityIndicatorView!
+
+  var isLoading = false
 
   var user: BackendlessUser! {
     didSet {
@@ -19,13 +22,37 @@ class AddFriendTableViewCell: UITableViewCell {
     }
   }
 
+  override func setSelected(selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+
+    spinner.stopAnimating()
+    addImageView.hidden = false
+    if !selected {
+      addImageView.image = UIImage(named: "addCircle")
+    } else {
+      addImageView.image = UIImage(named: "checkCircle")
+    }
+  }
+
   func setUpCell() {
     usernameLabel.text = user.name
+    configureSelectedState()
+  }
 
-    if user.getProperty("selected").boolValue == true {
-      addImageView.image = UIImage(named: "checkCircle")
+  func configureSelectedState() {
+    if !isLoading {
+      spinner.startAnimating()
+      addImageView.hidden = false
+
+      if !selected {
+        addImageView.image = UIImage(named: "addCircle")
+      } else {
+        addImageView.image = UIImage(named: "checkCircle")
+      }
+
     } else {
-      addImageView.image = UIImage(named: "addCircle")
+      spinner.startAnimating()
+      addImageView.hidden = true
     }
   }
 

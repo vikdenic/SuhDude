@@ -1,5 +1,9 @@
 package com.backendless.suhdude.events.user_service;
 
+import com.backendless.servercode.RunnerContext;
+
+import java.util.HashMap;
+
 /**
 * GenericUserEventHandler handles the User Service events.
 * The event handlers are the individual methods implemented in the class.
@@ -15,6 +19,10 @@ package com.backendless.suhdude.events.user_service;
 */
 public class GenericUserEventHandler extends com.backendless.servercode.extension.UserExtender
 {
-
+    @Override
+    public void beforeUpdate( RunnerContext context, HashMap userValue ) throws Exception
+    {
+        userValue.put("cellState", 0);
+    }
 }
         
