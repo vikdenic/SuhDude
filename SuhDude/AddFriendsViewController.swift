@@ -91,25 +91,25 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
           //TODO: Handle friendship creation error
         } else {
 
-          self.loadingIndexPaths.removeObject(indexPath)
-          self.selectedIndexPaths.addObject(indexPath)
-          self.tableView.reloadData()
-
-          UserManager.addFriend(toUser: currentUser, friend: selectedUser, completed: { (user, fault) -> Void in
-            if fault != nil {
-              //TODO: Handle friend adding error
-            } else {
-
-            }
-          })
-
-          UserManager.addFriend(toUser: selectedUser, friend: currentUser, completed: { (user, fault) -> Void in
-            if fault != nil {
-              //TODO: Handle friend adding error
-            } else {
-              
-            }
-          })
+//          self.loadingIndexPaths.removeObject(indexPath)
+//          self.selectedIndexPaths.addObject(indexPath)
+//          self.tableView.reloadData()
+//
+//          UserManager.addFriend(toUser: currentUser, friend: selectedUser, completed: { (user, fault) -> Void in
+//            if fault != nil {
+//              //TODO: Handle friend adding error
+//            } else {
+//
+//            }
+//          })
+//
+//          UserManager.addFriend(toUser: selectedUser, friend: currentUser, completed: { (user, fault) -> Void in
+//            if fault != nil {
+//              //TODO: Handle friend adding error
+//            } else {
+//              
+//            }
+//          })
         }
       }
     }

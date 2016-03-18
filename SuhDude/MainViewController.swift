@@ -22,7 +22,9 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-    Friendship.retrieveAllFriendships()
+    Friendship.retrieveAllFriendships { (friendships, fault) -> Void in
+      //
+    }
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -31,8 +33,6 @@ class MainViewController: UIViewController {
     retrieveUsersAndSetData { () -> Void in
       //
     }
-
-//    Friendship.retrieveAllFriendships()
   }
 
   func retrieveUsersAndSetData(completed : () -> Void) {
