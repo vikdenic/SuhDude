@@ -30,7 +30,6 @@ class MainViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     checkForCurrentUser()
-    retrieveUsersAndSetData(nil)
   }
 
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
@@ -51,6 +50,7 @@ class MainViewController: UIViewController {
       performSegueWithIdentifier(kSegueMainToSignUp, sender: self)
     } else {
       print("Current user is: \(Backendless().userService.currentUser.name)")
+      retrieveUsersAndSetData(nil)
     }
   }
 
