@@ -69,37 +69,25 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-    let selectedUser = users[indexPath.row]
+    if !loadingIndexPaths.containsObject(indexPath) && !selectedIndexPaths.containsObject(indexPath) {
 
-    self.loadingIndexPaths.addObject(indexPath)
-    self.tableView.reloadData()
+      let selectedUser = users[indexPath.row]
 
-    let friendship = Friendship(members: [backendless.userService.currentUser, selectedUser])
-    friendship.save { (fault) -> Void in
-      if fault != nil {
-        //TODO: Handle friendship creation error
-      } else {
-        self.selectedIndexPaths.addObject(indexPath)
-      }
-      self.loadingIndexPaths.removeObject(indexPath)
+      self.loadingIndexPaths.addObject(indexPath)
       self.tableView.reloadData()
-    }
 
-//    UserManager.fetchUser(backendless.userService.currentUser.objectId) { (user, fault) -> Void in
-//      guard let currentUser = user else { return }
-//
-//      self.loadingIndexPaths.addObject(indexPath)
-//      self.tableView.reloadData()
-//
-//      let friendship = Friendship(members: [currentUser, selectedUser])
-//      friendship.save { (fault) -> Void in
-//        if fault != nil {
-//          //TODO: Handle friendship creation error
-//        } else {
-//
-//        }
-//      }
-//    }
+      let friendship = Friendship(members: [backendless.userService.currentUser, selectedUser])
+      friendship.save { (fault) -> Void in
+        if fault != nil {
+          //TODO: Handle friendship creation error
+        } else {
+          self.selectedIndexPaths.addObject(indexPath)
+        }
+        self.loadingIndexPaths.removeObject(indexPath)
+        self.tableView.reloadData()
+      }
+
+    }
 
   }
 }

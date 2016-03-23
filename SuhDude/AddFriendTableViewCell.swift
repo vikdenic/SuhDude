@@ -44,20 +44,6 @@ class AddFriendTableViewCell: UITableViewCell {
       addImageView.hidden = false
       addImageView.image = UIImage(named: "addCircle")
     }
-//    if !isLoading {
-//      spinner.startAnimating()
-//      addImageView.hidden = false
-//
-//      if !selected {
-//        addImageView.image = UIImage(named: "addCircle")
-//      } else {
-//        addImageView.image = UIImage(named: "checkCircle")
-//      }
-//
-//    } else {
-//      spinner.startAnimating()
-//      addImageView.hidden = true
-//    }
   }
 
 }
