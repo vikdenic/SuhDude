@@ -25,27 +25,18 @@ class AddFriendsViewController: UIViewController {
     super.viewDidLoad()
     retrieveUsersAndSetData()
     setCurrentUser()
-//    Friendship.retrieveAllFriendships { (friendships, fault) -> Void in
-//      guard let friendships = friendships else { return }
-//
-//      for friendship in friendships {
-//        for member in friendship.members! {
-//          print(member.name)
-//        }
-//      }
-//    }
   }
 
   func retrieveUsersAndSetData() {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
-    UserManager.retrieveAllUsers { (users, fault) -> Void in
-      guard let friends = users else {
+    UserManager.retrieveNonFriends { (users, fault) -> Void in
+      guard let nonFriends = users else {
         print("Server reported an error: \(fault)")
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
       }
-      self.users = friends
+      self.users = nonFriends
       MBProgressHUD.hideHUDForView(self.view, animated: true)
       self.tableView.reloadData()
     }
@@ -91,25 +82,6 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
           //TODO: Handle friendship creation error
         } else {
 
-//          self.loadingIndexPaths.removeObject(indexPath)
-//          self.selectedIndexPaths.addObject(indexPath)
-//          self.tableView.reloadData()
-//
-//          UserManager.addFriend(toUser: currentUser, friend: selectedUser, completed: { (user, fault) -> Void in
-//            if fault != nil {
-//              //TODO: Handle friend adding error
-//            } else {
-//
-//            }
-//          })
-//
-//          UserManager.addFriend(toUser: selectedUser, friend: currentUser, completed: { (user, fault) -> Void in
-//            if fault != nil {
-//              //TODO: Handle friend adding error
-//            } else {
-//              
-//            }
-//          })
         }
       }
     }

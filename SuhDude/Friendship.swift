@@ -68,6 +68,33 @@ class Friendship: NSObject {
     }
   }
 
+  class func retrieveFriendshipsForUser(user: BackendlessUser, includeGroups groups: Bool, completed: (friendships: [Friendship]?, fault: Fault?) -> Void) {
+    let backendless = Backendless.sharedInstance()
+
+    let query = BackendlessDataQuery()
+    let membersClause = "members.objectId = '\(user.objectId)'"
+
+//    if !groups {
+//      membersClause = membersClause + " AND group == false"
+//    }
+
+    query.whereClause = membersClause
+
+    //retrieves related objects
+    let queryOptions = QueryOptions()
+    queryOptions.related = ["members"];
+    query.queryOptions = queryOptions
+
+    let dataStore = backendless.persistenceService.of(Friendship.ofClass()) as IDataStore
+    dataStore.find(query, response: { (retrievedCollection) -> Void in
+      print("Successfully retrieved \(retrievedCollection.data.count) friendships")
+      completed(friendships: retrievedCollection.data as? [Friendship], fault: nil)
+      }) { (fault) -> Void in
+        print("Server reported an error: \(fault)")
+        completed(friendships: nil, fault: fault)
+    }
+  }
+
   func save(completed : (fault : Fault!) -> Void) {
     let backendless = Backendless.sharedInstance()
 

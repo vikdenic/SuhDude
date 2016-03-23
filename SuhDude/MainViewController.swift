@@ -16,37 +16,32 @@ class MainViewController: UIViewController {
   let kSegueMainToSignUp = "mainToSignUp"
   let kCellIDMain = "mainCell"
 
-  var friends = [BackendlessUser]()
+  var friends = [BackendlessUser]() {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-
-    Friendship.retrieveAllFriendships { (friendships, fault) -> Void in
-      //
-    }
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     checkForCurrentUser()
-    retrieveUsersAndSetData { () -> Void in
-      //
-    }
+    retrieveUsersAndSetData(nil)
   }
 
-  func retrieveUsersAndSetData(completed : () -> Void) {
+  func retrieveUsersAndSetData(completed : (() -> Void)?) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-    UserManager.retrieveAllUsers { (users, fault) -> Void in
-      guard let friends = users else {
-        print("Server reported an error: \(fault)")
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-        return
+
+    UserManager.retrieveCurrentUsersFriends { (users, fault) -> Void in
+      if fault != nil {
+      } else {
+        self.friends = users!
       }
-      self.friends = friends
-      self.tableView.reloadData()
       MBProgressHUD.hideHUDForView(self.view, animated: true)
-      completed()
     }
   }
 

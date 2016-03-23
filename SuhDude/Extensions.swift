@@ -55,6 +55,43 @@ extension String {
   }
 }
 
+extension Array {
+  func arrayWithoutFriends(var friends : [BackendlessUser]) -> [BackendlessUser] {
+    let backendless = Backendless.sharedInstance()
+    friends.append(backendless.userService.currentUser)
+
+    var friendObjIds = [String]()
+
+    for friend in friends {
+      friendObjIds.append(friend.objectId)
+    }
+
+    var nonFriends = [BackendlessUser]()
+    for user in self {
+      if friendObjIds.contains((user as! BackendlessUser).objectId) { }
+      else {
+        nonFriends.append(user as! BackendlessUser)
+      }
+    }
+    return nonFriends
+  }
+
+  func arrayWithoutCurrentUser() -> [BackendlessUser] {
+    let backendless = Backendless.sharedInstance()
+
+    var newArray = [BackendlessUser]()
+
+    for user in self {
+      if (user as! BackendlessUser).objectId == backendless.userService.currentUser.objectId { }
+      else {
+        newArray.append(user as! BackendlessUser)
+      }
+    }
+
+    return newArray
+  }
+}
+
 extension UINavigationController {
   func setNavBarToClear() {
     self.navigationBarHidden = false
