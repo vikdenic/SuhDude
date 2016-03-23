@@ -22,38 +22,42 @@ class AddFriendTableViewCell: UITableViewCell {
     }
   }
 
-  override func setSelected(selected: Bool, animated: Bool) {
-    super.setSelected(selected, animated: animated)
-
-    spinner.stopAnimating()
-    addImageView.hidden = false
-    if !selected {
-      addImageView.image = UIImage(named: "addCircle")
-    } else {
-      addImageView.image = UIImage(named: "checkCircle")
-    }
-  }
-
   func setUpCell() {
     usernameLabel.text = user.name
     configureSelectedState()
   }
 
   func configureSelectedState() {
-    if !isLoading {
+
+    addImageView.hidden = true
+    if isLoading {
       spinner.startAnimating()
-      addImageView.hidden = false
-
-      if !selected {
-        addImageView.image = UIImage(named: "addCircle")
-      } else {
-        addImageView.image = UIImage(named: "checkCircle")
-      }
-
+      return
     } else {
-      spinner.startAnimating()
-      addImageView.hidden = true
+      spinner.stopAnimating()
     }
+
+    if selected {
+      addImageView.hidden = false
+      addImageView.image = UIImage(named: "checkCircle")
+    } else {
+      addImageView.hidden = false
+      addImageView.image = UIImage(named: "addCircle")
+    }
+//    if !isLoading {
+//      spinner.startAnimating()
+//      addImageView.hidden = false
+//
+//      if !selected {
+//        addImageView.image = UIImage(named: "addCircle")
+//      } else {
+//        addImageView.image = UIImage(named: "checkCircle")
+//      }
+//
+//    } else {
+//      spinner.startAnimating()
+//      addImageView.hidden = true
+//    }
   }
 
 }
