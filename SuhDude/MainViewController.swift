@@ -16,7 +16,7 @@ class MainViewController: UIViewController {
   let kSegueMainToSignUp = "mainToSignUp"
   let kCellIDMain = "mainCell"
 
-  var friends = [BackendlessUser]() {
+  var friendships = [Friendship]() {
     didSet {
       self.tableView.reloadData()
     }
@@ -35,11 +35,13 @@ class MainViewController: UIViewController {
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
-    UserManager.retrieveCurrentUsersFriends { (users, fault) -> Void in
-      if fault != nil {
-      } else {
-        self.friends = users!
+    Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
+
+      guard let friendships = friendships else {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        return
       }
+      self.friendships = friendships
       MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
   }
@@ -81,21 +83,19 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return friends.count
+    return friendships.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIDMain)!
-    let friend = friends[indexPath.row]
-    cell.textLabel?.text = friend.name
+    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIDMain) as! MainTableViewCell
+    cell.friendship = friendships[indexPath.row]
     return cell
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-    let selectedUser = friends[indexPath.row]
-
+//    let selectedUser = friends[indexPath.row]
 //    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channel: selectedUser.objectId)
   }
 }

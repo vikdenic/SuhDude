@@ -95,6 +95,20 @@ class Friendship: NSObject {
     }
   }
 
+  /**
+   - returns: User from a friendship that is not the current-user (for use on non-group friendships)
+   */
+  func friend() -> BackendlessUser! {
+    let backendless = Backendless.sharedInstance()
+    var friend = BackendlessUser()
+    for user in members! {
+      if user.objectId != backendless.userService.currentUser.objectId {
+        friend = user
+      }
+    }
+    return friend
+  }
+
   func save(completed : (fault : Fault!) -> Void) {
     let backendless = Backendless.sharedInstance()
 

@@ -13,8 +13,11 @@ class AddFriendsViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
 
   var backendless = Backendless.sharedInstance()
-  var users = [BackendlessUser]()
-  var currentUser = BackendlessUser?()
+  var users = [BackendlessUser]() {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
 
   var selectedIndexPaths = NSMutableSet()
   var loadingIndexPaths = NSMutableSet()
@@ -24,7 +27,6 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
-    setCurrentUser()
   }
 
   func retrieveUsersAndSetData() {
@@ -32,20 +34,12 @@ class AddFriendsViewController: UIViewController {
 
     UserManager.retrieveNonFriends { (users, fault) -> Void in
       guard let nonFriends = users else {
-        print("Server reported an error: \(fault)")
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
       }
       self.users = nonFriends
       MBProgressHUD.hideHUDForView(self.view, animated: true)
       self.tableView.reloadData()
-    }
-  }
-
-  func setCurrentUser() {
-    UserManager.fetchUser(backendless.userService.currentUser.objectId) { (user, fault) -> Void in
-      guard let currentUser = user else { return }
-      self.currentUser = currentUser
     }
   }
 }

@@ -52,12 +52,14 @@ class UserManager {
   class func retrieveNonFriends(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
     UserManager.retrieveAllUsers { (users, fault) -> Void in
       guard let users = users else {
+        print("Server reported an error: \(fault)")
         completed(users: nil, fault: fault)
         return
       }
 
       UserManager.retrieveCurrentUsersFriends({ (friends, fault) -> Void in
         guard let friends = friends else {
+          print("Server reported an error: \(fault)")
           completed(users: nil, fault: fault)
           return
         }
