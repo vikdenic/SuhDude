@@ -14,6 +14,9 @@ class MainTableViewCell: UITableViewCell {
   @IBOutlet var deliveryImageView: UIImageView!
   @IBOutlet var dateLabel: UILabel!
 
+  let kImageSent = "sentImage"
+  let kImageReceived = "receivedImage"
+
   var friendship: Friendship! {
     didSet {
       setUpCell()
@@ -22,6 +25,14 @@ class MainTableViewCell: UITableViewCell {
 
   func setUpCell() {
     usernameLabel.text = friendship.friend().name
+
+    if let lastSender = friendship.recentSender {
+      deliveryImageView.image = lastSender.isCurrentUser() ? UIImage(named: kImageSent) : UIImage(named: kImageReceived)
+    }
+
+    if let lastSent = friendship.lastSent {
+      dateLabel.text = lastSent.timeAgoSinceDate(true)
+    }
   }
 
 }

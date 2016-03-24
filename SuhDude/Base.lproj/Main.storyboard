@@ -223,22 +223,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sentImage" translatesAutoresizingMaskIntoConstraints="NO" id="XiJ-w7-Nap">
-                                                    <rect key="frame" x="22" y="31" width="22" height="22"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="Mee-FK-50V"/>
-                                                        <constraint firstAttribute="width" constant="22" id="mm9-C0-sfc"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1h ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-mO-DGY">
-                                                    <rect key="frame" x="527" y="31" width="51" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="8Su-Xv-69Y"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9u-tO-L8P">
                                                     <rect key="frame" x="74" y="20" width="453" height="44"/>
                                                     <constraints>
@@ -248,10 +232,26 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XiJ-w7-Nap">
+                                                    <rect key="frame" x="22" y="31" width="22" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="Mee-FK-50V"/>
+                                                        <constraint firstAttribute="width" constant="22" id="mm9-C0-sfc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-mO-DGY">
+                                                    <rect key="frame" x="527" y="32" width="51" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="8Su-Xv-69Y"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="X9u-tO-L8P" secondAttribute="trailing" constant="65" id="776-ig-npz"/>
-                                                <constraint firstItem="3Xa-mO-DGY" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" id="9xg-hZ-wmJ"/>
+                                                <constraint firstItem="3Xa-mO-DGY" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="1" id="9xg-hZ-wmJ"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" id="ALJ-Bj-phM"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" id="HV4-H4-Ip2"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerX" secondItem="nvJ-IX-Eas" secondAttribute="centerX" constant="0.5" id="IrT-Vb-Gst"/>
@@ -428,6 +428,5 @@
     </scenes>
     <resources>
         <image name="addCircle" width="22" height="22"/>
-        <image name="sentImage" width="12" height="12"/>
     </resources>
 </document>

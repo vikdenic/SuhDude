@@ -17,7 +17,7 @@ class Friendship: NSObject {
   var suhCount: Int = 0
   var sendPush: Bool = false
   var lastSent: NSDate?
-  var lastSender: BackendlessUser?
+  var recentSender: BackendlessUser?
   var group: Bool = false
 
   init(members: [BackendlessUser]) {
@@ -55,7 +55,7 @@ class Friendship: NSObject {
 
     //retrieves related objects
     let queryOptions = QueryOptions()
-    queryOptions.related = ["members"];
+    queryOptions.related = ["members", "recentSender"];
     query.queryOptions = queryOptions
 
     let dataStore = backendless.persistenceService.of(Friendship.ofClass()) as IDataStore
@@ -82,7 +82,7 @@ class Friendship: NSObject {
 
     //retrieves related objects
     let queryOptions = QueryOptions()
-    queryOptions.related = ["members"];
+    queryOptions.related = ["members", "recentSender"];
     query.queryOptions = queryOptions
 
     let dataStore = backendless.persistenceService.of(Friendship.ofClass()) as IDataStore

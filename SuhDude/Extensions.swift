@@ -125,6 +125,17 @@ extension UINavigationController {
   }
 }
 
+extension BackendlessUser {
+  func isCurrentUser() -> Bool {
+    let backendless = Backendless.sharedInstance()
+
+    if self.objectId == backendless.userService.currentUser.objectId {
+      return true
+    }
+    return false
+  }
+}
+
 extension NSDate {
   func timeAgoSinceDate(numericDates:Bool) -> String {
     let calendar = NSCalendar.currentCalendar()
@@ -134,10 +145,10 @@ extension NSDate {
     let components:NSDateComponents = calendar.components([NSCalendarUnit.Minute , NSCalendarUnit.Hour , NSCalendarUnit.Day , NSCalendarUnit.WeekOfYear , NSCalendarUnit.Month , NSCalendarUnit.Year , NSCalendarUnit.Second], fromDate: earliest, toDate: latest, options: NSCalendarOptions())
 
     if (components.year >= 2) {
-      return "\(components.year) years ago"
+      return "\(components.year)y ago"
     } else if (components.year >= 1){
       if (numericDates){
-        return "1 year ago"
+        return "Last year"
       } else {
         return "Last year"
       }
@@ -145,48 +156,66 @@ extension NSDate {
       return "\(components.month) months ago"
     } else if (components.month >= 1){
       if (numericDates){
-        return "1 month ago"
+        return "Last month"
       } else {
         return "Last month"
       }
     } else if (components.weekOfYear >= 2) {
-      return "\(components.weekOfYear) weeks ago"
+      return "\(components.weekOfYear)wks ago"
     } else if (components.weekOfYear >= 1){
       if (numericDates){
-        return "1 week ago"
+        return "Last week"
       } else {
         return "Last week"
       }
     } else if (components.day >= 2) {
-      return "\(components.day) days ago"
+      return self.toAbbrevDayString()
+//      return "\(components.day) days ago"
     } else if (components.day >= 1){
       if (numericDates){
-        return "1 day ago"
+        return "Yesterday"
       } else {
         return "Yesterday"
       }
     } else if (components.hour >= 2) {
-      return "\(components.hour) hours ago"
+      return self.toAbbrevTimeString()
+//      return "\(components.hour)h ago"
     } else if (components.hour >= 1){
       if (numericDates){
-        return "1 hour ago"
+        return "1h ago"
       } else {
         return "An hour ago"
       }
     } else if (components.minute >= 2) {
-      return "\(components.minute) minutes ago"
+      return "\(components.minute)m ago"
     } else if (components.minute >= 1){
       if (numericDates){
-        return "1 minute ago"
+        return "1m ago"
       } else {
         return "A minute ago"
       }
     } else if (components.second >= 3) {
-      return "\(components.second) seconds ago"
+      return "\(components.second)s ago"
     } else {
       return "Just now"
     }
     
+  }
+
+  func toAbbrevTimeString() -> String {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "h:mm a"
+    let localTZ = NSTimeZone.localTimeZone()
+    formatter.timeZone = localTZ
+    return formatter.stringFromDate(self)
+  }
+
+  func toAbbrevDayString() -> String {
+    let formatter = NSDateFormatter()
+    formatter.dateFormat = "E"
+    let localTZ = NSTimeZone.localTimeZone()
+    formatter.timeZone = localTZ
+    return formatter.stringFromDate(self)
   }
 
 }
