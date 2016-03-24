@@ -10,7 +10,7 @@ import Foundation
 
 class PushManager {
 
-  class func publishMessageAsPushNotificationAsync(message: String, channel: String) {
+  class func publishMessageAsPushNotificationAsync(message: String, channel: String, completed: (fault: Fault?) -> Void) {
     let backendless = Backendless.sharedInstance()
 
     let deliveryOptions = DeliveryOptions()

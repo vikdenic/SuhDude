@@ -8,6 +8,8 @@
 
 import Foundation
 
+let kNotifPushReceived = "pushReceived"
+
 extension UIAlertController {
   class func showAlert(title : String!, message : String!, viewController : UIViewController)
   {
@@ -112,6 +114,16 @@ extension Array {
       }
     }
     return friends
+  }
+
+  /**
+   Moves an object at the specified index of an array to a new index of that array
+
+   - parameter oldIndex: the index of the object to move
+   - parameter newIndex: the index to which the object will be moved to
+   */
+  mutating func moveItem(fromIndex oldIndex: Index, toIndex newIndex: Index) {
+    insert(removeAtIndex(oldIndex), atIndex: newIndex)
   }
 }
 

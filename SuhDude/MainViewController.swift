@@ -25,6 +25,8 @@ class MainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "retrieveUsersAndSetData:", name: kNotifPushReceived, object: nil)
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -95,7 +97,21 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-//    let selectedUser = friends[indexPath.row]
-//    PushManager.publishMessageAsPushNotificationAsync("from \(backendless.userService.currentUser.name)", channel: selectedUser.objectId)
+    let friendship = friendships[indexPath.row]
+    friendship.update(backendless.userService.currentUser) { (fault) -> Void in
+      if fault != nil {
+
+      } else {
+        let selectedUser = self.friendships[indexPath.row].friend()
+        PushManager.publishMessageAsPushNotificationAsync("from \(self.backendless.userService.currentUser.name)", channel: selectedUser.objectId, completed: { (fault) -> Void in
+          if fault != nil {
+
+          } else {
+            self.friendships.moveItem(fromIndex: indexPath.row, toIndex: 0)
+            self.tableView.reloadData()
+          }
+        })
+      }
+    }
   }
 }

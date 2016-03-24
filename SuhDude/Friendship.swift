@@ -96,6 +96,14 @@ class Friendship: NSObject {
     }
   }
 
+  func update(sender: BackendlessUser, completed: (fault: Fault?) -> Void) {
+    recentSender = sender
+    lastSent = NSDate()
+    save { (fault) -> Void in
+      completed(fault: fault)
+    }
+  }
+
   /**
    - returns: User from a friendship that is not the current-user (for use on non-group friendships)
    */
