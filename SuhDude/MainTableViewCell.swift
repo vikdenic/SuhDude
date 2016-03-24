@@ -28,10 +28,14 @@ class MainTableViewCell: UITableViewCell {
 
     if let lastSender = friendship.recentSender {
       deliveryImageView.image = lastSender.isCurrentUser() ? UIImage(named: kImageSent) : UIImage(named: kImageReceived)
+    } else {
+      deliveryImageView.image = nil
     }
 
     if let lastSent = friendship.lastSent {
       dateLabel.text = lastSent.timeAgoSinceDate(true)
+    } else {
+      dateLabel.text = ""
     }
   }
 
