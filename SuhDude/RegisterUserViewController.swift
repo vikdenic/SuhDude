@@ -52,6 +52,9 @@ class RegisterUserViewController: UIViewController {
     } else if !usernameTextField.text!.containsValidCharacters() {
       UIAlertController.showAlert("Username must only contain letters, numbers, and underscores", message: nil, viewController: self)
       return
+    } else if passwordTextField.text!.characters.count < 7 {
+      UIAlertController.showAlert("Password must be at least 8 characters", message: nil, viewController: self)
+      return
     }
 
     if loggingIn {
@@ -109,4 +112,13 @@ class RegisterUserViewController: UIViewController {
     application.registerForRemoteNotifications()
   }
 
+}
+
+extension RegisterUserViewController: UITextFieldDelegate {
+  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+    guard let text = textField.text else { return true }
+
+    let newLength = text.characters.count + string.characters.count - range.length
+    return newLength <= 14 // Bool
+  }
 }
