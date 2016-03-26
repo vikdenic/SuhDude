@@ -369,9 +369,9 @@
 			isa = PBXGroup;
 			children = (
 				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
+				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
 				93DD15CC1C951187004DBCEE /* MBProgressHUD.h */,
 				93DD15CD1C951187004DBCEE /* MBProgressHUD.m */,
-				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
 				93BCBC321C892C74005D2AF7 /* Audio */,
 				93BCBE2E1C8F8FCA005D2AF7 /* Fonts */,
 			);

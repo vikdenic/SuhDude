@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
 
-  var refreshControl: UIRefreshControl!
+  var refreshControl = UIRefreshControl()
 
   var backendless = Backendless.sharedInstance()
   let kSegueMainToSignUp = "mainToSignUp"
@@ -28,7 +28,7 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    pullToRefresh()
+    pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     navBarStyling()
 
@@ -45,32 +45,23 @@ class MainViewController: UIViewController {
     checkForCurrentUser()
   }
 
-//  func pullToRefresh() {
-//    refreshControl = UIRefreshControl()
-////    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
-//    tableView.addSubview(refreshControl)
-//  }
+  func pullToRefresh() {
+//    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+    tableView.addSubview(refreshControl)
+  }
 
   func navBarStyling() {
-//    title = "Suh Dude"
-
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
-       NSFontAttributeName: UIFont(name: "Knewave", size: 23)!]
-//    let attrs = [
-//      NSForegroundColorAttributeName : UIColor.redColor(),
-//      NSFontAttributeName : UIFont(name: "Knewave", size: 24)!
-//    ]
-//
-//    UINavigationBar.appearance().titleTextAttributes = attrs
+       NSFontAttributeName: UIFont(name: "Knewave", size: 24)!]
   }
 
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
     Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
-//      self.refreshControl.endRefreshing()
+      self.refreshControl.endRefreshing()
       guard let friendships = friendships else {
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
