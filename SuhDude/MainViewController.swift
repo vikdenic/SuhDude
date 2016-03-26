@@ -12,9 +12,13 @@ class MainViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
 
+  var refreshControl: UIRefreshControl!
+
   var backendless = Backendless.sharedInstance()
   let kSegueMainToSignUp = "mainToSignUp"
   let kCellIDMain = "mainCell"
+
+  var loadingIndexPaths = NSMutableSet()
 
   var friendships = [Friendship]() {
     didSet {
@@ -24,6 +28,7 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.retrieveUsersAndSetData(_:)), name: kNotifPushReceived, object: nil)
@@ -34,11 +39,18 @@ class MainViewController: UIViewController {
     checkForCurrentUser()
   }
 
+  func pullToRefresh() {
+    refreshControl = UIRefreshControl()
+//    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+    tableView.addSubview(refreshControl) // not required when using UITableViewController
+  }
+
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
     Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
-
+      self.refreshControl.endRefreshing()
       guard let friendships = friendships else {
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
@@ -90,27 +102,36 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIDMain) as! MainTableViewCell
+    cell.isLoading = loadingIndexPaths.containsObject(indexPath)
     cell.friendship = friendships[indexPath.row]
+    print(cell.isLoading)
     return cell
   }
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
-    let friendship = friendships[indexPath.row]
-    friendship.update(backendless.userService.currentUser) { (fault) -> Void in
-      if fault != nil {
+    if !loadingIndexPaths.containsObject(indexPath) {
+      self.loadingIndexPaths.addObject(indexPath)
+      self.tableView.reloadData()
 
-      } else {
-        let selectedUser = self.friendships[indexPath.row].friend()
-        PushManager.publishMessageAsPushNotificationAsync("from \(self.backendless.userService.currentUser.name)", channel: selectedUser.objectId, completed: { (fault) -> Void in
-          if fault != nil {
+      let friendship = friendships[indexPath.row]
+      friendship.update(backendless.userService.currentUser) { (fault) -> Void in
+        if fault != nil {
+          self.loadingIndexPaths.removeObject(indexPath)
+          self.tableView.reloadData()
+        } else {
+          let selectedUser = self.friendships[indexPath.row].friend()
+          PushManager.publishMessageAsPushNotificationAsync("from \(self.backendless.userService.currentUser.name)", channel: selectedUser.objectId, completed: { (fault) -> Void in
+            if fault != nil {
 
-          } else {
-            self.friendships.moveItem(fromIndex: indexPath.row, toIndex: 0)
+            } else {
+              self.friendships.moveItem(fromIndex: indexPath.row, toIndex: 0)
+            }
+            self.loadingIndexPaths.removeObject(indexPath)
             self.tableView.reloadData()
-          }
-        })
+          })
+        }
       }
     }
   }

@@ -13,6 +13,9 @@ class MainTableViewCell: UITableViewCell {
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var deliveryImageView: UIImageView!
   @IBOutlet var dateLabel: UILabel!
+  @IBOutlet var spinner: UIActivityIndicatorView!
+
+  var isLoading = false
 
   let kImageSent = "sentImage"
   let kImageReceived = "receivedImage"
@@ -24,6 +27,7 @@ class MainTableViewCell: UITableViewCell {
   }
 
   func setUpCell() {
+    configureLoadingState()
     usernameLabel.text = friendship.friend().name
 
     if let lastSender = friendship.recentSender {
@@ -37,6 +41,16 @@ class MainTableViewCell: UITableViewCell {
     } else {
       dateLabel.text = ""
     }
+  }
+
+  func configureLoadingState() {
+    if isLoading {
+      deliveryImageView.hidden = true
+      spinner.startAnimating()
+      return
+    }
+    spinner.stopAnimating()
+    deliveryImageView.hidden = false
   }
 
 }

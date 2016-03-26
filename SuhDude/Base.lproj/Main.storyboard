@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7kL-JY-Gly">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7kL-JY-Gly">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -248,22 +248,30 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KX1-Pp-yTI">
+                                                    <rect key="frame" x="22" y="31" width="22" height="22"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="X9u-tO-L8P" secondAttribute="trailing" constant="65" id="776-ig-npz"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="width" secondItem="XiJ-w7-Nap" secondAttribute="width" id="7Jb-a0-AaQ"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="1" id="9xg-hZ-wmJ"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" id="ALJ-Bj-phM"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="height" secondItem="XiJ-w7-Nap" secondAttribute="height" id="Bpd-Nw-tUa"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerX" secondItem="XiJ-w7-Nap" secondAttribute="centerX" id="H3K-OJ-eKY"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" id="HV4-H4-Ip2"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerX" secondItem="nvJ-IX-Eas" secondAttribute="centerX" constant="0.5" id="IrT-Vb-Gst"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="XiJ-w7-Nap" secondAttribute="trailing" constant="30" id="K3C-u6-QfC"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="66" id="ORT-Dx-Txp"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="trailing" secondItem="nvJ-IX-Eas" secondAttribute="trailingMargin" constant="-14" id="Yc2-no-y5Q"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerY" secondItem="XiJ-w7-Nap" secondAttribute="centerY" id="iAK-cE-YB5"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="14" id="k9e-I8-Wnl"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="3Xa-mO-DGY" id="idP-78-DH6"/>
                                             <outlet property="deliveryImageView" destination="XiJ-w7-Nap" id="bDb-K3-qFc"/>
+                                            <outlet property="spinner" destination="KX1-Pp-yTI" id="D1j-v6-Dbl"/>
                                             <outlet property="usernameLabel" destination="X9u-tO-L8P" id="bfs-tb-wHf"/>
                                         </connections>
                                     </tableViewCell>
