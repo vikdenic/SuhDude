@@ -11,6 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var noFriendsLabel: UILabel!
 
   var refreshControl = UIRefreshControl()
 
@@ -68,6 +69,12 @@ class MainViewController: UIViewController {
         return
       }
       self.friendships = friendships
+
+      self.noFriendsLabel.hidden = true
+      if friendships.count == 0 {
+        self.noFriendsLabel.hidden = false
+      }
+
       MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
   }

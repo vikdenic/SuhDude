@@ -292,13 +292,26 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="NPr-1F-gPr"/>
                                 </connections>
                             </tableView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any friends yet :(" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Loe-2V-ah8">
+                                <rect key="frame" x="20" y="285" width="560" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="w5w-Wq-8Gb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Loe-2V-ah8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="35o-AB-kMz"/>
                             <constraint firstItem="Mt7-bc-AGq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="6xt-qC-nqA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Mt7-bc-AGq" secondAttribute="trailing" constant="-20" id="96S-LE-Adx"/>
                             <constraint firstItem="Mt7-bc-AGq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Bsh-P5-ARd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mt7-bc-AGq" secondAttribute="bottom" id="KV0-00-2Wy"/>
+                            <constraint firstItem="Loe-2V-ah8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UUc-Uh-val"/>
+                            <constraint firstItem="Loe-2V-ah8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="X5R-N7-tBD"/>
+                            <constraint firstItem="Loe-2V-ah8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="r0B-8v-btF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Suh Dude" id="ORf-Iz-t5f">
@@ -314,6 +327,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noFriendsLabel" destination="Loe-2V-ah8" id="VDC-Ae-xw8"/>
                         <outlet property="tableView" destination="Mt7-bc-AGq" id="Ggl-ni-AuF"/>
                         <segue destination="fJC-XU-ebn" kind="presentation" identifier="mainToSignUp" id="xHl-X3-d1u"/>
                     </connections>
