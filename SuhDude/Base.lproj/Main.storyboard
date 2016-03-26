@@ -302,7 +302,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Suh Dude" id="ORf-Iz-t5f">
-                        <barButtonItem key="leftBarButtonItem" image="settingsImage" id="nlp-OF-GEd"/>
+                        <barButtonItem key="leftBarButtonItem" image="settingsImage" id="nlp-OF-GEd">
+                            <connections>
+                                <segue destination="cBP-cK-JNE" kind="presentation" id="EVQ-Zc-W9c"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addFriendImage" id="NHe-bH-PD6">
                             <connections>
                                 <action selector="onAddButtonTapped:" destination="BYZ-38-t0r" id="E3f-k7-NOj"/>
@@ -332,7 +336,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fsC-2Y-FgL"/>
+                    <navigationItem key="navigationItem" id="fsC-2Y-FgL">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="3kI-FP-dcy">
+                            <connections>
+                                <action selector="onLogoutTapped:" destination="CwM-TF-MHM" id="emU-bG-WgE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7f7-SJ-J9i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -468,6 +478,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XNO-4p-IUX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.054901960780000002" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
