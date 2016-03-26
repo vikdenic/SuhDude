@@ -200,7 +200,7 @@
             </objects>
             <point key="canvasLocation" x="1103" y="1031"/>
         </scene>
-        <!--Main View Controller-->
+        <!--Suh Dude-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Suh_Dude" customModuleProvider="target" sceneMemberID="viewController">
@@ -290,7 +290,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Mt7-bc-AGq" secondAttribute="bottom" id="KV0-00-2Wy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ORf-Iz-t5f">
+                    <navigationItem key="navigationItem" title="Suh Dude" id="ORf-Iz-t5f">
                         <barButtonItem key="leftBarButtonItem" title="logout" id="nlp-OF-GEd">
                             <connections>
                                 <action selector="onLogoutButtonTapped:" destination="BYZ-38-t0r" id="L8j-qc-Hn8"/>

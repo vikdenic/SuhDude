@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
 //    pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    navBarStyling()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.retrieveUsersAndSetData(_:)), name: kNotifPushReceived, object: nil)
   }
@@ -50,6 +51,20 @@ class MainViewController: UIViewController {
 //    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
 //    tableView.addSubview(refreshControl)
 //  }
+
+  func navBarStyling() {
+//    title = "Suh Dude"
+
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+       NSFontAttributeName: UIFont(name: "Knewave", size: 23)!]
+//    let attrs = [
+//      NSForegroundColorAttributeName : UIColor.redColor(),
+//      NSFontAttributeName : UIFont(name: "Knewave", size: 24)!
+//    ]
+//
+//    UINavigationBar.appearance().titleTextAttributes = attrs
+  }
 
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
