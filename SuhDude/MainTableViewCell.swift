@@ -19,6 +19,7 @@ class MainTableViewCell: UITableViewCell {
 
   let kImageSent = "planeImage"
   let kImageReceived = "receivedImage"
+  let kImageTap = "tapImage"
 
   var friendship: Friendship! {
     didSet {
@@ -39,7 +40,7 @@ class MainTableViewCell: UITableViewCell {
     if let lastSent = friendship.lastSent {
       dateLabel.text = lastSent.timeAgoSinceDate(true)
     } else {
-      dateLabel.text = ""
+      dateLabel.text = "Tap to send"
     }
   }
 

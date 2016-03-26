@@ -31,7 +31,6 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
-    navBarStyling()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.retrieveUsersAndSetData(_:)), name: kNotifPushReceived, object: nil)
   }
@@ -39,6 +38,7 @@ class MainViewController: UIViewController {
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
       UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+    navBarStyling()
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -54,18 +54,19 @@ class MainViewController: UIViewController {
   }
 
   func navBarStyling() {
+    title = "Suh Dude"
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
        NSFontAttributeName: UIFont(name: "Knewave", size: 24)!]
   }
 
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
-    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+//    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
     Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
       self.refreshControl.endRefreshing()
       guard let friendships = friendships else {
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+//        MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
       }
       self.friendships = friendships
@@ -75,7 +76,7 @@ class MainViewController: UIViewController {
         self.noFriendsLabel.hidden = false
       }
 
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
+//      MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
   }
 

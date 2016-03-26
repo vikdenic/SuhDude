@@ -27,6 +27,12 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
+
+    title = "Add Friends"
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
+    navigationController?.navigationBar.topItem?.title = ""
   }
 
   func retrieveUsersAndSetData() {

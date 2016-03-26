@@ -12,14 +12,29 @@ class SettingsViewController: UIViewController {
 
   var backendless = Backendless.sharedInstance()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+  @IBOutlet var dismissBarButton: UIBarButtonItem!
+  @IBOutlet var logoutBarButton: UIBarButtonItem!
 
-        title = backendless.userService.currentUser.name
-      self.navigationController?.navigationBar.titleTextAttributes =
-        [NSForegroundColorAttributeName: UIColor.whiteColor(),
-         NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
-    }
+  override func viewDidLoad() {
+      super.viewDidLoad()
+
+      title = backendless.userService.currentUser.name
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
+
+    logoutBarButton.setTitleTextAttributes([
+      NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
+                                           forState: UIControlState.Normal)
+
+    dismissBarButton.setTitleTextAttributes([
+      NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
+                                            forState: UIControlState.Normal)
+  }
+
+  @IBAction func onDismissTapped(sender: AnyObject) {
+    dismissViewControllerAnimated(true, completion: nil)
+  }
 
   @IBAction func onLogoutTapped(sender: AnyObject) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
