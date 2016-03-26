@@ -6,12 +6,12 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "planeImage@2x.png",
+      "filename" : "planeImageDbl@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "planeImage@3x.png",
+      "filename" : "planeImageDbl@3x.png",
       "scale" : "3x"
     }
   ],

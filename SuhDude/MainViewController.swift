@@ -87,7 +87,7 @@ class MainViewController: UIViewController {
   }
 
   @IBAction func onLogoutButtonTapped(sender: AnyObject) {
-
+    /*
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     backendless.userService.logout({ (object) -> Void in
       print("Successfully logged out user")
@@ -103,6 +103,7 @@ class MainViewController: UIViewController {
         }
         MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
+    */
   }
 
   deinit {
