@@ -40,6 +40,8 @@
 		93DD16A41C95CA05004DBCEE /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD16941C95CA05004DBCEE /* libspeex.a */; };
 		93DD16A51C95CA05004DBCEE /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD169A1C95CA05004DBCEE /* libx264.a */; };
 		93FE61501CA661DD004744A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FE614F1CA661DD004744A9 /* SettingsViewController.swift */; };
+		93FE61541CA7585E004744A9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE61521CA7585E004744A9 /* Fabric.framework */; };
+		93FE61551CA7585E004744A9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE61531CA7585E004744A9 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +251,8 @@
 		93DD16981C95CA05004DBCEE /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		93DD169A1C95CA05004DBCEE /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
 		93FE614F1CA661DD004744A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		93FE61521CA7585E004744A9 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		93FE61531CA7585E004744A9 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,7 +270,9 @@
 				93DD16A51C95CA05004DBCEE /* libx264.a in Frameworks */,
 				93DD16A31C95CA05004DBCEE /* MediaLibiOS.a in Frameworks */,
 				93BCBC2A1C890752005D2AF7 /* SystemConfiguration.framework in Frameworks */,
+				93FE61551CA7585E004744A9 /* Crashlytics.framework in Frameworks */,
 				93DD169B1C95CA05004DBCEE /* backendless.a in Frameworks */,
+				93FE61541CA7585E004744A9 /* Fabric.framework in Frameworks */,
 				93DD16A01C95CA05004DBCEE /* libavformat.a in Frameworks */,
 				93DD169C1C95CA05004DBCEE /* CommLibiOS.a in Frameworks */,
 				93DD169D1C95CA05004DBCEE /* libavcodec.a in Frameworks */,
@@ -279,7 +285,7 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
-				93BCBC2F1C890B15005D2AF7 /* Backendless */,
+				93FE61561CA75941004744A9 /* Libraries */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
 			);
@@ -754,6 +760,16 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		93FE61561CA75941004744A9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				93BCBC2F1C890B15005D2AF7 /* Backendless */,
+				93FE61521CA7585E004744A9 /* Fabric.framework */,
+				93FE61531CA7585E004744A9 /* Crashlytics.framework */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -764,6 +780,7 @@
 				93BCBB381C88F2F9005D2AF7 /* Sources */,
 				93BCBB391C88F2F9005D2AF7 /* Frameworks */,
 				93BCBB3A1C88F2F9005D2AF7 /* Resources */,
+				93FE61511CA7582D004744A9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -822,6 +839,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93FE61511CA7582D004744A9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 0ab16672c93474a83c728078cb9b8991188bb3ca b4a35c38831e6c0f4b760a3813633d5f1af80d88534389758f14b665c224d162";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		93BCBB381C88F2F9005D2AF7 /* Sources */ = {
@@ -956,6 +989,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SuhDude/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -971,7 +1008,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
+				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Debug;
@@ -982,6 +1019,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SuhDude/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -997,7 +1038,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
+				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Release;

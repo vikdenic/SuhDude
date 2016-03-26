@@ -8,6 +8,8 @@
 
 import UIKit
 import AudioToolbox
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     application.statusBarStyle = .LightContent
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
     backendless.userService.setStayLoggedIn(true)
+    Fabric.with([Crashlytics.self])
 
     return true
   }
