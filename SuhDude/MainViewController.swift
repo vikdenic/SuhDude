@@ -49,6 +49,7 @@ class MainViewController: UIViewController {
 //    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
     refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
     tableView.addSubview(refreshControl)
+    refreshControl.superview?.sendSubviewToBack(refreshControl)
   }
 
   func navBarStyling() {
@@ -102,6 +103,10 @@ class MainViewController: UIViewController {
         }
         MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
+  }
+
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
 }
 

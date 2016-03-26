@@ -18,7 +18,7 @@ class MainTableViewCell: UITableViewCell {
   var isLoading = false
 
   let kImageSent = "planeImage"
-  let kImageReceived = "receivedImageThin"
+  let kImageReceived = "receivedImage"
 
   var friendship: Friendship! {
     didSet {
