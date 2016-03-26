@@ -448,6 +448,6 @@
     </scenes>
     <resources>
         <image name="addCircle" width="22" height="22"/>
-        <image name="receivedImage" width="11" height="11"/>
+        <image name="receivedImage" width="12" height="12"/>
     </resources>
 </document>
