@@ -39,6 +39,7 @@
 		93DD16A31C95CA05004DBCEE /* MediaLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD16891C95CA05004DBCEE /* MediaLibiOS.a */; };
 		93DD16A41C95CA05004DBCEE /* libspeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD16941C95CA05004DBCEE /* libspeex.a */; };
 		93DD16A51C95CA05004DBCEE /* libx264.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD169A1C95CA05004DBCEE /* libx264.a */; };
+		93FE61501CA661DD004744A9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93FE614F1CA661DD004744A9 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -247,6 +248,7 @@
 		93DD16971C95CA05004DBCEE /* x264.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264.h; sourceTree = "<group>"; };
 		93DD16981C95CA05004DBCEE /* x264_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x264_config.h; sourceTree = "<group>"; };
 		93DD169A1C95CA05004DBCEE /* libx264.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libx264.a; sourceTree = "<group>"; };
+		93FE614F1CA661DD004744A9 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,6 +336,7 @@
 				93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */,
 				93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */,
 				93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */,
+				93FE614F1CA661DD004744A9 /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -835,6 +838,7 @@
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
 				93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
+				93FE61501CA661DD004744A9 /* SettingsViewController.swift in Sources */,
 				932AEBFC1CA367CF00E0C68D /* MainTableViewCell.swift in Sources */,
 				93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */,
 			);
