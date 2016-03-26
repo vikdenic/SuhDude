@@ -309,7 +309,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="addFriendImage" id="NHe-bH-PD6">
                             <connections>
-                                <action selector="onAddButtonTapped:" destination="BYZ-38-t0r" id="E3f-k7-NOj"/>
                                 <segue destination="KLe-LF-j0i" kind="show" identifier="mainToAddFriends" id="Wl8-nu-krg"/>
                             </connections>
                         </barButtonItem>

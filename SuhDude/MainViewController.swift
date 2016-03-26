@@ -84,30 +84,6 @@ class MainViewController: UIViewController {
     }
   }
 
-  @IBAction func onAddButtonTapped(sender: AnyObject) {
-    
-  }
-
-  @IBAction func onLogoutButtonTapped(sender: AnyObject) {
-    /*
-    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-    backendless.userService.logout({ (object) -> Void in
-      print("Successfully logged out user")
-      self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
-      PushManager.cancelDeviceRegistrationAsync()
-
-      }) { (fault) -> Void in
-        print("Server reported an error: \(fault)")
-        if self.backendless.userService.currentUser == nil { //current workaround for bug
-          self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
-          MBProgressHUD.hideHUDForView(self.view, animated: true)
-        }
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-    }
-    */
-  }
-
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
