@@ -24,7 +24,7 @@ class RegisterUserViewController: UIViewController {
     navigationController?.navigationBar.topItem?.title = ""
     usernameTextField.becomeFirstResponder()
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
 
     if loggingIn {
       continueButton.setTitle("log in", forState: .Normal)
@@ -100,7 +100,7 @@ class RegisterUserViewController: UIViewController {
 
   func pushSetup() {
     let application = UIApplication.sharedApplication()
-    if application.respondsToSelector("registerUserNotificationSettings:") {
+    if application.respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
       let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
       application.registerUserNotificationSettings(settings)
     } else {

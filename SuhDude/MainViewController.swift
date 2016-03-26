@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: "retrieveUsersAndSetData:", name: kNotifPushReceived, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.retrieveUsersAndSetData(_:)), name: kNotifPushReceived, object: nil)
   }
 
   override func viewDidAppear(animated: Bool) {

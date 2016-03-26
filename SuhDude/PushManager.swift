@@ -24,9 +24,11 @@ class PushManager {
     backendless.messaging.publish(channel, message: message, publishOptions:publishOptions, deliveryOptions:deliveryOptions,
       response:{ ( messageStatus : MessageStatus!) -> () in
         print("MessageStatus = \(messageStatus.status) ['\(messageStatus.messageId)']")
+        completed(fault: nil)
       },
       error: { ( fault : Fault!) -> () in
         print("Server reported an error: \(fault)")
+        completed(fault: fault)
       }
     )
   }
