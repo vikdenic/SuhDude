@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   var soundID: SystemSoundID = 0
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    application.statusBarStyle = .LightContent
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
     backendless.userService.setStayLoggedIn(true)
 

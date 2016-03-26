@@ -28,10 +28,15 @@ class MainViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    pullToRefresh()
+//    pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.retrieveUsersAndSetData(_:)), name: kNotifPushReceived, object: nil)
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+      UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -39,18 +44,18 @@ class MainViewController: UIViewController {
     checkForCurrentUser()
   }
 
-  func pullToRefresh() {
-    refreshControl = UIRefreshControl()
-//    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
-    tableView.addSubview(refreshControl) // not required when using UITableViewController
-  }
+//  func pullToRefresh() {
+//    refreshControl = UIRefreshControl()
+////    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+//    tableView.addSubview(refreshControl)
+//  }
 
   func retrieveUsersAndSetData(completed : (() -> Void)?) {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
     Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
-      self.refreshControl.endRefreshing()
+//      self.refreshControl.endRefreshing()
       guard let friendships = friendships else {
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         return

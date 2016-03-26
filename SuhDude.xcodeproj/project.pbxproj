@@ -304,7 +304,6 @@
 				93BCBC401C8B551A005D2AF7 /* Utilities */,
 				93BCBE2F1C8F8FDB005D2AF7 /* Resources */,
 				93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */,
-				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
 			);
 			path = SuhDude;
 			sourceTree = "<group>";
@@ -369,6 +368,7 @@
 		93BCBE2F1C8F8FDB005D2AF7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
 				93DD15CC1C951187004DBCEE /* MBProgressHUD.h */,
 				93DD15CD1C951187004DBCEE /* MBProgressHUD.m */,
 				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,

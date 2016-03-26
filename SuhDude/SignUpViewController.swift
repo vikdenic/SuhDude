@@ -20,6 +20,7 @@ class SignUpViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
+    UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .Fade)
     navigationController?.setNavBarToClear()
 
     loginBarButton.setTitleTextAttributes([

@@ -36,6 +36,12 @@ extension UIAlertController {
   }
 }
 
+extension UIColor {
+  class func customBlueGreen() -> UIColor {
+    return UIColor(red: 14, green: 178, blue: 198, alpha: 1.0)
+  }
+}
+
 let kPermittedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890_"
 
 extension String {
