@@ -48,8 +48,8 @@ class MainViewController: UIViewController {
 
   func pullToRefresh() {
 //    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-    refreshControl.tintColor = UIColor.whiteColor()
-    refreshControl.backgroundColor = UIColor(red: 220, green: 220, blue: 220, alpha: 1)
+//    refreshControl.tintColor = UIColor.whiteColor()
+    refreshControl.backgroundColor = UIColor.groupTableViewBackgroundColor()
     refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
     tableView.addSubview(refreshControl)
     refreshControl.superview?.sendSubviewToBack(refreshControl)
