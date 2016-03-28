@@ -1008,7 +1008,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
+				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1038,7 +1038,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
+				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Release;
