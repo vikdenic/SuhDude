@@ -916,8 +916,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -939,7 +939,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
+				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -962,7 +962,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Viktor Denic (3DJPBY6593)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -978,7 +978,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
+				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -988,7 +988,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Viktor Denic (3DJPBY6593)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1008,7 +1009,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
+				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1017,8 +1018,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Viktor Denic (9YM25QUSQR)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Viktor Denic (3DJPBY6593)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Viktor Denic (3DJPBY6593)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1038,7 +1039,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
+				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Release;
