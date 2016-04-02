@@ -32,12 +32,12 @@ class MainViewController: UIViewController {
     pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MainViewController.retrieveUsersAndSetData(_:)), name: kNotifPushReceived, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: kNotifPushReceived, object: nil)
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
-      UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
+    UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
     navBarStyling()
   }
 
@@ -50,7 +50,7 @@ class MainViewController: UIViewController {
 //    refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
 //    refreshControl.tintColor = UIColor.whiteColor()
     refreshControl.backgroundColor = UIColor.groupTableViewBackgroundColor()
-    refreshControl.addTarget(self, action: #selector(MainViewController.retrieveUsersAndSetData(_:)), forControlEvents: UIControlEvents.ValueChanged)
+    refreshControl.addTarget(self, action: #selector(retrieveUsersAndSetData), forControlEvents: UIControlEvents.ValueChanged)
     tableView.addSubview(refreshControl)
     refreshControl.superview?.sendSubviewToBack(refreshControl)
   }
@@ -62,23 +62,20 @@ class MainViewController: UIViewController {
        NSFontAttributeName: UIFont(name: "Knewave", size: 24)!]
   }
 
-  func retrieveUsersAndSetData(completed : (() -> Void)?) {
-//    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-
+  func retrieveUsersAndSetData() {
     Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
-      self.refreshControl.endRefreshing()
-      guard let friendships = friendships else {
-//        MBProgressHUD.hideHUDForView(self.view, animated: true)
-        return
-      }
-      self.friendships = friendships
+      dispatch_async(dispatch_get_main_queue(),{
+        self.refreshControl.endRefreshing()
+        guard let friendships = friendships else {
+          return
+        }
+        self.friendships = friendships
 
-      self.noFriendsLabel.hidden = true
-      if friendships.count == 0 {
-        self.noFriendsLabel.hidden = false
-      }
-
-//      MBProgressHUD.hideHUDForView(self.view, animated: true)
+        self.noFriendsLabel.hidden = true
+        if friendships.count == 0 {
+          self.noFriendsLabel.hidden = false
+        }
+      })
     }
   }
 
@@ -90,7 +87,7 @@ class MainViewController: UIViewController {
       performSegueWithIdentifier(kSegueMainToSignUp, sender: self)
     } else {
       print("Current user is: \(Backendless().userService.currentUser.name)")
-      retrieveUsersAndSetData(nil)
+      retrieveUsersAndSetData()
     }
   }
 
@@ -109,7 +106,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIDMain) as! MainTableViewCell
     cell.isLoading = loadingIndexPaths.containsObject(indexPath)
     cell.friendship = friendships[indexPath.row]
-    print(cell.isLoading)
     return cell
   }
 

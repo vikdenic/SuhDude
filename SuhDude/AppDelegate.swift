@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     if application.applicationState == .Active && backendless.userService.currentUser != nil {
       playSoundWithUserInfo(userInfo)
-      NSNotificationCenter.defaultCenter().postNotificationName(kNotifPushReceived, object: self)
+      NSNotificationCenter.defaultCenter().postNotificationName(kNotifPushReceived, object: nil)
     }
 
     completionHandler(.NewData)

@@ -25,7 +25,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqU-IJ-FaM">
                                 <rect key="frame" x="0.0" y="534" width="600" height="66"/>
-                                <color key="backgroundColor" red="1" green="0.41960784313725491" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81568627450980391" green="0.4823529411764706" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="hjo-gs-6ks"/>
                                 </constraints>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.054901960784313725" green="0.69803921568627447" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SdU-sX-hEq" firstAttribute="width" secondItem="D6I-1g-Twn" secondAttribute="width" id="55b-A0-0Fv"/>
                             <constraint firstItem="SdU-sX-hEq" firstAttribute="height" secondItem="D6I-1g-Twn" secondAttribute="height" id="5Ok-Ai-TTq"/>
@@ -128,7 +128,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBD-qX-tba">
                                 <rect key="frame" x="0.0" y="302" width="600" height="66"/>
-                                <color key="backgroundColor" red="0.93725490196078431" green="0.41960784313725491" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.81568627450980391" green="0.4823529411764706" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="cJL-1K-PlV"/>
                                 </constraints>
@@ -172,7 +172,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.054901960784313725" green="0.69803921568627447" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dBD-qX-tba" firstAttribute="leading" secondItem="iLS-gm-8eJ" secondAttribute="leadingMargin" constant="-20" id="5Yk-qX-n8e"/>
                             <constraint firstItem="Qwm-o8-OJK" firstAttribute="leading" secondItem="iLS-gm-8eJ" secondAttribute="leadingMargin" constant="-20" id="HMV-Ac-zFZ"/>
@@ -499,7 +499,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.054901960780000002" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
