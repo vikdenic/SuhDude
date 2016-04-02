@@ -25,7 +25,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqU-IJ-FaM">
                                 <rect key="frame" x="0.0" y="534" width="600" height="66"/>
-                                <color key="backgroundColor" red="0.81568627450980391" green="0.4823529411764706" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="hjo-gs-6ks"/>
                                 </constraints>
@@ -128,7 +128,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBD-qX-tba">
                                 <rect key="frame" x="0.0" y="302" width="600" height="66"/>
-                                <color key="backgroundColor" red="0.81568627450980391" green="0.4823529411764706" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.41960784309999999" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="cJL-1K-PlV"/>
                                 </constraints>
@@ -519,7 +519,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.054901960780000002" green="0.69803921570000005" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.64313725489999995" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
