@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: kNotifPushReceived, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: UIApplicationWillEnterForegroundNotification, object: nil)
   }
 
   override func viewWillAppear(animated: Bool) {
