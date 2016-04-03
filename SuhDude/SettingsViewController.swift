@@ -67,7 +67,7 @@ class SettingsViewController: FormViewController {
         $0.value = ""
         }
         .onCellSelection { cell, row in
-          self.logoutUser()
+          self.initiateLogout()
           print("Logout row tapped")
     }
 
@@ -86,6 +86,22 @@ class SettingsViewController: FormViewController {
 
   @IBAction func onDismissTapped(sender: AnyObject) {
     dismissViewControllerAnimated(true, completion: nil)
+  }
+
+  func initiateLogout(){
+
+    let alert = UIAlertController(title: "Log Out?", message: nil, preferredStyle: .ActionSheet)
+
+    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+
+    let okayAction = UIAlertAction(title: "Log Out", style: .Default) { (action) -> Void in
+      self.logoutUser()
+    }
+
+    alert.addAction(okayAction)
+    alert.addAction(cancelAction)
+
+    presentViewController(alert, animated: true, completion: nil)
   }
 
   func logoutUser() {
