@@ -346,10 +346,10 @@
                         <viewControllerLayoutGuide type="bottom" id="iWh-Yj-K0Z"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MYV-5S-zjl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your settings will live here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOh-4c-FTp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your settings will live here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NOh-4c-FTp">
                                 <rect key="frame" x="20" y="284" width="560" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="61O-jm-2uB"/>
@@ -367,21 +367,16 @@
                             <constraint firstItem="NOh-4c-FTp" firstAttribute="leading" secondItem="MYV-5S-zjl" secondAttribute="leadingMargin" id="ujN-0t-7Ls"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="fsC-2Y-FgL">
-                        <barButtonItem key="leftBarButtonItem" title="Dismiss" id="3kI-FP-dcy">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="3kI-FP-dcy">
                             <connections>
                                 <action selector="onDismissTapped:" destination="CwM-TF-MHM" id="v62-AK-fss"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="f6V-YV-tci">
-                            <connections>
-                                <action selector="onLogoutTapped:" destination="CwM-TF-MHM" id="KOg-5g-z9V"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dismissBarButton" destination="3kI-FP-dcy" id="Mvt-qW-Pl4"/>
-                        <outlet property="logoutBarButton" destination="f6V-YV-tci" id="ZRy-fq-3dw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7f7-SJ-J9i" userLabel="First Responder" sceneMemberID="firstResponder"/>

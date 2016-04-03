@@ -27,6 +27,8 @@
 		93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC501C8D488F005D2AF7 /* PushManager.swift */; };
 		93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */; };
 		93BCBE361C8FD29C005D2AF7 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */; };
+		93CCFA031CB1B17F0089B7E4 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CCFA021CB1B17F0089B7E4 /* Eureka.framework */; };
+		93CCFA041CB1B17F0089B7E4 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93CCFA021CB1B17F0089B7E4 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93DD15CE1C951187004DBCEE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DD15CD1C951187004DBCEE /* MBProgressHUD.m */; };
 		93DD169B1C95CA05004DBCEE /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD15D11C95CA05004DBCEE /* backendless.a */; };
 		93DD169C1C95CA05004DBCEE /* CommLibiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93DD16151C95CA05004DBCEE /* CommLibiOS.a */; };
@@ -43,6 +45,20 @@
 		93FE61541CA7585E004744A9 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE61521CA7585E004744A9 /* Fabric.framework */; };
 		93FE61551CA7585E004744A9 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FE61531CA7585E004744A9 /* Crashlytics.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93CCFA051CB1B17F0089B7E4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93CCFA041CB1B17F0089B7E4 /* Eureka.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		932AEBFB1CA367CF00E0C68D /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +83,7 @@
 		93BCBC501C8D488F005D2AF7 /* PushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
 		93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
 		93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
+		93CCFA021CB1B17F0089B7E4 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		93DD15CC1C951187004DBCEE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		93DD15CD1C951187004DBCEE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		93DD15D11C95CA05004DBCEE /* backendless.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = backendless.a; sourceTree = "<group>"; };
@@ -263,6 +280,7 @@
 				93DD16A11C95CA05004DBCEE /* libavutil.a in Frameworks */,
 				93DD169F1C95CA05004DBCEE /* libavfilter.a in Frameworks */,
 				93DD16A21C95CA05004DBCEE /* libswscale.a in Frameworks */,
+				93CCFA031CB1B17F0089B7E4 /* Eureka.framework in Frameworks */,
 				93DD169E1C95CA05004DBCEE /* libavdevice.a in Frameworks */,
 				93DD16A41C95CA05004DBCEE /* libspeex.a in Frameworks */,
 				93BCBC2E1C890762005D2AF7 /* libz.tbd in Frameworks */,
@@ -285,6 +303,7 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
+				93CCFA021CB1B17F0089B7E4 /* Eureka.framework */,
 				93FE61561CA75941004744A9 /* Libraries */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
@@ -781,6 +800,7 @@
 				93BCBB391C88F2F9005D2AF7 /* Frameworks */,
 				93BCBB3A1C88F2F9005D2AF7 /* Resources */,
 				93FE61511CA7582D004744A9 /* ShellScript */,
+				93CCFA051CB1B17F0089B7E4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -992,6 +1012,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SuhDude/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -1022,6 +1043,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = SuhDude/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

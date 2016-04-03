@@ -7,25 +7,77 @@
 //
 
 import UIKit
+import Eureka
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: FormViewController {
 
   var backendless = Backendless.sharedInstance()
+  var muteApp = false
 
   @IBOutlet var dismissBarButton: UIBarButtonItem!
-  @IBOutlet var logoutBarButton: UIBarButtonItem!
 
   override func viewDidLoad() {
-      super.viewDidLoad()
+    super.viewDidLoad()
 
-      title = backendless.userService.currentUser.name
+    setUpForm()
+    setupTitle()
+  }
+
+  //MARK: Eureka Form
+  func setUpForm() {
+
+    form = Section()
+
+    <<< SwitchRow() {
+      $0.title = "Mute App"
+      $0.value = false
+      }.onChange {
+        if $0.value == true {
+          self.muteApp = true
+          print(self.muteApp)
+        }
+        else {
+          self.muteApp = false
+          print(self.muteApp)
+        }
+    }
+
+    <<< LabelRow () {
+      $0.title = "Mute Specific Friends"
+      $0.value = ">"
+      }
+      .onCellSelection { cell, row in
+        print("Mute specific row tapped")
+    }
+
+    +++ Section("")
+
+      <<< LabelRow () {
+        $0.title = "Edit Profile"
+        $0.value = ">"
+        }
+        .onCellSelection { cell, row in
+          print("Edit profile row tapped")
+    }
+
+      +++ Section("")
+
+      <<< LabelRow () {
+        $0.title = "Logout"
+        $0.value = ""
+        }
+        .onCellSelection { cell, row in
+          self.logoutUser()
+          print("Logout row tapped")
+    }
+
+  }
+
+  func setupTitle() {
+    title = backendless.userService.currentUser.name
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
-
-    logoutBarButton.setTitleTextAttributes([
-      NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
-                                           forState: UIControlState.Normal)
 
     dismissBarButton.setTitleTextAttributes([
       NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
@@ -36,7 +88,7 @@ class SettingsViewController: UIViewController {
     dismissViewControllerAnimated(true, completion: nil)
   }
 
-  @IBAction func onLogoutTapped(sender: AnyObject) {
+  func logoutUser() {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     backendless.userService.logout({ (object) -> Void in
       print("Successfully logged out user")
