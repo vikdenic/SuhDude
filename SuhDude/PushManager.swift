@@ -33,6 +33,19 @@ class PushManager {
     )
   }
 
+  class func registerForPush() {
+    func pushSetup() {
+      let application = UIApplication.sharedApplication()
+      if application.respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
+      } else {
+        application.registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
+      }
+      application.registerForRemoteNotifications()
+    }
+  }
+
   class func cancelDeviceRegistrationAsync() {
     let backendless = Backendless.sharedInstance()
 

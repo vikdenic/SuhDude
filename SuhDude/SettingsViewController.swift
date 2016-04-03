@@ -34,21 +34,23 @@ class SettingsViewController: FormViewController {
       }.onChange {
         if $0.value == true {
           self.muteApp = true
+          PushManager.cancelDeviceRegistrationAsync()
           print(self.muteApp)
         }
         else {
           self.muteApp = false
+          PushManager.registerForPush()
           print(self.muteApp)
         }
     }
 
-    <<< LabelRow () {
-      $0.title = "Mute Specific Friends"
-      $0.value = ">"
-      }
-      .onCellSelection { cell, row in
-        print("Mute specific row tapped")
-    }
+//    <<< LabelRow () {
+//      $0.title = "Mute Specific Friends"
+//      $0.value = ">"
+//      }
+//      .onCellSelection { cell, row in
+//        print("Mute specific row tapped")
+//    }
 
     +++ Section("")
 
@@ -108,15 +110,13 @@ class SettingsViewController: FormViewController {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     backendless.userService.logout({ (object) -> Void in
       print("Successfully logged out user")
-//      self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
       MBProgressHUD.hideHUDForView(self.view, animated: true)
       PushManager.cancelDeviceRegistrationAsync()
       self.dismissViewControllerAnimated(true, completion: nil)
-
+      
     }) { (fault) -> Void in
       print("Server reported an error: \(fault)")
       if self.backendless.userService.currentUser == nil { //current workaround for bug
-//        self.performSegueWithIdentifier(self.kSegueMainToSignUp, sender: self)
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         self.dismissViewControllerAnimated(true, completion: nil)
       }
