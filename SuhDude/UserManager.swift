@@ -83,4 +83,16 @@ class UserManager {
     }
   }
 
+  class func changeUsername(name : String, completed : (fault : Fault?) -> Void) {
+    let backendless = Backendless.sharedInstance()
+
+    backendless.userService.currentUser.name = name
+
+    backendless.userService.update(backendless.userService.currentUser, response: { (updatedUser) in
+      completed(fault: nil)
+      }) { (fault) in
+      completed(fault: fault)
+    }
+  }
+
 }

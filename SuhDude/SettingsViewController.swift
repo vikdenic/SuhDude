@@ -76,7 +76,7 @@ class SettingsViewController: FormViewController {
   }
 
   func setupTitle() {
-    navigationController?.navigationBar.topItem?.title = backendless.userService.currentUser.name
+    navigationController?.navigationBar.topItem?.title = "Settings"
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]

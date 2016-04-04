@@ -15,22 +15,39 @@ class EditProfileViewController: FormViewController {
 
   var backendless = Backendless.sharedInstance()
 
+  var username : String!
+
   override func viewDidLoad() {
     super.viewDidLoad()
+
+    username = backendless.userService.currentUser.name
     navBarStyling()
     setUpForm()
   }
 
   //MARK: Eureka Form
   func setUpForm() {
-
     form +++ Section()
 
       <<< TextRow() {
         $0.title = "username"
-        $0.value = backendless.userService.currentUser.name
+        $0.value = username
+        }.onChange { [weak self] row in
+          self?.username = row.value
+          print(row.value)
     }
+  }
 
+  @IBAction func onSaveButtonTapped(sender: AnyObject) {
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    UserManager.changeUsername(username) { (fault) in
+      if fault != nil {
+        UIAlertController.showAlertWithFault(fault, forVC: self)
+      } else {
+        self.navigationController?.popViewControllerAnimated(true)
+      }
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+    }
   }
 
   func navBarStyling() {
