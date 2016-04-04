@@ -34,7 +34,6 @@ class PushManager {
   }
 
   class func registerForPush() {
-    func pushSetup() {
       let application = UIApplication.sharedApplication()
       if application.respondsToSelector(#selector(UIApplication.registerUserNotificationSettings(_:))) {
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
@@ -43,14 +42,17 @@ class PushManager {
         application.registerForRemoteNotificationTypes([.Badge, .Alert, .Sound])
       }
       application.registerForRemoteNotifications()
-    }
+      NSUserDefaults.standardUserDefaults().setBool(false, forKey: kDefaultsMuted)
+      NSUserDefaults.standardUserDefaults().synchronize()
   }
 
   class func cancelDeviceRegistrationAsync() {
     let backendless = Backendless.sharedInstance()
 
     backendless.messagingService.unregisterDeviceAsync({ (result) -> Void in
-        print("Server reported a result: \(result)")
+      print("Server reported a result: \(result)")
+        NSUserDefaults.standardUserDefaults().setBool(true, forKey: kDefaultsMuted)
+        NSUserDefaults.standardUserDefaults().synchronize()
       }) { (fault) -> Void in
         print("Server reported an error: \(fault)")
     }

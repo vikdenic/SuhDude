@@ -9,6 +9,7 @@
 import Foundation
 
 let kNotifPushReceived = "pushReceived"
+let kDefaultsMuted = "muted"
 
 extension UIAlertController {
   class func showAlert(title : String!, message : String!, viewController : UIViewController)

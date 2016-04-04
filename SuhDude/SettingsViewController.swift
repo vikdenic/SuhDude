@@ -30,7 +30,7 @@ class SettingsViewController: FormViewController {
 
     <<< SwitchRow() {
       $0.title = "Mute App"
-      $0.value = false
+      $0.value = NSUserDefaults.standardUserDefaults().boolForKey(kDefaultsMuted)
       }.onChange {
         if $0.value == true {
           self.muteApp = true
