@@ -95,4 +95,16 @@ class UserManager {
     }
   }
 
+  class func saveSpiritEmoji(emojiString : String, completed : (fault : Fault?) -> Void) {
+    let backendless = Backendless.sharedInstance()
+
+    backendless.userService.currentUser.setProperty("spiritEmoji", object: emojiString.toUnicode())
+
+    backendless.userService.update(backendless.userService.currentUser, response: { (updatedUser) in
+      completed(fault: nil)
+    }) { (fault) in
+      completed(fault: fault)
+    }
+  }
+
 }

@@ -31,6 +31,11 @@ class MainTableViewCell: UITableViewCell {
     configureLoadingState()
     usernameLabel.text = friendship.friend().name
 
+    if String(friendship.friend().getProperty("spiritEmoji")).fromUnicode().containsEmoji() {
+      usernameLabel.text! += " "
+      usernameLabel.text! += String(friendship.friend().getProperty("spiritEmoji")).fromUnicode()
+    }
+
     if let lastSender = friendship.recentSender {
       deliveryImageView.image = lastSender.isCurrentUser() ? UIImage(named: kImageSent) : UIImage(named: kImageReceived)
     } else {
