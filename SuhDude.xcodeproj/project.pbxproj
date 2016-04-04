@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		932AEBFC1CA367CF00E0C68D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932AEBFB1CA367CF00E0C68D /* MainTableViewCell.swift */; };
 		93463C301C95D6A00069B52B /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93463C2F1C95D6A00069B52B /* Friendship.swift */; };
+		936834F21CB2E878000B0C7D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936834F11CB2E878000B0C7D /* EditProfileViewController.swift */; };
 		93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */; };
 		93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */; };
 		93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB431C88F2F9005D2AF7 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		932AEBFB1CA367CF00E0C68D /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		93463C2F1C95D6A00069B52B /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
+		936834F11CB2E878000B0C7D /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		93BCBB3C1C88F2F9005D2AF7 /* Suh Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Suh Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */,
 				93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */,
 				93FE614F1CA661DD004744A9 /* SettingsViewController.swift */,
+				936834F11CB2E878000B0C7D /* EditProfileViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -887,6 +890,7 @@
 				93463C301C95D6A00069B52B /* Friendship.swift in Sources */,
 				93DD15CE1C951187004DBCEE /* MBProgressHUD.m in Sources */,
 				93BCBC451C8B6314005D2AF7 /* UserManager.swift in Sources */,
+				936834F21CB2E878000B0C7D /* EditProfileViewController.swift in Sources */,
 				93BCBC391C8B3162005D2AF7 /* SignUpViewController.swift in Sources */,
 				93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */,
 				93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */,

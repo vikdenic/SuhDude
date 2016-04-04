@@ -27,12 +27,7 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
-
-    title = "Add Friends"
-    self.navigationController?.navigationBar.titleTextAttributes =
-      [NSForegroundColorAttributeName: UIColor.whiteColor(),
-       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
-    navigationController?.navigationBar.topItem?.title = ""
+    navBarStyling()
   }
 
   func retrieveUsersAndSetData() {
@@ -47,6 +42,14 @@ class AddFriendsViewController: UIViewController {
       MBProgressHUD.hideHUDForView(self.view, animated: true)
       self.tableView.reloadData()
     }
+  }
+
+  func navBarStyling() {
+    title = "Add Friends"
+    self.navigationController?.navigationBar.titleTextAttributes =
+      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
+    navigationController?.navigationBar.topItem?.title = ""
   }
 }
 

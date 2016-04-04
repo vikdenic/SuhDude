@@ -14,12 +14,18 @@ class SettingsViewController: FormViewController {
   var backendless = Backendless.sharedInstance()
   var muteApp = false
 
+  let kSegueToEdit = "settingsToEdit"
+
   @IBOutlet var dismissBarButton: UIBarButtonItem!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
     setUpForm()
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     setupTitle()
   }
 
@@ -44,19 +50,11 @@ class SettingsViewController: FormViewController {
         }
     }
 
-//    <<< LabelRow () {
-//      $0.title = "Mute Specific Friends"
-//      $0.value = ">"
-//      }
-//      .onCellSelection { cell, row in
-//        print("Mute specific row tapped")
-//    }
-
     +++ Section("")
 
-      <<< LabelRow () {
-        $0.title = "Edit Profile"
-        $0.value = ">"
+      <<< ButtonRow("Edit Profile") {
+        $0.title = $0.tag
+        $0.presentationMode = .SegueName(segueName: kSegueToEdit, completionCallback: nil)
         }
         .onCellSelection { cell, row in
           print("Edit profile row tapped")
@@ -64,19 +62,21 @@ class SettingsViewController: FormViewController {
 
       +++ Section("")
 
-      <<< LabelRow () {
+      <<< ButtonRow () {
         $0.title = "Logout"
-        $0.value = ""
+
         }
         .onCellSelection { cell, row in
           self.initiateLogout()
           print("Logout row tapped")
+        }.cellUpdate {
+          $0.cell.textLabel?.textColor = .redColor()
     }
 
   }
 
   func setupTitle() {
-    title = backendless.userService.currentUser.name
+    navigationController?.navigationBar.topItem?.title = backendless.userService.currentUser.name
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
