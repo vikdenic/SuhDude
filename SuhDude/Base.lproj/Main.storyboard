@@ -353,6 +353,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="fsC-2Y-FgL">
                         <barButtonItem key="rightBarButtonItem" image="xIcon" id="3kI-FP-dcy">
+                            <color key="tintColor" red="0.10980392156862745" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onDismissTapped:" destination="CwM-TF-MHM" id="v62-AK-fss"/>
                             </connections>
@@ -525,10 +526,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XNO-4p-IUX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.078431372550000003" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.078431372550000003" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
-                        </textAttributes>
+                        <color key="tintColor" red="0.10980392160000001" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

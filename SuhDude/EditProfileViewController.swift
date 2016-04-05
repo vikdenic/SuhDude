@@ -20,13 +20,17 @@ class EditProfileViewController: FormViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    navBarStyling()
 
     username = backendless.userService.currentUser.name
     if String(backendless.userService.currentUser.getProperty("spiritEmoji")).fromUnicode().emoIsPureEmoji() {
       emojiString = String(backendless.userService.currentUser.getProperty("spiritEmoji")).fromUnicode()
     }
     setUpForm()
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    navBarStyling()
   }
 
   //MARK: Eureka Form
@@ -98,15 +102,12 @@ class EditProfileViewController: FormViewController {
   }
 
   func navBarStyling() {
-    title = "Edit Profile"
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+      [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
-    navigationController?.navigationBar.topItem?.title = ""
-
-    saveBarButton.setTitleTextAttributes([
-      NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
-                                                              forState: UIControlState.Normal)
+    //    navigationController?.navigationBar.topItem?.title = ""
+    navigationController?.viewControllers[0].title = "" //removes back button text
+    title = "Edit Profile"
   }
 
 }

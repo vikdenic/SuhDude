@@ -82,7 +82,7 @@ class SettingsViewController: FormViewController {
   }
 
   func setupTitle() {
-    navigationController?.navigationBar.topItem?.title = "Settings"
+    title = "Settings"
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
