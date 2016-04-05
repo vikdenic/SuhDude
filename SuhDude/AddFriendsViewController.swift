@@ -51,7 +51,7 @@ class AddFriendsViewController: UIViewController {
   func navBarStyling() {
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
-       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
+       NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 20)!]
 //    navigationController?.navigationBar.topItem?.title = ""
     navigationController?.viewControllers[0].title = "" //removes back button text
     title = "Add Friends"
