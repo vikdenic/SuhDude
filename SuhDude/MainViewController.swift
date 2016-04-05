@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
 
   var backendless = Backendless.sharedInstance()
   let kSegueMainToSignUp = "mainToSignUp"
+  let kSegueMainToAddFriends = "mainToAddFriends"
   let kCellIDMain = "mainCell"
 
   var loadingIndexPaths = NSMutableSet()

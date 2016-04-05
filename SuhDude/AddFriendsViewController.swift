@@ -27,7 +27,18 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
+    print("view did load")
+  }
+
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     navBarStyling()
+    print("view will appear")
+  }
+
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    print("view did appear")
   }
 
   func retrieveUsersAndSetData() {
@@ -45,11 +56,13 @@ class AddFriendsViewController: UIViewController {
   }
 
   func navBarStyling() {
-    title = "Add Friends"
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
-    navigationController?.navigationBar.topItem?.title = ""
+//    navigationController?.navigationBar.topItem?.title = ""
+    navigationController?.viewControllers[0].title = "" //removes back button text
+    title = "Add Friends"
+
   }
 }
 
