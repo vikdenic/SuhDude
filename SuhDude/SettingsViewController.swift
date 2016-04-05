@@ -34,6 +34,16 @@ class SettingsViewController: FormViewController {
 
     form = Section()
 
+    <<< ButtonRow("Edit Profile") {
+      $0.title = $0.tag
+      $0.presentationMode = .SegueName(segueName: kSegueToEdit, completionCallback: nil)
+      }
+      .onCellSelection { cell, row in
+        print("Edit profile row tapped")
+    }
+
+    +++ Section("")
+
     <<< SwitchRow() {
       $0.title = "Mute App"
       $0.value = NSUserDefaults.standardUserDefaults().boolForKey(kDefaultsMuted)
@@ -52,25 +62,15 @@ class SettingsViewController: FormViewController {
 
     +++ Section("")
 
-      <<< ButtonRow("Edit Profile") {
-        $0.title = $0.tag
-        $0.presentationMode = .SegueName(segueName: kSegueToEdit, completionCallback: nil)
-        }
-        .onCellSelection { cell, row in
-          print("Edit profile row tapped")
-    }
+    <<< ButtonRow () {
+      $0.title = "Logout"
 
-      +++ Section("")
-
-      <<< ButtonRow () {
-        $0.title = "Logout"
-
-        }
-        .onCellSelection { cell, row in
-          self.initiateLogout()
-          print("Logout row tapped")
-        }.cellUpdate {
-          $0.cell.textLabel?.textColor = .redColor()
+      }
+      .onCellSelection { cell, row in
+        self.initiateLogout()
+        print("Logout row tapped")
+      }.cellUpdate {
+        $0.cell.textLabel?.textColor = .redColor()
     }
 
   }

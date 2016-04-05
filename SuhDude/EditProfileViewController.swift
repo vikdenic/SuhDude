@@ -31,7 +31,7 @@ class EditProfileViewController: FormViewController {
 
   //MARK: Eureka Form
   func setUpForm() {
-    form +++ Section(footer:"Spirit emojis appear next to a user's name")
+    form +++ Section(footer:"Your spirit emoji appears next to your username")
 
       <<< TextRow() {
         $0.title = "Username"
@@ -75,9 +75,6 @@ class EditProfileViewController: FormViewController {
     } else if !emojiString.containsEmoji() {
       UIAlertController.showAlert("Your spirit emoji must be an emoji character", message: nil, viewController: self)
       return
-    } else if emojiString.characters.count > 1 {
-      UIAlertController.showAlert("Your spirit emoji must be one emoji character", message: nil, viewController: self)
-      return
     }
 
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
@@ -118,7 +115,12 @@ extension EditProfileViewController: UITextFieldDelegate {
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
     guard let text = textField.text else { return true }
 
+    if string.toUnicode().characters.count == 24 && (textField.text?.isEmpty)! {
+      return true
+    }
+
     let newLength = text.characters.count + string.characters.count - range.length
+    print(string.toUnicode())
     return newLength <= 1 // Bool
   }
 }

@@ -33,7 +33,7 @@ class AddFriendsViewController: UIViewController {
     super.viewWillAppear(animated)
     navBarStyling()
   }
-  
+
   func retrieveUsersAndSetData() {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
@@ -55,7 +55,6 @@ class AddFriendsViewController: UIViewController {
 //    navigationController?.navigationBar.topItem?.title = ""
     navigationController?.viewControllers[0].title = "" //removes back button text
     title = "Add Friends"
-
   }
 }
 
