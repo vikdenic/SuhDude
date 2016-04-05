@@ -41,6 +41,7 @@ class EditProfileViewController: FormViewController {
         $0.title = "Username"
         $0.value = username
         }.cellUpdate {
+          $0.cell.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16.5)
           $0.cell.textField.autocorrectionType = .No
           $0.cell.textField.autocapitalizationType = .None
         }.onChange { [weak self] row in
@@ -58,6 +59,7 @@ class EditProfileViewController: FormViewController {
         }
 
         }.cellUpdate {
+          $0.cell.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16.5)
           $0.cell.textField.autocorrectionType = .No
           $0.cell.textField.autocapitalizationType = .None
           $0.cell.textField.delegate = self
@@ -104,7 +106,7 @@ class EditProfileViewController: FormViewController {
   func navBarStyling() {
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
-       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
+       NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 20)!]
     //    navigationController?.navigationBar.topItem?.title = ""
     navigationController?.viewControllers[0].title = "" //removes back button text
     title = "Edit Profile"

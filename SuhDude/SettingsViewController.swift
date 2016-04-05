@@ -45,13 +45,17 @@ class SettingsViewController: FormViewController {
       }
       .onCellSelection { cell, row in
         print("Edit profile row tapped")
-    }
+      }.cellUpdate {
+        $0.cell.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16.5)
+      }
 
     +++ Section("Account Actions")
 
     <<< SwitchRow() {
       $0.title = "Mute App"
       $0.value = NSUserDefaults.standardUserDefaults().boolForKey(kDefaultsMuted)
+      }.cellUpdate {
+        $0.cell.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16.5)
       }.onChange {
         if $0.value == true {
           self.muteApp = true
@@ -77,6 +81,7 @@ class SettingsViewController: FormViewController {
         print("Logout row tapped")
       }.cellUpdate {
         $0.cell.textLabel?.textColor = .customRed()
+        $0.cell.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16.5)
     }
 
   }
@@ -85,11 +90,7 @@ class SettingsViewController: FormViewController {
     title = "Settings"
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
-       NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
-
-    dismissBarButton.setTitleTextAttributes([
-      NSFontAttributeName : UIFont(name: "AvenirNext-DemiBold", size: 18)!],
-                                            forState: UIControlState.Normal)
+       NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 20)!]
   }
 
   @IBAction func onDismissTapped(sender: AnyObject) {

@@ -353,7 +353,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="fsC-2Y-FgL">
                         <barButtonItem key="rightBarButtonItem" image="xIcon" id="3kI-FP-dcy">
-                            <color key="tintColor" red="0.10980392156862745" green="0.57647058823529407" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onDismissTapped:" destination="CwM-TF-MHM" id="v62-AK-fss"/>
                             </connections>
