@@ -107,7 +107,9 @@ class EditProfileViewController: FormViewController {
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
        NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 20)!]
-    //    navigationController?.navigationBar.topItem?.title = ""
+    saveBarButton.setTitleTextAttributes([
+      NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 18)!],
+                                          forState: UIControlState.Normal)
     navigationController?.viewControllers[0].title = "" //removes back button text
     title = "Edit Profile"
   }
