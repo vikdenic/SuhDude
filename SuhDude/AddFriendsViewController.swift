@@ -27,20 +27,13 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
-    print("view did load")
   }
 
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     navBarStyling()
-    print("view will appear")
   }
-
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
-    print("view did appear")
-  }
-
+  
   func retrieveUsersAndSetData() {
     MBProgressHUD.showHUDAddedTo(self.view, animated: true)
 
