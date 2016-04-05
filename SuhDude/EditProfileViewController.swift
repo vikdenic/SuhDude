@@ -106,7 +106,7 @@ class EditProfileViewController: FormViewController {
   func navBarStyling() {
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
-       NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 20)!]
+       NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 19)!]
     saveBarButton.setTitleTextAttributes([
       NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 18)!],
                                           forState: UIControlState.Normal)
