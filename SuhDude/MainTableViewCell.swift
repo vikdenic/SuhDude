@@ -32,7 +32,7 @@ class MainTableViewCell: UITableViewCell {
     usernameLabel.text = friendship.friend().name
 
     if String(friendship.friend().getProperty("spiritEmoji")).fromUnicode().emoIsPureEmoji() {
-      usernameLabel.text = "  " + usernameLabel.text! + " " + String(friendship.friend().getProperty("spiritEmoji")).fromUnicode()
+      usernameLabel.text = " " + usernameLabel.text! + " " + String(friendship.friend().getProperty("spiritEmoji")).fromUnicode()
     }
 
     if let lastSender = friendship.recentSender {
