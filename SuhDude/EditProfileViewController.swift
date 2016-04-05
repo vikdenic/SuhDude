@@ -23,7 +23,7 @@ class EditProfileViewController: FormViewController {
     navBarStyling()
 
     username = backendless.userService.currentUser.name
-    if String(backendless.userService.currentUser.getProperty("spiritEmoji")).fromUnicode().containsEmoji() {
+    if String(backendless.userService.currentUser.getProperty("spiritEmoji")).fromUnicode().emoIsPureEmoji() {
       emojiString = String(backendless.userService.currentUser.getProperty("spiritEmoji")).fromUnicode()
     }
     setUpForm()
@@ -72,7 +72,7 @@ class EditProfileViewController: FormViewController {
     } else if emojiString == nil {
       UIAlertController.showAlert("Your spirit emoji must be an emoji character", message: nil, viewController: self)
       return
-    } else if !emojiString.containsEmoji() {
+    } else if !emojiString.emoIsPureEmoji() {
       UIAlertController.showAlert("Your spirit emoji must be an emoji character", message: nil, viewController: self)
       return
     }

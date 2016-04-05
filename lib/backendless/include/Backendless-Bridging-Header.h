@@ -21,3 +21,4 @@
 
 #import "Backendless.h"
 #import "MBProgressHUD.h"
+#import "NSString+EMOEmoji.h"

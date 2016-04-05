@@ -10,6 +10,7 @@
 		932AEBFC1CA367CF00E0C68D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932AEBFB1CA367CF00E0C68D /* MainTableViewCell.swift */; };
 		93463C301C95D6A00069B52B /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93463C2F1C95D6A00069B52B /* Friendship.swift */; };
 		936834F21CB2E878000B0C7D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936834F11CB2E878000B0C7D /* EditProfileViewController.swift */; };
+		936834F51CB33E83000B0C7D /* NSString+EMOEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */; };
 		93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */; };
 		93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */; };
 		93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB431C88F2F9005D2AF7 /* Main.storyboard */; };
@@ -65,6 +66,8 @@
 		932AEBFB1CA367CF00E0C68D /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		93463C2F1C95D6A00069B52B /* Friendship.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friendship.swift; sourceTree = "<group>"; };
 		936834F11CB2E878000B0C7D /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		936834F31CB33E83000B0C7D /* NSString+EMOEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EMOEmoji.h"; sourceTree = "<group>"; };
+		936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EMOEmoji.m"; sourceTree = "<group>"; };
 		93BCBB3C1C88F2F9005D2AF7 /* Suh Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Suh Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -305,7 +308,6 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
-				93CCFA021CB1B17F0089B7E4 /* Eureka.framework */,
 				93FE61561CA75941004744A9 /* Libraries */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
@@ -373,6 +375,8 @@
 			isa = PBXGroup;
 			children = (
 				93BCBC411C8B57D5005D2AF7 /* Extensions.swift */,
+				936834F31CB33E83000B0C7D /* NSString+EMOEmoji.h */,
+				936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -786,6 +790,7 @@
 			isa = PBXGroup;
 			children = (
 				93BCBC2F1C890B15005D2AF7 /* Backendless */,
+				93CCFA021CB1B17F0089B7E4 /* Eureka.framework */,
 				93FE61521CA7585E004744A9 /* Fabric.framework */,
 				93FE61531CA7585E004744A9 /* Crashlytics.framework */,
 			);
@@ -896,6 +901,7 @@
 				93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */,
 				93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */,
 				93FE61501CA661DD004744A9 /* SettingsViewController.swift in Sources */,
+				936834F51CB33E83000B0C7D /* NSString+EMOEmoji.m in Sources */,
 				932AEBFC1CA367CF00E0C68D /* MainTableViewCell.swift in Sources */,
 				93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */,
 			);
