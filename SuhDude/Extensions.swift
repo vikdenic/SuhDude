@@ -39,7 +39,11 @@ extension UIAlertController {
 
 extension UIColor {
   class func customBlueGreen() -> UIColor {
-    return UIColor(red: 14, green: 178, blue: 198, alpha: 1.0)
+    return UIColor(red: 26.0/255.0, green: 164.0/255.0, blue: 201.0/255.0, alpha: 1.0)
+  }
+
+  class func customRed() -> UIColor {
+    return UIColor(red: 252.0/255.0, green: 55.0/255.0, blue: 7.0/255.0, alpha: 1.0)
   }
 }
 

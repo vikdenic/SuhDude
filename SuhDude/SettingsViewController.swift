@@ -29,10 +29,15 @@ class SettingsViewController: FormViewController {
     setupTitle()
   }
 
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    UIApplication.sharedApplication().statusBarStyle = .Default
+  }
+
   //MARK: Eureka Form
   func setUpForm() {
 
-    form = Section()
+    form = Section("My Account")
 
     <<< ButtonRow("Edit Profile") {
       $0.title = $0.tag
@@ -42,7 +47,7 @@ class SettingsViewController: FormViewController {
         print("Edit profile row tapped")
     }
 
-    +++ Section("")
+    +++ Section("Account Actions")
 
     <<< SwitchRow() {
       $0.title = "Mute App"
@@ -62,15 +67,16 @@ class SettingsViewController: FormViewController {
 
     +++ Section("")
 
-    <<< ButtonRow () {
-      $0.title = "Logout"
+    <<< ButtonRow ("Logout") {
+      $0.title = $0.tag
+//      $0.presentationMode = .SegueName(segueName: kSegueToEdit, completionCallback: nil)
 
       }
       .onCellSelection { cell, row in
         self.initiateLogout()
         print("Logout row tapped")
       }.cellUpdate {
-        $0.cell.textLabel?.textColor = .redColor()
+        $0.cell.textLabel?.textColor = .customRed()
     }
 
   }
@@ -78,7 +84,7 @@ class SettingsViewController: FormViewController {
   func setupTitle() {
     navigationController?.navigationBar.topItem?.title = "Settings"
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+      [NSForegroundColorAttributeName: UIColor.customBlueGreen(),
        NSFontAttributeName: UIFont(name: "AvenirNext-DemiBold", size: 20)!]
 
     dismissBarButton.setTitleTextAttributes([
@@ -87,6 +93,7 @@ class SettingsViewController: FormViewController {
   }
 
   @IBAction func onDismissTapped(sender: AnyObject) {
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
     dismissViewControllerAnimated(true, completion: nil)
   }
 

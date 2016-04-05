@@ -352,7 +352,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="fsC-2Y-FgL">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="3kI-FP-dcy">
+                        <barButtonItem key="rightBarButtonItem" image="xIcon" id="3kI-FP-dcy">
                             <connections>
                                 <action selector="onDismissTapped:" destination="CwM-TF-MHM" id="v62-AK-fss"/>
                             </connections>
@@ -376,7 +376,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8LY-gR-wpf"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1mt-2F-enz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -522,11 +522,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cBP-cK-JNE" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XNO-4p-IUX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XNO-4p-IUX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.1019607843" green="0.64313725489999995" blue="0.78823529410000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.078431372550000003" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.078431372550000003" green="0.62352941179999999" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -542,5 +544,6 @@
         <image name="addCircle" width="22" height="22"/>
         <image name="addFriendImage" width="30" height="30"/>
         <image name="settingsImage" width="22" height="22"/>
+        <image name="xIcon" width="13" height="13"/>
     </resources>
 </document>

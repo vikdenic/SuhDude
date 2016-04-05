@@ -89,8 +89,8 @@
 		93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
 		93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		93CCFA021CB1B17F0089B7E4 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
-		93DD15CC1C951187004DBCEE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		93DD15CD1C951187004DBCEE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		93DD15CC1C951187004DBCEE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = SuhDude/MBProgressHUD.h; sourceTree = "<group>"; };
+		93DD15CD1C951187004DBCEE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = SuhDude/MBProgressHUD.m; sourceTree = "<group>"; };
 		93DD15D11C95CA05004DBCEE /* backendless.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = backendless.a; sourceTree = "<group>"; };
 		93DD15D31C95CA05004DBCEE /* AbstractProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractProperty.h; sourceTree = "<group>"; };
 		93DD15D41C95CA05004DBCEE /* AbstractQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractQuery.h; sourceTree = "<group>"; };
@@ -334,7 +334,6 @@
 				93BCBE321C8FBD1B005D2AF7 /* Cells */,
 				93BCBC401C8B551A005D2AF7 /* Utilities */,
 				93BCBE2F1C8F8FDB005D2AF7 /* Resources */,
-				93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */,
 			);
 			path = SuhDude;
 			sourceTree = "<group>";
@@ -403,12 +402,11 @@
 		93BCBE2F1C8F8FDB005D2AF7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
 				93BCBB461C88F2F9005D2AF7 /* Assets.xcassets */,
-				93DD15CC1C951187004DBCEE /* MBProgressHUD.h */,
-				93DD15CD1C951187004DBCEE /* MBProgressHUD.m */,
+				93BCBB4B1C88F2F9005D2AF7 /* Info.plist */,
 				93BCBC321C892C74005D2AF7 /* Audio */,
 				93BCBE2E1C8F8FCA005D2AF7 /* Fonts */,
+				93BCBB481C88F2F9005D2AF7 /* LaunchScreen.storyboard */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -789,6 +787,8 @@
 		93FE61561CA75941004744A9 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				93DD15CC1C951187004DBCEE /* MBProgressHUD.h */,
+				93DD15CD1C951187004DBCEE /* MBProgressHUD.m */,
 				93BCBC2F1C890B15005D2AF7 /* Backendless */,
 				93CCFA021CB1B17F0089B7E4 /* Eureka.framework */,
 				93FE61521CA7585E004744A9 /* Fabric.framework */,
