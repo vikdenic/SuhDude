@@ -33,8 +33,8 @@ class MainViewController: UIViewController {
     pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
 
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(checkForCurrentUser), name: kNotifPushReceived, object: nil)
-    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(checkForCurrentUser), name: UIApplicationWillEnterForegroundNotification, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: kNotifPushReceived, object: nil)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: UIApplicationWillEnterForegroundNotification, object: nil)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -65,19 +65,21 @@ class MainViewController: UIViewController {
   }
 
   func retrieveUsersAndSetData() {
-    Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
-      dispatch_async(dispatch_get_main_queue(),{
-        self.refreshControl.endRefreshing()
-        guard let friendships = friendships else {
-          return
-        }
-        self.friendships = friendships
+    if let currentUser = backendless.userService.currentUser {
+      Friendship.retrieveFriendshipsForUser(currentUser, includeGroups: false) { (friendships, fault) -> Void in
+        dispatch_async(dispatch_get_main_queue(),{
+          self.refreshControl.endRefreshing()
+          guard let friendships = friendships else {
+            return
+          }
+          self.friendships = friendships
 
-        self.noFriendsLabel.hidden = true
-        if friendships.count == 0 {
-          self.noFriendsLabel.hidden = false
-        }
-      })
+          self.noFriendsLabel.hidden = true
+          if friendships.count == 0 {
+            self.noFriendsLabel.hidden = false
+          }
+        })
+      }
     }
   }
 
