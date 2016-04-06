@@ -226,8 +226,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="X9u-tO-L8P">
-                                                    <rect key="frame" x="74" y="20" width="452" height="44"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="X9u-tO-L8P">
+                                                    <rect key="frame" x="82" y="20" width="436" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Xcb-O8-Okj"/>
                                                     </constraints>
@@ -243,7 +243,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xa-mO-DGY">
-                                                    <rect key="frame" x="506" y="33" width="78" height="21"/>
+                                                    <rect key="frame" x="509" y="33" width="78" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="8Su-Xv-69Y"/>
                                                     </constraints>
@@ -264,13 +264,13 @@
                                                 <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerX" secondItem="XiJ-w7-Nap" secondAttribute="centerX" constant="-3" id="H3K-OJ-eKY"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="-0.5" id="HV4-H4-Ip2"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerX" secondItem="nvJ-IX-Eas" secondAttribute="centerX" id="IrT-Vb-Gst"/>
-                                                <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="XiJ-w7-Nap" secondAttribute="trailing" constant="26" id="K3C-u6-QfC"/>
+                                                <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="XiJ-w7-Nap" secondAttribute="trailing" constant="34" id="K3C-u6-QfC"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="centerY" secondItem="X9u-tO-L8P" secondAttribute="centerY" constant="1.5" id="Ll4-Wx-Fms"/>
-                                                <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="66" id="ORT-Dx-Txp"/>
-                                                <constraint firstItem="3Xa-mO-DGY" firstAttribute="trailing" secondItem="nvJ-IX-Eas" secondAttribute="trailingMargin" constant="-8" id="Yc2-no-y5Q"/>
+                                                <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="74" id="ORT-Dx-Txp"/>
+                                                <constraint firstItem="3Xa-mO-DGY" firstAttribute="trailing" secondItem="nvJ-IX-Eas" secondAttribute="trailingMargin" constant="-5" id="Yc2-no-y5Q"/>
                                                 <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerY" secondItem="XiJ-w7-Nap" secondAttribute="centerY" id="iAK-cE-YB5"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="12" id="k9e-I8-Wnl"/>
-                                                <constraint firstItem="3Xa-mO-DGY" firstAttribute="leading" secondItem="X9u-tO-L8P" secondAttribute="trailing" constant="-20" id="l47-rE-jsd"/>
+                                                <constraint firstItem="3Xa-mO-DGY" firstAttribute="leading" secondItem="X9u-tO-L8P" secondAttribute="trailing" constant="-9" id="l47-rE-jsd"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="2.25" id="xP0-99-KzN"/>
                                             </constraints>
                                             <variation key="default">
