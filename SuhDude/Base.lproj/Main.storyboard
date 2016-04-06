@@ -231,7 +231,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Xcb-O8-Okj"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="23"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -252,23 +252,23 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="KX1-Pp-yTI">
-                                                    <rect key="frame" x="20" y="33" width="22" height="22"/>
+                                                    <rect key="frame" x="20" y="33" width="28" height="22"/>
                                                     <color key="color" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 </activityIndicatorView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="width" secondItem="XiJ-w7-Nap" secondAttribute="width" constant="-6" id="7Jb-a0-AaQ"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="1" id="9xg-hZ-wmJ"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" id="ALJ-Bj-phM"/>
-                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="height" secondItem="XiJ-w7-Nap" secondAttribute="height" id="Bpd-Nw-tUa"/>
-                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerX" secondItem="XiJ-w7-Nap" secondAttribute="centerX" constant="-3" id="H3K-OJ-eKY"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="-0.5" id="HV4-H4-Ip2"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="centerX" secondItem="nvJ-IX-Eas" secondAttribute="centerX" id="IrT-Vb-Gst"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="XiJ-w7-Nap" secondAttribute="trailing" constant="34" id="K3C-u6-QfC"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="centerY" secondItem="X9u-tO-L8P" secondAttribute="centerY" constant="1.5" id="Ll4-Wx-Fms"/>
                                                 <constraint firstItem="X9u-tO-L8P" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="74" id="ORT-Dx-Txp"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="width" secondItem="XiJ-w7-Nap" secondAttribute="width" id="PkG-hs-x8q"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerY" secondItem="XiJ-w7-Nap" secondAttribute="centerY" id="SxI-Q4-2qQ"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="trailing" secondItem="nvJ-IX-Eas" secondAttribute="trailingMargin" constant="-5" id="Yc2-no-y5Q"/>
-                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerY" secondItem="XiJ-w7-Nap" secondAttribute="centerY" id="iAK-cE-YB5"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="centerX" secondItem="XiJ-w7-Nap" secondAttribute="centerX" id="giO-5U-5Nb"/>
+                                                <constraint firstItem="KX1-Pp-yTI" firstAttribute="height" secondItem="XiJ-w7-Nap" secondAttribute="height" id="jGR-QO-h9y"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="leading" secondItem="nvJ-IX-Eas" secondAttribute="leadingMargin" constant="12" id="k9e-I8-Wnl"/>
                                                 <constraint firstItem="3Xa-mO-DGY" firstAttribute="leading" secondItem="X9u-tO-L8P" secondAttribute="trailing" constant="-9" id="l47-rE-jsd"/>
                                                 <constraint firstItem="XiJ-w7-Nap" firstAttribute="centerY" secondItem="nvJ-IX-Eas" secondAttribute="centerY" constant="2.25" id="xP0-99-KzN"/>
