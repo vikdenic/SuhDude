@@ -20,7 +20,6 @@ class SettingsViewController: FormViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-
     setUpForm()
   }
 
@@ -71,7 +70,7 @@ class SettingsViewController: FormViewController {
 
     +++ Section("")
 
-    <<< ButtonRow ("Logout") {
+    <<< ButtonRow ("Log Out") {
       $0.title = $0.tag
 //      $0.presentationMode = .SegueName(segueName: kSegueToEdit, completionCallback: nil)
 
@@ -121,7 +120,7 @@ class SettingsViewController: FormViewController {
       MBProgressHUD.hideHUDForView(self.view, animated: true)
       PushManager.cancelDeviceRegistrationAsync()
       self.dismissViewControllerAnimated(true, completion: nil)
-      
+      UIApplication.sharedApplication().statusBarStyle = .LightContent
     }) { (fault) -> Void in
       print("Server reported an error: \(fault)")
       if self.backendless.userService.currentUser == nil { //current workaround for bug
