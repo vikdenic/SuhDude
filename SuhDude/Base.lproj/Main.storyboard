@@ -25,7 +25,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wqU-IJ-FaM">
                                 <rect key="frame" x="0.0" y="534" width="600" height="66"/>
-                                <color key="backgroundColor" red="0.62745098039215685" green="0.90588235294117647" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="hjo-gs-6ks"/>
                                 </constraints>
@@ -64,7 +64,7 @@
                                     <constraint firstAttribute="height" constant="105" id="13o-Hf-jGX"/>
                                     <constraint firstAttribute="width" constant="254" id="r0D-Zv-J3W"/>
                                 </constraints>
-                                <string key="text">🔊  informal  |  /sə do͞od/                                           1. What's up, dude?                        2. Communication app</string>
+                                <string key="text">🔊  informal  |  /sə do͞o/                                           1. What's up, dude?                        2. Communication app</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.80000000000000004" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SdU-sX-hEq" firstAttribute="width" secondItem="D6I-1g-Twn" secondAttribute="width" id="55b-A0-0Fv"/>
                             <constraint firstItem="SdU-sX-hEq" firstAttribute="height" secondItem="D6I-1g-Twn" secondAttribute="height" id="5Ok-Ai-TTq"/>
@@ -128,7 +128,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBD-qX-tba">
                                 <rect key="frame" x="0.0" y="302" width="600" height="66"/>
-                                <color key="backgroundColor" red="0.62745098039215685" green="0.90588235294117647" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.4823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="cJL-1K-PlV"/>
                                 </constraints>
@@ -172,7 +172,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.15686274509803921" green="0.80000000000000004" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dBD-qX-tba" firstAttribute="leading" secondItem="iLS-gm-8eJ" secondAttribute="leadingMargin" constant="-20" id="5Yk-qX-n8e"/>
                             <constraint firstItem="Qwm-o8-OJK" firstAttribute="leading" secondItem="iLS-gm-8eJ" secondAttribute="leadingMargin" constant="-20" id="HMV-Ac-zFZ"/>
@@ -231,7 +231,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Xcb-O8-Okj"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="23"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="24"/>
                                                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -353,7 +353,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="fsC-2Y-FgL">
                         <barButtonItem key="rightBarButtonItem" image="xIcon" id="3kI-FP-dcy">
-                            <color key="tintColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.13725490200000001" green="0.69803921570000005" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onDismissTapped:" destination="CwM-TF-MHM" id="v62-AK-fss"/>
                             </connections>
@@ -383,6 +383,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Edit Profile" id="EHT-th-SdB">
                         <barButtonItem key="rightBarButtonItem" title="Save" id="I67-vA-ID2">
+                            <color key="tintColor" red="0.13725490200000001" green="0.69803921570000005" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="onSaveButtonTapped:" destination="eKa-cg-ffr" id="0ww-2T-RBG"/>
                             </connections>
@@ -507,7 +508,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.10196078431372549" green="0.64313725490196072" blue="0.78823529411764703" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.13725490196078433" green="0.69803921568627447" blue="0.69411764705882351" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -526,7 +527,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="XNO-4p-IUX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.10980392160000001" green="0.57647058819999997" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.13725490200000001" green="0.69803921570000005" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
