@@ -73,8 +73,8 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     composeVC.messageComposeDelegate = self
 
     // Configure the fields of the interface.
-    composeVC.recipients = ["4085551212"]
-    composeVC.body = "dude, go download the Suh Dude app https://itunes.apple.com/us/app/martian-monster/id1031395193?mt=8"
+//    composeVC.recipients = ["4085551212"]
+    composeVC.body = "dude, download the Suh Dude app: http://onelink.to/suhdude"
 
     // Present the view controller modally.
     self.presentViewController(composeVC, animated: true, completion: nil)
