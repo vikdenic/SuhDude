@@ -84,8 +84,9 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     searchController.searchResultsUpdater = self
     searchController.delegate = self
     searchController.dimsBackgroundDuringPresentation = false
-    definesPresentationContext = true
+    searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
+    definesPresentationContext = true
   }
 
   func navBarStyling() {
