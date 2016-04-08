@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
   @IBOutlet var noFriendsLabel: UILabel!
 
   var refreshControl = UIRefreshControl()
+  let searchController = UISearchController(searchResultsController: nil)
 
   var backendless = Backendless.sharedInstance()
   let kSegueMainToSignUp = "mainToSignUp"
@@ -28,10 +29,18 @@ class MainViewController: UIViewController {
     }
   }
 
+  var filteredFriendships = [Friendship]() {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
+
   override func viewDidLoad() {
     super.viewDidLoad()
     pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
+    searchSetup()
+    tableView.hideSearchBar()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: kNotifPushReceived, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: UIApplicationWillEnterForegroundNotification, object: nil)
@@ -73,6 +82,7 @@ class MainViewController: UIViewController {
             return
           }
           self.friendships = friendships
+          self.filteredFriendships = self.friendships
 
           self.noFriendsLabel.hidden = true
           if friendships.count == 0 {
@@ -95,6 +105,22 @@ class MainViewController: UIViewController {
     }
   }
 
+  func searchSetup() {
+    searchController.searchResultsUpdater = self
+    searchController.delegate = self
+    searchController.dimsBackgroundDuringPresentation = false
+    searchController.searchBar.sizeToFit()
+    tableView.tableHeaderView = searchController.searchBar
+    definesPresentationContext = true
+  }
+
+  func filterContentForSearchText(searchText: String, scope: String = "All") {
+    filteredFriendships = friendships.filter { friendship in
+      return friendship.friend().name.lowercaseString.containsString(searchText.lowercaseString)
+    }
+    tableView.reloadData()
+  }
+
   deinit {
     NSNotificationCenter.defaultCenter().removeObserver(self)
   }
@@ -103,13 +129,13 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return friendships.count
+    return filteredFriendships.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIDMain) as! MainTableViewCell
     cell.isLoading = loadingIndexPaths.containsObject(indexPath)
-    cell.friendship = friendships[indexPath.row]
+    cell.friendship = filteredFriendships[indexPath.row]
     return cell
   }
 
@@ -120,7 +146,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
       self.loadingIndexPaths.addObject(indexPath)
       self.tableView.reloadData()
 
-      let friendship = friendships[indexPath.row]
+      let friendship = filteredFriendships[indexPath.row]
       friendship.update(backendless.userService.currentUser) { (fault) -> Void in
         if fault != nil {
           self.loadingIndexPaths.removeObject(indexPath)
@@ -131,7 +157,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             if fault != nil {
 
             } else {
-              self.friendships.moveItem(fromIndex: indexPath.row, toIndex: 0)
+              self.filteredFriendships.moveItem(fromIndex: indexPath.row, toIndex: 0)
             }
             self.loadingIndexPaths.removeObject(indexPath)
             self.tableView.reloadData()
@@ -139,5 +165,27 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         }
       }
     }
+  }
+}
+
+extension MainViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+
+  //MARK -UISearchResultsUpdating
+  func updateSearchResultsForSearchController(searchController: UISearchController) {
+    if searchController.searchBar.text!.isEmpty {
+      filteredFriendships = friendships
+      return
+    }
+
+    filterContentForSearchText(searchController.searchBar.text!)
+  }
+
+  //MARK - UISearchControllerDelegate
+  func willPresentSearchController(searchController: UISearchController) {
+    filteredFriendships = friendships
+  }
+
+  func willDismissSearchController(searchController: UISearchController) {
+    filteredFriendships = friendships
   }
 }
