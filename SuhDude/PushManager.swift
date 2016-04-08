@@ -19,7 +19,7 @@ class PushManager {
     deliveryOptions.pushPolicy(PUSH_ONLY)
 
     let publishOptions = PublishOptions()
-    publishOptions.headers = ["ios-sound":"suhDude2NL.aif"]
+    publishOptions.headers = ["ios-sound":"suhDude2NL.aif", "ios-badge":1]
 
     backendless.messaging.publish(channel, message: message, publishOptions:publishOptions, deliveryOptions:deliveryOptions,
       response:{ ( messageStatus : MessageStatus!) -> () in

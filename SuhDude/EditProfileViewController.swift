@@ -44,6 +44,8 @@ class EditProfileViewController: FormViewController {
           $0.cell.textLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16.5)
           $0.cell.textField.autocorrectionType = .No
           $0.cell.textField.autocapitalizationType = .None
+          $0.cell.textField.delegate = self
+          $0.cell.textField.tag = 1
         }.onChange { [weak self] row in
           self?.username = row.value
       }
@@ -63,6 +65,7 @@ class EditProfileViewController: FormViewController {
           $0.cell.textField.autocorrectionType = .No
           $0.cell.textField.autocapitalizationType = .None
           $0.cell.textField.delegate = self
+          $0.cell.textField.tag = 2
         }.onChange { [weak self] row in
           self?.emojiString = row.value
       }
@@ -118,6 +121,14 @@ class EditProfileViewController: FormViewController {
 
 extension EditProfileViewController: UITextFieldDelegate {
   func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+
+    if textField.tag == 1 {
+      guard let text = textField.text else { return true }
+
+      let newLength = text.characters.count + string.characters.count - range.length
+      return newLength <= 14 // Bool
+    }
+
     guard let text = textField.text else { return true }
 
     if string.toUnicode().characters.count == 24 && (textField.text?.isEmpty)! {
