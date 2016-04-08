@@ -472,7 +472,15 @@
                             <constraint firstItem="0Xc-ue-t8e" firstAttribute="top" secondItem="PHU-zv-EjK" secondAttribute="bottom" id="tiv-2i-FUx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aOz-fD-age">
+                        <barButtonItem key="rightBarButtonItem" title="Invite" id="nF0-Fa-FHi">
+                            <connections>
+                                <action selector="onInviteButtonTapped:" destination="KLe-LF-j0i" id="PLx-2u-9Iz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="inviteBarButton" destination="nF0-Fa-FHi" id="SaO-A1-d6q"/>
                         <outlet property="tableView" destination="PHU-zv-EjK" id="lAF-3V-AEM"/>
                     </connections>
                 </viewController>

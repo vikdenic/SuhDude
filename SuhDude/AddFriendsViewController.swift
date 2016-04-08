@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MessageUI
 
-class AddFriendsViewController: UIViewController {
+class AddFriendsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
+  @IBOutlet var inviteBarButton: UIBarButtonItem!
   @IBOutlet var tableView: UITableView!
   let searchController = UISearchController(searchResultsController: nil)
 
@@ -60,6 +62,24 @@ class AddFriendsViewController: UIViewController {
     tableView.reloadData()
   }
 
+  @IBAction func onInviteButtonTapped(sender: AnyObject) {
+
+    guard MFMessageComposeViewController.canSendText() else {
+      print("SMS services are not available")
+      return
+    }
+
+    let composeVC = MFMessageComposeViewController()
+    composeVC.messageComposeDelegate = self
+
+    // Configure the fields of the interface.
+    composeVC.recipients = ["4085551212"]
+    composeVC.body = "dude, go download the Suh Dude app https://itunes.apple.com/us/app/martian-monster/id1031395193?mt=8"
+
+    // Present the view controller modally.
+    self.presentViewController(composeVC, animated: true, completion: nil)
+  }
+
   func searchSetup() {
     searchController.searchResultsUpdater = self
     searchController.delegate = self
@@ -75,6 +95,14 @@ class AddFriendsViewController: UIViewController {
 //    navigationController?.navigationBar.topItem?.title = ""
     navigationController?.viewControllers[0].title = "" //removes back button text
     title = "Add Friends"
+
+    inviteBarButton.setTitleTextAttributes([
+      NSFontAttributeName : UIFont(name: "AvenirNext-Medium", size: 18)!],
+                                         forState: UIControlState.Normal)
+  }
+
+  func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+    controller.dismissViewControllerAnimated(true, completion: nil)
   }
 }
 

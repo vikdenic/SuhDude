@@ -11,6 +11,7 @@
 		93463C301C95D6A00069B52B /* Friendship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93463C2F1C95D6A00069B52B /* Friendship.swift */; };
 		936834F21CB2E878000B0C7D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936834F11CB2E878000B0C7D /* EditProfileViewController.swift */; };
 		936834F51CB33E83000B0C7D /* NSString+EMOEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */; };
+		936834F81CB73DAD000B0C7D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936834F71CB73DAD000B0C7D /* MessageUI.framework */; };
 		93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */; };
 		93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */; };
 		93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB431C88F2F9005D2AF7 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		936834F11CB2E878000B0C7D /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		936834F31CB33E83000B0C7D /* NSString+EMOEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EMOEmoji.h"; sourceTree = "<group>"; };
 		936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EMOEmoji.m"; sourceTree = "<group>"; };
+		936834F71CB73DAD000B0C7D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		93BCBB3C1C88F2F9005D2AF7 /* Suh Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Suh Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				936834F81CB73DAD000B0C7D /* MessageUI.framework in Frameworks */,
 				93DD16A11C95CA05004DBCEE /* libavutil.a in Frameworks */,
 				93DD169F1C95CA05004DBCEE /* libavfilter.a in Frameworks */,
 				93DD16A21C95CA05004DBCEE /* libswscale.a in Frameworks */,
@@ -308,6 +311,7 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
+				936834F71CB73DAD000B0C7D /* MessageUI.framework */,
 				93FE61561CA75941004744A9 /* Libraries */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
@@ -1053,7 +1057,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
+				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Debug;
@@ -1084,7 +1088,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.vikzilla.suhdude;
 				PRODUCT_NAME = "Suh Dude";
-				PROVISIONING_PROFILE = "bc6bba59-823e-4f2b-83f3-0d40d0525e94";
+				PROVISIONING_PROFILE = "337d4e7f-2a6b-4aed-b4f9-b1a3cdb38613";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/lib/backendless/include/Backendless-Bridging-Header.h";
 			};
 			name = Release;
