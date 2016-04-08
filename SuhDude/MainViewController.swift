@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
   var refreshControl = UIRefreshControl()
   let searchController = UISearchController(searchResultsController: nil)
 
+  var isInitialLoad = true
+
   var backendless = Backendless.sharedInstance()
   let kSegueMainToSignUp = "mainToSignUp"
   let kSegueMainToAddFriends = "mainToAddFriends"
@@ -40,7 +42,6 @@ class MainViewController: UIViewController {
     pullToRefresh()
     self.tableView.tableFooterView = UIView(frame: CGRect.zero)
     searchSetup()
-    tableView.hideSearchBar()
 
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: kNotifPushReceived, object: nil)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(retrieveUsersAndSetData), name: UIApplicationWillEnterForegroundNotification, object: nil)
@@ -55,6 +56,12 @@ class MainViewController: UIViewController {
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(animated)
     checkForCurrentUser()
+
+    if isInitialLoad {
+      tableView.setContentOffset(CGPointMake(0, -20), animated: false)
+
+      isInitialLoad = false
+    }
   }
 
   func pullToRefresh() {
@@ -112,6 +119,12 @@ class MainViewController: UIViewController {
     searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
     definesPresentationContext = true
+
+    if #available(iOS 9.0, *) {
+      (UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self])).tintColor = UIColor.customDarkerBlueGreen()
+    } else {
+      // Fallback on earlier versions
+    }
   }
 
   func filterContentForSearchText(searchText: String, scope: String = "All") {
