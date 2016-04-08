@@ -11,9 +11,12 @@ import UIKit
 class AddFriendsViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
+  let searchController = UISearchController(searchResultsController: nil)
 
   var backendless = Backendless.sharedInstance()
-  var users = [BackendlessUser]() {
+  var users = [BackendlessUser]()
+
+  var filteredUsers = [BackendlessUser]() {
     didSet {
       self.tableView.reloadData()
     }
@@ -27,6 +30,7 @@ class AddFriendsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
+    searchSetup()
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -43,9 +47,25 @@ class AddFriendsViewController: UIViewController {
         return
       }
       self.users = nonFriends
+      self.filteredUsers = self.users
       MBProgressHUD.hideHUDForView(self.view, animated: true)
       self.tableView.reloadData()
     }
+  }
+
+  func filterContentForSearchText(searchText: String, scope: String = "All") {
+    filteredUsers = users.filter { user in
+      return user.name.lowercaseString.containsString(searchText.lowercaseString)
+    }
+    tableView.reloadData()
+  }
+
+  func searchSetup() {
+    searchController.searchResultsUpdater = self
+    searchController.delegate = self
+    searchController.dimsBackgroundDuringPresentation = false
+    definesPresentationContext = true
+    tableView.tableHeaderView = searchController.searchBar
   }
 
   func navBarStyling() {
@@ -58,15 +78,37 @@ class AddFriendsViewController: UIViewController {
   }
 }
 
+extension AddFriendsViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+
+  //MARK -UISearchResultsUpdating
+  func updateSearchResultsForSearchController(searchController: UISearchController) {
+    if searchController.searchBar.text!.isEmpty {
+      filteredUsers = users
+      return
+    }
+
+    filterContentForSearchText(searchController.searchBar.text!)
+  }
+
+  //MARK - UISearchControllerDelegate
+  func willPresentSearchController(searchController: UISearchController) {
+    filteredUsers = users
+  }
+
+  func willDismissSearchController(searchController: UISearchController) {
+    filteredUsers = users
+  }
+}
+
 extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return users.count
+    return filteredUsers.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdAddFriend)! as! AddFriendTableViewCell
-    cell.user = users[indexPath.row]
+    cell.user = filteredUsers[indexPath.row]
     cell.isLoading = loadingIndexPaths.containsObject(indexPath)
     cell.selected = selectedIndexPaths.containsObject(indexPath)
     cell.setUpCell()

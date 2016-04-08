@@ -543,6 +543,6 @@
         <image name="addCircle" width="22" height="22"/>
         <image name="addFriendImage" width="29" height="29"/>
         <image name="settingsImage" width="22" height="22"/>
-        <image name="xIcon" width="14" height="15"/>
+        <image name="xIcon" width="14" height="14"/>
     </resources>
 </document>
