@@ -74,6 +74,9 @@ class MainViewController: UIViewController {
   }
 
   func navBarStyling() {
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
+    navigationController?.navigationBar.tintColor = .whiteColor()
+    navigationController?.navigationBar.barTintColor = UIColor.customDarkBlueGreen()
     title = "Suh Dude"
     self.navigationController?.navigationBar.titleTextAttributes =
       [NSForegroundColorAttributeName: UIColor.whiteColor(),

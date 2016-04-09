@@ -54,6 +54,14 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     }
   }
 
+  @IBAction func onSegmentSelected(sender: UISegmentedControl) {
+    if sender.selectedSegmentIndex == 0 {
+
+    } else {
+
+    }
+  }
+
   @IBAction func onInviteButtonTapped(sender: AnyObject) {
 
     guard MFMessageComposeViewController.canSendText() else {
@@ -73,8 +81,11 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
   }
 
   func navBarStyling() {
+    UIApplication.sharedApplication().statusBarStyle = .Default
+    navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
+    navigationController?.navigationBar.tintColor = .customDarkBlueGreen()
     self.navigationController?.navigationBar.titleTextAttributes =
-      [NSForegroundColorAttributeName: UIColor.whiteColor(),
+      [NSForegroundColorAttributeName: UIColor.darkTextColor(),
        NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 20)!]
 //    navigationController?.navigationBar.topItem?.title = ""
     navigationController?.viewControllers[0].title = "" //removes back button text
@@ -93,6 +104,7 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     return .TopAttached
   }
 }
+
 
 extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
 

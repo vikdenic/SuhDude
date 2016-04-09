@@ -435,10 +435,14 @@
                                                 <segment title="Contacts"/>
                                             </segments>
                                             <color key="tintColor" red="0.13725490200000001" green="0.69803921570000005" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="onSegmentSelected:" destination="KLe-LF-j0i" eventType="valueChanged" id="qDB-eU-7s7"/>
+                                            </connections>
                                         </segmentedControl>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ucQ-CU-eYE"/>
                                 </items>
+                                <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="delegate" destination="KLe-LF-j0i" id="eSs-hv-duR"/>
                                 </connections>
@@ -459,11 +463,13 @@
                         <rightBarButtonItems>
                             <barButtonItem image="inviteImage" id="nF0-Fa-FHi">
                                 <inset key="imageInsets" minX="-34" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <color key="tintColor" red="0.13725490200000001" green="0.69803921570000005" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="onInviteButtonTapped:" destination="KLe-LF-j0i" id="PLx-2u-9Iz"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="searchImage" id="0UM-R3-Ng9">
+                                <color key="tintColor" red="0.13725490200000001" green="0.69803921570000005" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="Fof-34-ZJI" kind="show" identifier="addToSearch" id="RHz-Lw-xaH"/>
                                 </connections>
@@ -566,7 +572,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7kL-JY-Gly" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="br3-PK-ycj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="br3-PK-ycj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
