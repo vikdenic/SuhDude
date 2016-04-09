@@ -31,6 +31,7 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     super.viewDidLoad()
     retrieveUsersAndSetData()
 
+    tableView.registerNib(UINib(nibName: kCellIdFriendRequest, bundle: nil), forCellReuseIdentifier: kCellIdFriendRequest)
     tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
   }
 
@@ -106,44 +107,60 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
 }
 
 
-extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
+extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate, FriendRequestCellDelegate, AddFriendCellDelegate {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return filteredUsers.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdAddFriend)! as! AddFriendCell
-    cell.user = filteredUsers[indexPath.row]
-    cell.isLoading = loadingIndexPaths.containsObject(indexPath)
-    cell.selected = selectedIndexPaths.containsObject(indexPath)
-    cell.setUpCell()
-    
+    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdFriendRequest)! as! FriendRequestCell
+
+//    cell.user = filteredUsers[indexPath.row]
+//    cell.isLoading = loadingIndexPaths.containsObject(indexPath)
+//    cell.selected = selectedIndexPaths.containsObject(indexPath)
+//    cell.setUpCell()
+    cell.delegate = self
+
     return cell
   }
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
-    if !loadingIndexPaths.containsObject(indexPath) && !selectedIndexPaths.containsObject(indexPath) {
-
-      let selectedUser = users[indexPath.row]
-
-      self.loadingIndexPaths.addObject(indexPath)
-      self.tableView.reloadData()
-
-      let friendship = Friendship(members: [backendless.userService.currentUser, selectedUser])
-      friendship.save { (fault) -> Void in
-        if fault != nil {
-          //TODO: Handle friendship creation error
-        } else {
-          self.selectedIndexPaths.addObject(indexPath)
-        }
-        self.loadingIndexPaths.removeObject(indexPath)
-        self.tableView.reloadData()
-      }
-
-    }
-
+  //MARK - FriendRequestCellDelegate
+  func didTapApproveButton(button: UIButton) {
+    print("approve")
   }
+
+  func didTapDeclineButton(button: UIButton) {
+    print("decline")
+  }
+
+  //MARK - AddFriendCellDelegate
+  func didTapAddButton(button: UIButton) {
+    print("add")
+  }
+
+//  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//
+//    if !loadingIndexPaths.containsObject(indexPath) && !selectedIndexPaths.containsObject(indexPath) {
+//
+//      let selectedUser = users[indexPath.row]
+//
+//      self.loadingIndexPaths.addObject(indexPath)
+//      self.tableView.reloadData()
+//
+//      let friendship = Friendship(members: [backendless.userService.currentUser, selectedUser])
+//      friendship.save { (fault) -> Void in
+//        if fault != nil {
+//          //TODO: Handle friendship creation error
+//        } else {
+//          self.selectedIndexPaths.addObject(indexPath)
+//        }
+//        self.loadingIndexPaths.removeObject(indexPath)
+//        self.tableView.reloadData()
+//      }
+//
+//    }
+//
+//  }
 }

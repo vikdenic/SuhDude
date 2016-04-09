@@ -13,16 +13,44 @@ class SearchUsersViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
   let searchController = UISearchController(searchResultsController: nil)
 
+  var users = [BackendlessUser]()
+
+  var filteredUsers = [BackendlessUser]() {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
+
+  var selectedIndexPaths = NSMutableSet()
+  var loadingIndexPaths = NSMutableSet()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
     navigationItem.hidesBackButton = true
     searchSetup()
+
+    retrieveUsersAndSetData()
   }
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(true)
     performSelector(#selector(initiateSearchBarResponder), withObject: nil, afterDelay: 0.01)
+  }
+
+  func retrieveUsersAndSetData() {
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
+    UserManager.retrieveNonFriends { (users, fault) -> Void in
+      guard let nonFriends = users else {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        return
+      }
+      self.users = nonFriends
+      self.filteredUsers = self.users
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      self.tableView.reloadData()
+    }
   }
 
   func searchSetup() {
@@ -47,15 +75,25 @@ class SearchUsersViewController: UIViewController {
   }
 }
 
-extension SearchUsersViewController: UITableViewDataSource, UITableViewDelegate {
+extension SearchUsersViewController: UITableViewDataSource, UITableViewDelegate, AddFriendCellDelegate {
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 1
+    return filteredUsers.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdAddFriend)! as! AddFriendCell
 
+    cell.user = filteredUsers[indexPath.row]
+    cell.isLoading = loadingIndexPaths.containsObject(indexPath)
+    cell.selected = selectedIndexPaths.containsObject(indexPath)
+    cell.setUpCell()
+    cell.delegate = self
+
     return cell
+  }
+
+  func didTapAddButton(button: UIButton) {
+    //
   }
 }
 

@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-LX-DCQ">
-                    <rect key="frame" x="8" y="20" width="199" height="44"/>
+                    <rect key="frame" x="15" y="20" width="199" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="wrS-L3-sfk"/>
                     </constraints>
@@ -20,34 +20,38 @@
                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nqp-jI-lpN">
-                    <rect key="frame" x="380" y="29" width="26" height="26"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="26" id="FXc-dK-mlc"/>
-                        <constraint firstAttribute="width" constant="26" id="Sb7-2Z-Jrf"/>
-                    </constraints>
-                </imageView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="frj-nO-lkM">
-                    <rect key="frame" x="380" y="29" width="26" height="26"/>
+                    <rect key="frame" x="371" y="28" width="28" height="28"/>
                 </activityIndicatorView>
+                <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlm-V1-dlo">
+                    <rect key="frame" x="371" y="28" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="Ja0-8s-4Cq"/>
+                        <constraint firstAttribute="height" constant="28" id="v4P-Kj-l2v"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <action selector="onAddButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="rQm-Lh-eDg"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <accessibility key="accessibilityConfiguration" identifier="AddFriendCell">
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstItem="Nqp-jI-lpN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="6Oq-gg-kzc"/>
+                <constraint firstItem="frj-nO-lkM" firstAttribute="width" secondItem="wlm-V1-dlo" secondAttribute="width" id="7N8-8C-63n"/>
                 <constraint firstItem="2vF-LX-DCQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B3E-3Z-svw"/>
-                <constraint firstItem="2vF-LX-DCQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="J80-IZ-qnP"/>
-                <constraint firstItem="Nqp-jI-lpN" firstAttribute="centerY" secondItem="frj-nO-lkM" secondAttribute="centerY" id="Kb3-ek-0SW"/>
-                <constraint firstAttribute="trailing" secondItem="Nqp-jI-lpN" secondAttribute="trailing" constant="8" id="U02-7R-t5K"/>
-                <constraint firstItem="Nqp-jI-lpN" firstAttribute="centerX" secondItem="frj-nO-lkM" secondAttribute="centerX" id="VUK-7e-Jcq"/>
-                <constraint firstItem="frj-nO-lkM" firstAttribute="width" secondItem="Nqp-jI-lpN" secondAttribute="width" id="a5r-34-3EQ"/>
-                <constraint firstItem="frj-nO-lkM" firstAttribute="height" secondItem="Nqp-jI-lpN" secondAttribute="height" id="uao-gj-Wca"/>
+                <constraint firstItem="2vF-LX-DCQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="J80-IZ-qnP"/>
+                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MP9-ut-xTZ"/>
+                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerX" secondItem="frj-nO-lkM" secondAttribute="centerX" id="PzQ-mw-Kbn"/>
+                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerY" secondItem="frj-nO-lkM" secondAttribute="centerY" id="YTy-gj-W75"/>
+                <constraint firstAttribute="trailing" secondItem="wlm-V1-dlo" secondAttribute="trailing" constant="15" id="n1k-x8-uOe"/>
+                <constraint firstItem="frj-nO-lkM" firstAttribute="height" secondItem="wlm-V1-dlo" secondAttribute="height" id="yJP-Zq-zC9"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="addImageView" destination="Nqp-jI-lpN" id="qgE-QQ-j1o"/>
+                <outlet property="addButton" destination="wlm-V1-dlo" id="6Wq-YI-UhA"/>
                 <outlet property="spinner" destination="frj-nO-lkM" id="Fgf-YV-Mjo"/>
                 <outlet property="usernameLabel" destination="2vF-LX-DCQ" id="mbT-2J-B7y"/>
             </connections>

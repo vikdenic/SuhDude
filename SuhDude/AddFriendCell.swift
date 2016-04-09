@@ -8,18 +8,30 @@
 
 import UIKit
 
+protocol AddFriendCellDelegate
+{
+  func didTapAddButton(button : UIButton)
+}
+
 class AddFriendCell: UITableViewCell {
 
-  @IBOutlet var usernameLabel: UILabel!
-  @IBOutlet var addImageView: UIImageView!
-  @IBOutlet var spinner: UIActivityIndicatorView!
+  var delegate = AddFriendCellDelegate?()
 
+  @IBOutlet var usernameLabel: UILabel!
+  @IBOutlet var spinner: UIActivityIndicatorView!
+  @IBOutlet var addButton: UIButton!
+    
   var isLoading = false
 
   var user: BackendlessUser! {
     didSet {
       setUpCell()
     }
+  }
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    bringSubviewToFront(addButton)
   }
 
   func setUpCell() {
@@ -29,7 +41,8 @@ class AddFriendCell: UITableViewCell {
 
   func configureSelectedState() {
 
-    addImageView.hidden = true
+    addButton.hidden = true
+
     if isLoading {
       spinner.startAnimating()
       return
@@ -38,12 +51,15 @@ class AddFriendCell: UITableViewCell {
     }
 
     if selected {
-      addImageView.hidden = false
-      addImageView.image = UIImage(named: "checkCircle")
+      addButton.hidden = false
+      addButton.setBackgroundImage(UIImage(named: "checkCircle"), forState: .Normal)
     } else {
-      addImageView.hidden = false
-      addImageView.image = UIImage(named: "addCircle")
+      addButton.hidden = false
+      addButton.setBackgroundImage(UIImage(named: "addCircle"), forState: .Normal)
     }
   }
 
+  @IBAction func onAddButtonTapped(sender: UIButton) {
+    delegate?.didTapAddButton(sender)
+  }
 }

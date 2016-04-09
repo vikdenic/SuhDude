@@ -10,6 +10,7 @@ import Foundation
 
 //MARK - Constants
 let kCellIdAddFriend = "AddFriendCell"
+let kCellIdFriendRequest = "FriendRequestCell"
 let kNotifPushReceived = "pushReceived"
 let kDefaultsMuted = "muted"
 
