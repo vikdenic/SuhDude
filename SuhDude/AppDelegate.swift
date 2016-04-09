@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     application.applicationIconBadgeNumber = 0
     application.statusBarStyle = .LightContent
+
+//    NSDictionary *attributes2 = [NSDictionary dictionaryWithObjectsAndKeys:
+//      [UIFont fontWithName:@"Helvetica" size:10], NSFontAttributeName,
+//                                                  [UIColor orangeColor], NSForegroundColorAttributeName, nil];
+    let font = UIFont(name: "AvenirNext-Medium", size: 16.5)!
+
+    UISegmentedControl.appearance().setTitleTextAttributes(NSDictionary(objects: [font], forKeys: [NSFontAttributeName]) as [NSObject : AnyObject], forState: UIControlState.Normal)
+
     backendless.initApp(APP_ID, secret:SECRET_KEY, version:VERSION_NUM)
     backendless.userService.setStayLoggedIn(true)
     Fabric.with([Crashlytics.self])

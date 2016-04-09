@@ -32,7 +32,7 @@ class SearchUsersViewController: UIViewController {
     searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
     definesPresentationContext = true
-    searchController.searchBar.barTintColor = UIColor.customDarkBlueGreen()
+    searchController.searchBar.barTintColor = .groupTableViewBackgroundColor()
   }
 
   func initiateSearchBarResponder() {
@@ -73,10 +73,12 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
   //MARK - UISearchControllerDelegate
   func willPresentSearchController(searchController: UISearchController) {
 //    filteredUsers = users
+    UIApplication.sharedApplication().statusBarStyle = .Default
   }
 
   func willDismissSearchController(searchController: UISearchController) {
 //    filteredUsers = users
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
     navigationController?.popViewControllerAnimated(true)
   }
 }
