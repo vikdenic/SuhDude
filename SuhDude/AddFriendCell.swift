@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFriendTableViewCell: UITableViewCell {
+class AddFriendCell: UITableViewCell {
 
   @IBOutlet var usernameLabel: UILabel!
   @IBOutlet var addImageView: UIImageView!

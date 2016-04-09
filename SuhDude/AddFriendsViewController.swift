@@ -11,9 +11,9 @@ import MessageUI
 
 class AddFriendsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
 
+  @IBOutlet var segmentedControl: UISegmentedControl!
   @IBOutlet var inviteBarButton: UIBarButtonItem!
   @IBOutlet var tableView: UITableView!
-  let searchController = UISearchController(searchResultsController: nil)
 
   var backendless = Backendless.sharedInstance()
   var users = [BackendlessUser]()
@@ -27,12 +27,11 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
   var selectedIndexPaths = NSMutableSet()
   var loadingIndexPaths = NSMutableSet()
 
-  let kCellIdAddFriend = "addFriendCell"
-
   override func viewDidLoad() {
     super.viewDidLoad()
     retrieveUsersAndSetData()
-    searchSetup()
+
+    tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -55,13 +54,6 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     }
   }
 
-  func filterContentForSearchText(searchText: String, scope: String = "All") {
-    filteredUsers = users.filter { user in
-      return user.name.lowercaseString.containsString(searchText.lowercaseString)
-    }
-    tableView.reloadData()
-  }
-
   @IBAction func onInviteButtonTapped(sender: AnyObject) {
 
     guard MFMessageComposeViewController.canSendText() else {
@@ -78,15 +70,6 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
 
     // Present the view controller modally.
     self.presentViewController(composeVC, animated: true, completion: nil)
-  }
-
-  func searchSetup() {
-    searchController.searchResultsUpdater = self
-    searchController.delegate = self
-    searchController.dimsBackgroundDuringPresentation = false
-    searchController.searchBar.sizeToFit()
-    tableView.tableHeaderView = searchController.searchBar
-    definesPresentationContext = true
   }
 
   func navBarStyling() {
@@ -107,28 +90,6 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
   }
 }
 
-extension AddFriendsViewController: UISearchResultsUpdating, UISearchControllerDelegate {
-
-  //MARK -UISearchResultsUpdating
-  func updateSearchResultsForSearchController(searchController: UISearchController) {
-    if searchController.searchBar.text!.isEmpty {
-      filteredUsers = users
-      return
-    }
-
-    filterContentForSearchText(searchController.searchBar.text!)
-  }
-
-  //MARK - UISearchControllerDelegate
-  func willPresentSearchController(searchController: UISearchController) {
-    filteredUsers = users
-  }
-
-  func willDismissSearchController(searchController: UISearchController) {
-    filteredUsers = users
-  }
-}
-
 extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -136,7 +97,7 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdAddFriend)! as! AddFriendTableViewCell
+    let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdAddFriend)! as! AddFriendCell
     cell.user = filteredUsers[indexPath.row]
     cell.isLoading = loadingIndexPaths.containsObject(indexPath)
     cell.selected = selectedIndexPaths.containsObject(indexPath)

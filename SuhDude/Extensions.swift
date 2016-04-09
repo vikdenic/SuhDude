@@ -8,9 +8,12 @@
 
 import Foundation
 
+//MARK - Constants
+let kCellIdAddFriend = "AddFriendCell"
 let kNotifPushReceived = "pushReceived"
 let kDefaultsMuted = "muted"
 
+//MARK - Extensions
 extension UIAlertController {
   class func showAlert(title : String!, message : String!, viewController : UIViewController)
   {
@@ -50,6 +53,9 @@ extension UIColor {
     return UIColor(red: 30/255.0, green: 152.0/255.0, blue: 152.0/255.0, alpha: 1.0)
   }
 
+  class func customGreen() -> UIColor {
+    return UIColor(red: 120.0/255.0, green: 80.0/255.0, blue: 85.0/255.0, alpha: 1.0)
+  }
 
   class func customRed() -> UIColor {
     return UIColor(red: 255.0/255.0, green: 50.0/255.0, blue: 50.0/255.0, alpha: 1.0)

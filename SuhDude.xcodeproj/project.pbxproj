@@ -12,6 +12,8 @@
 		936834F21CB2E878000B0C7D /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936834F11CB2E878000B0C7D /* EditProfileViewController.swift */; };
 		936834F51CB33E83000B0C7D /* NSString+EMOEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = 936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */; };
 		936834F81CB73DAD000B0C7D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936834F71CB73DAD000B0C7D /* MessageUI.framework */; };
+		936834FA1CB8AEAC000B0C7D /* SearchUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 936834F91CB8AEAB000B0C7D /* SearchUsersViewController.swift */; };
+		936834FC1CB8B17D000B0C7D /* AddFriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 936834FB1CB8B17D000B0C7D /* AddFriendCell.xib */; };
 		93BCBB401C88F2F9005D2AF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */; };
 		93BCBB421C88F2F9005D2AF7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */; };
 		93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBB431C88F2F9005D2AF7 /* Main.storyboard */; };
@@ -29,7 +31,7 @@
 		93BCBC491C8B742A005D2AF7 /* knewave.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 93BCBC471C8B742A005D2AF7 /* knewave.ttf */; };
 		93BCBC511C8D488F005D2AF7 /* PushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBC501C8D488F005D2AF7 /* PushManager.swift */; };
 		93BCBE311C8F916F005D2AF7 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */; };
-		93BCBE361C8FD29C005D2AF7 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */; };
+		93BCBE361C8FD29C005D2AF7 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93BCBE351C8FD29C005D2AF7 /* AddFriendCell.swift */; };
 		93CCFA031CB1B17F0089B7E4 /* Eureka.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CCFA021CB1B17F0089B7E4 /* Eureka.framework */; };
 		93CCFA041CB1B17F0089B7E4 /* Eureka.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93CCFA021CB1B17F0089B7E4 /* Eureka.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93DD15CE1C951187004DBCEE /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 93DD15CD1C951187004DBCEE /* MBProgressHUD.m */; };
@@ -70,6 +72,8 @@
 		936834F31CB33E83000B0C7D /* NSString+EMOEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+EMOEmoji.h"; sourceTree = "<group>"; };
 		936834F41CB33E83000B0C7D /* NSString+EMOEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+EMOEmoji.m"; sourceTree = "<group>"; };
 		936834F71CB73DAD000B0C7D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		936834F91CB8AEAB000B0C7D /* SearchUsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchUsersViewController.swift; sourceTree = "<group>"; };
+		936834FB1CB8B17D000B0C7D /* AddFriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendCell.xib; sourceTree = "<group>"; };
 		93BCBB3C1C88F2F9005D2AF7 /* Suh Dude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Suh Dude.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93BCBB3F1C88F2F9005D2AF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +93,7 @@
 		93BCBC471C8B742A005D2AF7 /* knewave.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = knewave.ttf; sourceTree = "<group>"; };
 		93BCBC501C8D488F005D2AF7 /* PushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushManager.swift; sourceTree = "<group>"; };
 		93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
-		93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
+		93BCBE351C8FD29C005D2AF7 /* AddFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		93CCFA021CB1B17F0089B7E4 /* Eureka.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Eureka.framework; path = Carthage/Build/iOS/Eureka.framework; sourceTree = "<group>"; };
 		93DD15CC1C951187004DBCEE /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MBProgressHUD.h; path = SuhDude/MBProgressHUD.h; sourceTree = "<group>"; };
 		93DD15CD1C951187004DBCEE /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MBProgressHUD.m; path = SuhDude/MBProgressHUD.m; sourceTree = "<group>"; };
@@ -367,9 +371,10 @@
 				93BCBC381C8B3162005D2AF7 /* SignUpViewController.swift */,
 				93BCBC3A1C8B35D6005D2AF7 /* RegisterUserViewController.swift */,
 				93BCBB411C88F2F9005D2AF7 /* MainViewController.swift */,
-				93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */,
 				93FE614F1CA661DD004744A9 /* SettingsViewController.swift */,
 				936834F11CB2E878000B0C7D /* EditProfileViewController.swift */,
+				93BCBE301C8F916F005D2AF7 /* AddFriendsViewController.swift */,
+				936834F91CB8AEAB000B0C7D /* SearchUsersViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -419,7 +424,8 @@
 			isa = PBXGroup;
 			children = (
 				932AEBFB1CA367CF00E0C68D /* MainTableViewCell.swift */,
-				93BCBE351C8FD29C005D2AF7 /* AddFriendTableViewCell.swift */,
+				93BCBE351C8FD29C005D2AF7 /* AddFriendCell.swift */,
+				936834FB1CB8B17D000B0C7D /* AddFriendCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -868,6 +874,7 @@
 				93BCBB471C88F2F9005D2AF7 /* Assets.xcassets in Resources */,
 				93BCBC3D1C8B37A5005D2AF7 /* suhDude2NL.aif in Resources */,
 				93BCBB451C88F2F9005D2AF7 /* Main.storyboard in Resources */,
+				936834FC1CB8B17D000B0C7D /* AddFriendCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -908,7 +915,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				93BCBC421C8B57D5005D2AF7 /* Extensions.swift in Sources */,
-				93BCBE361C8FD29C005D2AF7 /* AddFriendTableViewCell.swift in Sources */,
+				936834FA1CB8AEAC000B0C7D /* SearchUsersViewController.swift in Sources */,
+				93BCBE361C8FD29C005D2AF7 /* AddFriendCell.swift in Sources */,
 				93BCBC3B1C8B35D6005D2AF7 /* RegisterUserViewController.swift in Sources */,
 				93463C301C95D6A00069B52B /* Friendship.swift in Sources */,
 				93DD15CE1C951187004DBCEE /* MBProgressHUD.m in Sources */,
