@@ -119,9 +119,10 @@ class MainViewController: UIViewController {
     searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
     definesPresentationContext = true
+    searchController.searchBar.barTintColor = .whiteColor()
 
     if #available(iOS 9.0, *) {
-      (UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self])).tintColor = UIColor.customDarkerBlueGreen()
+      (UIBarButtonItem.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self])).tintColor = .customDarkerBlueGreen()
     } else {
       // Fallback on earlier versions
     }
@@ -196,9 +197,11 @@ extension MainViewController: UISearchResultsUpdating, UISearchControllerDelegat
   //MARK - UISearchControllerDelegate
   func willPresentSearchController(searchController: UISearchController) {
     filteredFriendships = friendships
+    UIApplication.sharedApplication().statusBarStyle = .Default
   }
 
   func willDismissSearchController(searchController: UISearchController) {
     filteredFriendships = friendships
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
   }
 }

@@ -22,7 +22,7 @@ class SearchUsersViewController: UIViewController {
 
   override func viewDidAppear(animated: Bool) {
     super.viewDidAppear(true)
-    performSelector(#selector(initiateSearchBarResponder), withObject: nil, afterDelay: 0.1)
+    performSelector(#selector(initiateSearchBarResponder), withObject: nil, afterDelay: 0.01)
   }
 
   func searchSetup() {
@@ -31,8 +31,8 @@ class SearchUsersViewController: UIViewController {
     searchController.dimsBackgroundDuringPresentation = false
     searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
-
     definesPresentationContext = true
+    searchController.searchBar.barTintColor = UIColor.customDarkBlueGreen()
   }
 
   func initiateSearchBarResponder() {
