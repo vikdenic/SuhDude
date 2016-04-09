@@ -9,7 +9,7 @@
 import UIKit
 import MessageUI
 
-class AddFriendsViewController: UIViewController, MFMessageComposeViewControllerDelegate {
+class AddFriendsViewController: UIViewController, MFMessageComposeViewControllerDelegate, UIToolbarDelegate {
 
   @IBOutlet var segmentedControl: UISegmentedControl!
   @IBOutlet var inviteBarButton: UIBarButtonItem!
@@ -87,6 +87,10 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
 
   func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
     controller.dismissViewControllerAnimated(true, completion: nil)
+  }
+
+  func positionForBar(bar: UIBarPositioning) -> UIBarPosition {
+    return .TopAttached
   }
 }
 
