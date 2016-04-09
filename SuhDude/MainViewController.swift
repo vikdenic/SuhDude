@@ -103,7 +103,7 @@ class MainViewController: UIViewController {
   func checkForCurrentUser() {
     if backendless.userService.currentUser == nil {
       print("No current user")
-      self.friendships.removeAll()
+      self.filteredFriendships.removeAll()
       self.tableView.reloadData()
       performSegueWithIdentifier(kSegueMainToSignUp, sender: self)
     } else {

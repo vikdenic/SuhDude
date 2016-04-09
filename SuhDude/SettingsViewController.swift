@@ -125,7 +125,9 @@ class SettingsViewController: FormViewController {
       print("Server reported an error: \(fault)")
       if self.backendless.userService.currentUser == nil { //current workaround for bug
         MBProgressHUD.hideHUDForView(self.view, animated: true)
+        PushManager.cancelDeviceRegistrationAsync()
         self.dismissViewControllerAnimated(true, completion: nil)
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
       }
       MBProgressHUD.hideHUDForView(self.view, animated: true)
     }
