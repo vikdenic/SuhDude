@@ -21,13 +21,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="frj-nO-lkM">
-                    <rect key="frame" x="371" y="28" width="28" height="28"/>
+                    <rect key="frame" x="365" y="28" width="34" height="34"/>
                 </activityIndicatorView>
                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlm-V1-dlo">
-                    <rect key="frame" x="371" y="28" width="28" height="28"/>
+                    <rect key="frame" x="365" y="28" width="34" height="34"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="28" id="Ja0-8s-4Cq"/>
-                        <constraint firstAttribute="height" constant="28" id="v4P-Kj-l2v"/>
+                        <constraint firstAttribute="width" constant="34" id="Ja0-8s-4Cq"/>
+                        <constraint firstAttribute="height" constant="34" id="v4P-Kj-l2v"/>
                     </constraints>
                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -40,14 +40,14 @@
                 <bool key="isElement" value="YES"/>
             </accessibility>
             <constraints>
-                <constraint firstItem="frj-nO-lkM" firstAttribute="width" secondItem="wlm-V1-dlo" secondAttribute="width" id="7N8-8C-63n"/>
                 <constraint firstItem="2vF-LX-DCQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="B3E-3Z-svw"/>
+                <constraint firstItem="frj-nO-lkM" firstAttribute="centerY" secondItem="wlm-V1-dlo" secondAttribute="centerY" id="EXz-XT-lSx"/>
                 <constraint firstItem="2vF-LX-DCQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="J80-IZ-qnP"/>
-                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MP9-ut-xTZ"/>
-                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerX" secondItem="frj-nO-lkM" secondAttribute="centerX" id="PzQ-mw-Kbn"/>
-                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerY" secondItem="frj-nO-lkM" secondAttribute="centerY" id="YTy-gj-W75"/>
+                <constraint firstItem="wlm-V1-dlo" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="3" id="MP9-ut-xTZ"/>
+                <constraint firstItem="frj-nO-lkM" firstAttribute="centerX" secondItem="wlm-V1-dlo" secondAttribute="centerX" id="Tco-El-rWX"/>
+                <constraint firstItem="frj-nO-lkM" firstAttribute="height" secondItem="wlm-V1-dlo" secondAttribute="height" id="jyA-lo-6dU"/>
                 <constraint firstAttribute="trailing" secondItem="wlm-V1-dlo" secondAttribute="trailing" constant="15" id="n1k-x8-uOe"/>
-                <constraint firstItem="frj-nO-lkM" firstAttribute="height" secondItem="wlm-V1-dlo" secondAttribute="height" id="yJP-Zq-zC9"/>
+                <constraint firstItem="frj-nO-lkM" firstAttribute="width" secondItem="wlm-V1-dlo" secondAttribute="width" id="u74-Gf-tDM"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

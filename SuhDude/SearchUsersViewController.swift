@@ -15,6 +15,12 @@ class SearchUsersViewController: UIViewController {
 
   var users = [BackendlessUser]()
 
+  var searching = false {
+    didSet {
+      self.tableView.reloadData()
+    }
+  }
+
   var filteredUsers = [BackendlessUser]() {
     didSet {
       self.tableView.reloadData()
@@ -30,7 +36,8 @@ class SearchUsersViewController: UIViewController {
     navigationItem.hidesBackButton = true
     searchSetup()
 
-    retrieveUsersAndSetData()
+//    retrieveSuggestedFriends()
+//    retrieveUsersAndSetData()
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -53,6 +60,32 @@ class SearchUsersViewController: UIViewController {
     }
   }
 
+  func retrieveUsersFromSearch() {
+    UserManager.retrieveAllUsers(withNameLike: searchController.searchBar.text!) { (users, fault) in
+      guard let users = users else {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        return
+      }
+      self.users = users
+      self.filteredUsers = self.users
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      self.tableView.reloadData()
+    }
+  }
+
+  func retrieveSuggestedFriends() {
+    UserManager.retrieveNonFriendsOfFriends { (users, fault) in
+      guard let nonFriends = users else {
+        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        return
+      }
+      self.users = nonFriends
+      self.filteredUsers = self.users
+      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      self.tableView.reloadData()
+    }
+  }
+
   func searchSetup() {
     searchController.searchResultsUpdater = self
     searchController.delegate = self
@@ -61,6 +94,7 @@ class SearchUsersViewController: UIViewController {
     tableView.tableHeaderView = searchController.searchBar
     definesPresentationContext = true
 
+    searchController.searchBar.placeholder = "Search users"
     searchController.searchBar.barTintColor = .groupTableViewBackgroundColor()
   }
 
@@ -69,14 +103,15 @@ class SearchUsersViewController: UIViewController {
   }
 
   func filterContentForSearchText(searchText: String, scope: String = "All") {
-//    filteredUsers = users.filter { user in
-//      return user.name.lowercaseString.containsString(searchText.lowercaseString)
-//    }
-//    tableView.reloadData()
+    filteredUsers = users.filter { user in
+      return user.name.lowercaseString.containsString(searchText.lowercaseString)
+    }
+    tableView.reloadData()
   }
 }
 
 extension SearchUsersViewController: UITableViewDataSource, UITableViewDelegate, AddFriendCellDelegate {
+  //MARK - UITableViewDataSource
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return filteredUsers.count
   }
@@ -93,6 +128,12 @@ extension SearchUsersViewController: UITableViewDataSource, UITableViewDelegate,
     return cell
   }
 
+  //MARK - UITableViewDelegate
+  func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return searching ? "Results" : "Suggested"
+  }
+
+  //MARK - AddFriendCellDelegate
   func didTapAddButton(button: UIButton) {
     //
   }
@@ -103,10 +144,13 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
   //MARK -UISearchResultsUpdating
   func updateSearchResultsForSearchController(searchController: UISearchController) {
     if searchController.searchBar.text!.isEmpty {
-//      filteredUsers = users
+      searching = false
+      filteredUsers = users
       return
     }
-    filterContentForSearchText(searchController.searchBar.text!)
+    searching = true
+    retrieveUsersFromSearch()
+//    filterContentForSearchText(searchController.searchBar.text!)
   }
 
   //MARK - UISearchControllerDelegate
@@ -121,4 +165,3 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
     navigationController?.popViewControllerAnimated(true)
   }
 }
-

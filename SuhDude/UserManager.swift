@@ -25,10 +25,53 @@ class UserManager {
     }
   }
 
+  class func retrieveAllUsers(withNameLike name : String, completed : ((users : [BackendlessUser]?, fault : Fault?) -> Void)?) {
+    let backendless = Backendless.sharedInstance()
+    let query = BackendlessDataQuery()
+    // Use backendless.persistenceService to obtain a ref to a data store for the class
+
+    let whereClause = "name LIKE '%\(name)'"
+
+    query.whereClause = whereClause
+
+    let dataStore = backendless.persistenceService.of(BackendlessUser.ofClass()) as IDataStore
+    dataStore.find(query, response: { (retrievedCollection) -> Void in
+      print("Successfully retrieved collection")
+      completed!(users: retrievedCollection.data as? [BackendlessUser], fault: nil)
+    }) { (fault) -> Void in
+      print("Server reported an error: \(fault)")
+      completed!(users: nil, fault: fault)
+    }
+  }
+
   class func retrieveCurrentUsersFriends(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
     let backendless = Backendless.sharedInstance()
 
     Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, approved: true) { (friendships, fault) -> Void in
+
+      guard let friendships = friendships else {
+        print("No friendships retrieved w/ error: \(fault)")
+        completed(users: nil, fault: fault)
+        return
+      }
+
+      var friends = [BackendlessUser]()
+      for ship in friendships {
+        for member in ship.members! {
+          if member.objectId != backendless.userService.currentUser.objectId {
+            friends.append(member)
+          }
+        }
+      }
+      print("Successfully retrieved \(friends.count) friends")
+      completed(users: friends, fault: fault)
+    }
+  }
+
+  class func retrieveFriendsForUser(user : BackendlessUser, completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
+    let backendless = Backendless.sharedInstance()
+
+    Friendship.retrieveFriendshipsForUser(user, approved: true) { (friendships, fault) -> Void in
 
       guard let friendships = friendships else {
         print("No friendships retrieved w/ error: \(fault)")
@@ -67,6 +110,36 @@ class UserManager {
         let nonFriends = users.arrayWithoutFriends(friends)
         completed(users: nonFriends, fault: fault)
       })
+    }
+  }
+
+  class func retrieveNonFriendsOfFriends(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
+    UserManager.retrieveCurrentUsersFriends { (users, fault) in
+      guard let users = users else {
+        print("Server reported an error: \(fault)")
+        completed(users: nil, fault: fault)
+        return
+      }
+
+      var finished = false
+      for user in users {
+        UserManager.retrieveFriendsForUser(user, completed: { (usersFriends, fault) in
+
+          guard let usersFriends = usersFriends else {
+            print("Server reported an error: \(fault)")
+            return
+          }
+          let nonFriends = usersFriends.arrayWithoutFriends(users)
+
+          if nonFriends.count > 0 {
+            print("alright")
+            if !finished {
+              finished = true
+              completed(users: nonFriends, fault: fault)
+            }
+          }
+        })
+      }
     }
   }
   

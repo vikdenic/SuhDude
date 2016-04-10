@@ -50,24 +50,24 @@ class Friendship: NSObject {
     }
   }
 
-  class func retrieveAllFriendships(completed: (friendships: [Friendship]?, fault: Fault?) -> Void) {
-    let backendless = Backendless.sharedInstance()
-    let query = BackendlessDataQuery()
-
-    //retrieves related objects
-    let queryOptions = QueryOptions()
-    queryOptions.related = ["members", "recentSender"];
-    query.queryOptions = queryOptions
-
-    let dataStore = backendless.persistenceService.of(Friendship.ofClass()) as IDataStore
-    dataStore.find(query, response: { (retrievedCollection) -> Void in
-      print("Successfully retrieved \(retrievedCollection.data.count) friendships")
-      completed(friendships: retrievedCollection.data as? [Friendship], fault: nil)
-      }) { (fault) -> Void in
-        print("Server reported an error: \(fault)")
-        completed(friendships: nil, fault: fault)
-    }
-  }
+//  class func retrieveAllFriendships(completed: (friendships: [Friendship]?, fault: Fault?) -> Void) {
+//    let backendless = Backendless.sharedInstance()
+//    let query = BackendlessDataQuery()
+//
+//    //retrieves related objects
+//    let queryOptions = QueryOptions()
+//    queryOptions.related = ["members", "recentSender"];
+//    query.queryOptions = queryOptions
+//
+//    let dataStore = backendless.persistenceService.of(Friendship.ofClass()) as IDataStore
+//    dataStore.find(query, response: { (retrievedCollection) -> Void in
+//      print("Successfully retrieved \(retrievedCollection.data.count) friendships")
+//      completed(friendships: retrievedCollection.data as? [Friendship], fault: nil)
+//      }) { (fault) -> Void in
+//        print("Server reported an error: \(fault)")
+//        completed(friendships: nil, fault: fault)
+//    }
+//  }
 
   class func retrieveFriendshipsForUser(user: BackendlessUser, approved : Bool, completed: (friendships: [Friendship]?, fault: Fault?) -> Void) {
     let backendless = Backendless.sharedInstance()
