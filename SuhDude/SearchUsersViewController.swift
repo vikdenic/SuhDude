@@ -60,6 +60,7 @@ class SearchUsersViewController: UIViewController {
     searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
     definesPresentationContext = true
+
     searchController.searchBar.barTintColor = .groupTableViewBackgroundColor()
   }
 

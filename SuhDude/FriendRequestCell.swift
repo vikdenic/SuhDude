@@ -22,10 +22,20 @@ class FriendRequestCell: UITableViewCell {
   @IBOutlet var approveButton: UIButton!
   @IBOutlet var declineButton: UIButton!
 
+  var friendship: Friendship! {
+    didSet {
+      setUpCell()
+    }
+  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
     bringSubviewToFront(approveButton)
     bringSubviewToFront(declineButton)
+  }
+
+  func setUpCell() {
+    usernameLabel.text = friendship.friend().name
   }
 
   @IBAction func onApproveButtonTapped(sender: UIButton) {

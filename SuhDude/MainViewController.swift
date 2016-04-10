@@ -85,7 +85,7 @@ class MainViewController: UIViewController {
 
   func retrieveUsersAndSetData() {
     if let currentUser = backendless.userService.currentUser {
-      Friendship.retrieveFriendshipsForUser(currentUser, includeGroups: false) { (friendships, fault) -> Void in
+      Friendship.retrieveFriendshipsForUser(currentUser, approved: true) { (friendships, fault) -> Void in
         dispatch_async(dispatch_get_main_queue(),{
           self.refreshControl.endRefreshing()
           guard let friendships = friendships else {

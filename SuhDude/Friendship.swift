@@ -18,6 +18,7 @@ class Friendship: NSObject {
   var sendPush: Bool = false
   var lastSent: NSDate?
   var recentSender: BackendlessUser?
+  var approved: Bool = false
   var group: Bool = false
 
   init(members: [BackendlessUser]) {
@@ -68,15 +69,11 @@ class Friendship: NSObject {
     }
   }
 
-  class func retrieveFriendshipsForUser(user: BackendlessUser, includeGroups groups: Bool, completed: (friendships: [Friendship]?, fault: Fault?) -> Void) {
+  class func retrieveFriendshipsForUser(user: BackendlessUser, approved : Bool, completed: (friendships: [Friendship]?, fault: Fault?) -> Void) {
     let backendless = Backendless.sharedInstance()
 
     let query = BackendlessDataQuery()
-    let membersClause = "members.objectId = '\(user.objectId)'"
-
-//    if !groups {
-//      membersClause = membersClause + " AND group == false"
-//    }
+    let membersClause = "members.objectId = '\(user.objectId)' AND approved = \(approved)"
 
     query.whereClause = membersClause
 

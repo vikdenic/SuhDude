@@ -28,7 +28,7 @@ class UserManager {
   class func retrieveCurrentUsersFriends(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
     let backendless = Backendless.sharedInstance()
 
-    Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, includeGroups: false) { (friendships, fault) -> Void in
+    Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, approved: true) { (friendships, fault) -> Void in
 
       guard let friendships = friendships else {
         print("No friendships retrieved w/ error: \(fault)")
