@@ -11,28 +11,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdy-Yt-RtR">
-                    <rect key="frame" x="324" y="27" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="XI5-On-qkk"/>
-                        <constraint firstAttribute="height" constant="30" id="v0W-e7-0UF"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="checkCircle"/>
-                    <connections>
-                        <action selector="onApproveButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="BL5-ov-CLd"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K98-Jb-Yb4">
-                    <rect key="frame" x="369" y="27" width="30" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="30" id="AOg-Bl-bKu"/>
-                        <constraint firstAttribute="height" constant="30" id="eYD-Vu-IOJ"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="xCircle"/>
-                    <connections>
-                        <action selector="onDeclineButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="xzC-32-aO2"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBv-Nl-F04">
                     <rect key="frame" x="15" y="20" width="234" height="44"/>
                     <constraints>
@@ -42,6 +20,28 @@
                     <color key="textColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdy-Yt-RtR">
+                    <rect key="frame" x="294" y="24" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="XI5-On-qkk"/>
+                        <constraint firstAttribute="height" constant="36" id="v0W-e7-0UF"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="checkCircle"/>
+                    <connections>
+                        <action selector="onApproveButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="BL5-ov-CLd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K98-Jb-Yb4">
+                    <rect key="frame" x="358" y="24" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="AOg-Bl-bKu"/>
+                        <constraint firstAttribute="height" constant="36" id="eYD-Vu-IOJ"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="xCircle"/>
+                    <connections>
+                        <action selector="onDeclineButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="xzC-32-aO2"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <accessibility key="accessibilityConfiguration" identifier="FriendRequestCell"/>
@@ -49,9 +49,9 @@
                 <constraint firstItem="Bdy-Yt-RtR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1ZT-cv-JWd"/>
                 <constraint firstItem="pBv-Nl-F04" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Fzw-L1-FgB"/>
                 <constraint firstItem="pBv-Nl-F04" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="PhU-u5-fXz"/>
-                <constraint firstAttribute="trailing" secondItem="K98-Jb-Yb4" secondAttribute="trailing" constant="15" id="e1l-4s-kXN"/>
+                <constraint firstAttribute="trailing" secondItem="K98-Jb-Yb4" secondAttribute="trailing" constant="20" id="e1l-4s-kXN"/>
                 <constraint firstItem="K98-Jb-Yb4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ek1-oj-1dD"/>
-                <constraint firstItem="K98-Jb-Yb4" firstAttribute="leading" secondItem="Bdy-Yt-RtR" secondAttribute="trailing" constant="15" id="pYt-Gs-OEy"/>
+                <constraint firstItem="K98-Jb-Yb4" firstAttribute="leading" secondItem="Bdy-Yt-RtR" secondAttribute="trailing" constant="28" id="pYt-Gs-OEy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
