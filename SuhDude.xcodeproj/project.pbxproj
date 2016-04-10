@@ -319,9 +319,8 @@
 		93BCBB331C88F2F9005D2AF7 = {
 			isa = PBXGroup;
 			children = (
-				936834F71CB73DAD000B0C7D /* MessageUI.framework */,
-				93FE61561CA75941004744A9 /* Libraries */,
 				93BCBB3E1C88F2F9005D2AF7 /* SuhDude */,
+				93FE61561CA75941004744A9 /* Libraries */,
 				93BCBB3D1C88F2F9005D2AF7 /* Products */,
 			);
 			indentWidth = 2;
@@ -809,6 +808,7 @@
 				93CCFA021CB1B17F0089B7E4 /* Eureka.framework */,
 				93FE61521CA7585E004744A9 /* Fabric.framework */,
 				93FE61531CA7585E004744A9 /* Crashlytics.framework */,
+				936834F71CB73DAD000B0C7D /* MessageUI.framework */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";

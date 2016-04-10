@@ -30,7 +30,7 @@ class UserManager {
     let query = BackendlessDataQuery()
     // Use backendless.persistenceService to obtain a ref to a data store for the class
 
-    let whereClause = "name LIKE '%\(name)'"
+    let whereClause = "name LIKE '%\(name)%'"
 
     query.whereClause = whereClause
 
