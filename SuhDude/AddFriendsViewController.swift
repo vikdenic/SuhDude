@@ -18,7 +18,7 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
   var backendless = Backendless.sharedInstance()
   var users = [BackendlessUser]()
 
-  var filteredUsers = [BackendlessUser]() {
+  var friendships = [Friendship]() {
     didSet {
       self.tableView.reloadData()
     }
@@ -29,7 +29,7 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    retrieveUsersAndSetData()
+    unapprovedFriendshipsRetrieval()
 
     tableView.registerNib(UINib(nibName: kCellIdFriendRequest, bundle: nil), forCellReuseIdentifier: kCellIdFriendRequest)
     tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
@@ -40,18 +40,15 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
     navBarStyling()
   }
 
-  func retrieveUsersAndSetData() {
-    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+  func unapprovedFriendshipsRetrieval() {
 
-    UserManager.retrieveNonFriends { (users, fault) -> Void in
-      guard let nonFriends = users else {
+    Friendship.retrieveFriendshipsForUser(backendless.userService.currentUser, approved: false) { (unapprovedFriendships, fault) in
+      guard let unapprovedFriendships = unapprovedFriendships else {
         MBProgressHUD.hideHUDForView(self.view, animated: true)
         return
       }
-      self.users = nonFriends
-      self.filteredUsers = self.users
+      self.friendships = unapprovedFriendships
       MBProgressHUD.hideHUDForView(self.view, animated: true)
-      self.tableView.reloadData()
     }
   }
 
@@ -110,13 +107,13 @@ class AddFriendsViewController: UIViewController, MFMessageComposeViewController
 extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate, FriendRequestCellDelegate, AddFriendCellDelegate {
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return filteredUsers.count
+    return friendships.count
   }
 
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier(kCellIdFriendRequest)! as! FriendRequestCell
 
-//    cell.user = filteredUsers[indexPath.row]
+    cell.friendship = friendships[indexPath.row]
 //    cell.isLoading = loadingIndexPaths.containsObject(indexPath)
 //    cell.selected = selectedIndexPaths.containsObject(indexPath)
 //    cell.setUpCell()
