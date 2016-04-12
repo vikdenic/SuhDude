@@ -63,7 +63,7 @@ class UserManager {
           }
         }
       }
-      print("Successfully retrieved \(friends.count) friends")
+      print("Successfully retrieved \(friends.count) friends for current user")
       completed(users: friends, fault: fault)
     }
   }
@@ -87,7 +87,7 @@ class UserManager {
           }
         }
       }
-      print("Successfully retrieved \(friends.count) friends")
+      print("Successfully retrieved \(friends.count) friends for other user")
       completed(users: friends, fault: fault)
     }
   }

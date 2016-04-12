@@ -11,6 +11,8 @@ import UIKit
 class SearchUsersViewController: UIViewController {
 
   @IBOutlet var tableView: UITableView!
+  @IBOutlet var tvYconstraint: NSLayoutConstraint!
+
   let searchController = UISearchController(searchResultsController: nil)
 
   var users = [BackendlessUser]()
@@ -33,10 +35,10 @@ class SearchUsersViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
     navigationItem.hidesBackButton = true
     searchSetup()
-
-    retrieveSuggestedFriends()
+//    retrieveSuggestedFriends()
 //    retrieveUsersAndSetData()
   }
 
@@ -107,6 +109,11 @@ class SearchUsersViewController: UIViewController {
       return user.name.lowercaseString.containsString(searchText.lowercaseString)
     }
     tableView.reloadData()
+  }
+
+  func keyboardWillShow(notification: NSNotification) {
+    guard let kbHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.height else { return }
+    tvYconstraint.constant = kbHeight
   }
 }
 

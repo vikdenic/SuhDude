@@ -517,6 +517,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="ec1-tg-eXl" id="MbL-xb-UJF"/>
+                        <outlet property="tvYconstraint" destination="3HH-Yk-X9N" id="xQI-xR-9sW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IQa-2g-Lh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
