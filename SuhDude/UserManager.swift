@@ -114,33 +114,40 @@ class UserManager {
   }
 
   class func retrieveNonFriendsOfFriends(completed : (users : [BackendlessUser]?, fault : Fault?) -> Void) {
+
+    var allNonFriends = [BackendlessUser]()
+    let downloadGroup = dispatch_group_create() // 2
+
+    dispatch_group_enter(downloadGroup) // 3
     UserManager.retrieveCurrentUsersFriends { (users, fault) in
-      guard let users = users else {
-        print("Server reported an error: \(fault)")
-        completed(users: nil, fault: fault)
-        return
+
+      defer {
+        // Whether we return early or use the users we want to leave the group
+        // Balances the initial enter()
+        dispatch_group_leave(downloadGroup)
       }
 
-      var finished = false
-      for user in users {
+      for user in users! {
+        dispatch_group_enter(downloadGroup) // 3
         UserManager.retrieveFriendsForUser(user, completed: { (usersFriends, fault) in
-
-          guard let usersFriends = usersFriends else {
-            print("Server reported an error: \(fault)")
-            return
+          // No matter the outcome of the call we want to leave the
+          // dispatch_group so we don't wait forever
+          defer {
+            // Balances the enter() for each user
+            dispatch_group_leave(downloadGroup)
           }
-          let nonFriends = usersFriends.arrayWithoutFriends(users)
-
-          if nonFriends.count > 0 {
-            print("alright")
-            if !finished {
-              finished = true
-              completed(users: nonFriends, fault: fault)
-            }
-          }
+          let nonFriends = usersFriends!.arrayWithoutFriends(users!)
+          allNonFriends += nonFriends
         })
       }
     }
+
+    dispatch_group_notify(downloadGroup, dispatch_get_main_queue()) { 
+      completed(users: (allNonFriends as NSArray).arrayWithoutObjectsOfDuplicateProperty("name") as? [BackendlessUser], fault: nil)
+    }
+
+//    dispatch_group_wait(downloadGroup, DISPATCH_TIME_FOREVER);
+//    completed(users: allNonFriends, fault: nil)
   }
   
   class func fetchUser(objectId : String, completed : (user : BackendlessUser?, fault : Fault!) -> Void) {

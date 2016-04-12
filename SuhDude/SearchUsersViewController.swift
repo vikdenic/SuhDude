@@ -36,7 +36,7 @@ class SearchUsersViewController: UIViewController {
     navigationItem.hidesBackButton = true
     searchSetup()
 
-//    retrieveSuggestedFriends()
+    retrieveSuggestedFriends()
 //    retrieveUsersAndSetData()
   }
 
@@ -145,7 +145,7 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
   func updateSearchResultsForSearchController(searchController: UISearchController) {
     if searchController.searchBar.text!.isEmpty {
       searching = false
-      filteredUsers = users
+      retrieveSuggestedFriends()
       return
     }
     searching = true

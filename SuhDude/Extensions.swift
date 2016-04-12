@@ -178,6 +178,26 @@ extension UINavigationController {
   }
 }
 
+extension NSArray {
+  /**
+   - returns: an array of users that are not a part of any (non-group) friendship with the current user (i.e. non-friends)
+   */
+  func arrayWithoutObjectsOfDuplicateProperty(property : String) -> [AnyObject] {
+    var seenInstances = NSMutableSet()
+
+    let predicate = NSPredicate { (obj, bind) -> Bool in
+      let seen = seenInstances.containsObject(obj.valueForKey(property)!)
+
+      if !seen {
+        seenInstances.addObject(obj.valueForKey(property)!)
+      }
+      return !seen
+    }
+
+    return self.filteredArrayUsingPredicate(predicate)
+  }
+}
+
 extension BackendlessUser {
   func isCurrentUser() -> Bool {
     let backendless = Backendless.sharedInstance()
