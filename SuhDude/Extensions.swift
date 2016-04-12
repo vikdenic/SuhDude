@@ -304,3 +304,11 @@ extension UITableView {
     }
   }
 }
+
+extension MBProgressHUD {
+  class func hideOnMain(forView view : UIView) {
+    dispatch_async(dispatch_get_main_queue()) { 
+      self.hideHUDForView(view, animated: true)
+    }
+  }
+}

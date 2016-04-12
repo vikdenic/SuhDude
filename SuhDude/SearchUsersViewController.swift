@@ -36,10 +36,9 @@ class SearchUsersViewController: UIViewController {
     super.viewDidLoad()
     tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+    tableView.tableFooterView = UIView(frame: CGRect.zero)
     navigationItem.hidesBackButton = true
     searchSetup()
-//    retrieveSuggestedFriends()
-//    retrieveUsersAndSetData()
   }
 
   override func viewDidAppear(animated: Bool) {
@@ -47,43 +46,30 @@ class SearchUsersViewController: UIViewController {
     performSelector(#selector(initiateSearchBarResponder), withObject: nil, afterDelay: 0.01)
   }
 
-  func retrieveUsersAndSetData() {
-    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-
-    UserManager.retrieveNonFriends { (users, fault) -> Void in
-      guard let nonFriends = users else {
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
-        return
-      }
-      self.users = nonFriends
-      self.filteredUsers = self.users
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
-      self.tableView.reloadData()
-    }
-  }
-
   func retrieveUsersFromSearch() {
+//    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     UserManager.retrieveAllUsers(withNameLike: searchController.searchBar.text!) { (users, fault) in
       guard let users = users else {
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        MBProgressHUD.hideOnMain(forView: self.view)
         return
       }
       self.users = users
       self.filteredUsers = self.users
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      MBProgressHUD.hideOnMain(forView: self.view)
       self.tableView.reloadData()
     }
   }
 
   func retrieveSuggestedFriends() {
+    MBProgressHUD.showHUDAddedTo(self.view, animated: true)
     UserManager.retrieveNonFriendsOfFriends { (users, fault) in
       guard let nonFriends = users else {
-        MBProgressHUD.hideHUDForView(self.view, animated: true)
+        MBProgressHUD.hideOnMain(forView: self.view)
         return
       }
       self.users = nonFriends
       self.filteredUsers = self.users
-      MBProgressHUD.hideHUDForView(self.view, animated: true)
+      MBProgressHUD.hideOnMain(forView: self.view)
       self.tableView.reloadData()
     }
   }
@@ -102,13 +88,6 @@ class SearchUsersViewController: UIViewController {
 
   func initiateSearchBarResponder() {
     searchController.searchBar.becomeFirstResponder()
-  }
-
-  func filterContentForSearchText(searchText: String, scope: String = "All") {
-    filteredUsers = users.filter { user in
-      return user.name.lowercaseString.containsString(searchText.lowercaseString)
-    }
-    tableView.reloadData()
   }
 
   func keyboardWillShow(notification: NSNotification) {
@@ -157,7 +136,6 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
     }
     searching = true
     retrieveUsersFromSearch()
-//    filterContentForSearchText(searchController.searchBar.text!)
   }
 
   //MARK - UISearchControllerDelegate
