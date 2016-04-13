@@ -77,6 +77,7 @@ class SearchUsersViewController: UIViewController {
   func searchSetup() {
     searchController.searchResultsUpdater = self
     searchController.delegate = self
+    searchController.searchBar.delegate = self
     searchController.dimsBackgroundDuringPresentation = false
     searchController.searchBar.sizeToFit()
     tableView.tableHeaderView = searchController.searchBar
@@ -125,7 +126,7 @@ extension SearchUsersViewController: UITableViewDataSource, UITableViewDelegate,
   }
 }
 
-extension SearchUsersViewController: UISearchResultsUpdating, UISearchControllerDelegate {
+extension SearchUsersViewController: UISearchResultsUpdating, UISearchControllerDelegate, UISearchBarDelegate {
 
   //MARK -UISearchResultsUpdating
   func updateSearchResultsForSearchController(searchController: UISearchController) {
@@ -148,5 +149,10 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
 //    filteredUsers = users
     UIApplication.sharedApplication().statusBarStyle = .LightContent
     navigationController?.popViewControllerAnimated(true)
+  }
+
+  //MARK - SearchBarDelegate
+  func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    tvYconstraint.constant = 0
   }
 }
