@@ -132,7 +132,7 @@ extension AddFriendsViewController: UITableViewDataSource, UITableViewDelegate, 
   }
 
   //MARK - AddFriendCellDelegate
-  func didTapAddButton(button: UIButton) {
+  func didTapAddButton(button: UIButton, user: BackendlessUser) {
     print("add")
   }
 

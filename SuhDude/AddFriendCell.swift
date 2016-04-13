@@ -10,7 +10,7 @@ import UIKit
 
 protocol AddFriendCellDelegate
 {
-  func didTapAddButton(button : UIButton)
+  func didTapAddButton(button : UIButton, user : BackendlessUser)
 }
 
 class AddFriendCell: UITableViewCell {
@@ -22,6 +22,7 @@ class AddFriendCell: UITableViewCell {
   @IBOutlet var addButton: UIButton!
     
   var isLoading = false
+  var added = false
 
   var user: BackendlessUser! {
     didSet {
@@ -60,6 +61,6 @@ class AddFriendCell: UITableViewCell {
   }
 
   @IBAction func onAddButtonTapped(sender: UIButton) {
-    delegate?.didTapAddButton(sender)
+    delegate?.didTapAddButton(sender, user: user)
   }
 }

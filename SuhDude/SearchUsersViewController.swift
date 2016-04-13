@@ -13,9 +13,13 @@ class SearchUsersViewController: UIViewController {
   @IBOutlet var tableView: UITableView!
   @IBOutlet var tvYconstraint: NSLayoutConstraint!
 
+  var backendless = Backendless.sharedInstance()
   let searchController = UISearchController(searchResultsController: nil)
 
   var users = [BackendlessUser]()
+
+  var selectedIndexPaths = NSMutableSet()
+  var loadingIndexPaths = NSMutableSet()
 
   var searching = false {
     didSet {
@@ -28,9 +32,6 @@ class SearchUsersViewController: UIViewController {
       self.tableView.reloadData()
     }
   }
-
-  var selectedIndexPaths = NSMutableSet()
-  var loadingIndexPaths = NSMutableSet()
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -121,8 +122,26 @@ extension SearchUsersViewController: UITableViewDataSource, UITableViewDelegate,
   }
 
   //MARK - AddFriendCellDelegate
-  func didTapAddButton(button: UIButton) {
-    //
+  func didTapAddButton(button: UIButton, user: BackendlessUser) {
+    let indexPath = tableView.indexPathForCell(button.superview as! UITableViewCell)!
+
+    if !loadingIndexPaths.containsObject(indexPath) && !selectedIndexPaths.containsObject(indexPath) {
+
+      self.loadingIndexPaths.addObject(indexPath)
+      self.tableView.reloadData()
+
+      let friendship = Friendship(members: [backendless.userService.currentUser, user])
+      friendship.save { (fault) -> Void in
+        if fault != nil {
+          //TODO: Handle friendship creation error
+        } else {
+          self.selectedIndexPaths.addObject(indexPath)
+        }
+        self.loadingIndexPaths.removeObject(indexPath)
+        self.tableView.reloadData()
+      }
+
+    }
   }
 }
 
