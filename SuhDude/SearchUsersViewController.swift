@@ -38,6 +38,7 @@ class SearchUsersViewController: UIViewController {
     tableView.registerNib(UINib(nibName: kCellIdAddFriend, bundle: nil), forCellReuseIdentifier: kCellIdAddFriend)
     NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(RegisterUserViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
     tableView.tableFooterView = UIView(frame: CGRect.zero)
+    navigationController?.navigationBarHidden = true
     navigationItem.hidesBackButton = true
     searchSetup()
   }
@@ -85,7 +86,15 @@ class SearchUsersViewController: UIViewController {
     definesPresentationContext = true
 
     searchController.searchBar.placeholder = "Search users"
-    searchController.searchBar.barTintColor = .groupTableViewBackgroundColor()
+    searchController.searchBar.barTintColor = .whiteColor()
+
+    let statusBarBGView = UIView(frame: UIApplication.sharedApplication().statusBarFrame)
+    statusBarBGView.backgroundColor = .whiteColor()
+    view.addSubview(statusBarBGView)
+
+    if #available(iOS 9.0, *) {
+      UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor.groupTableViewBackgroundColor()
+    }
   }
 
   func initiateSearchBarResponder() {
