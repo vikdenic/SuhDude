@@ -92,9 +92,7 @@ class SearchUsersViewController: UIViewController {
     statusBarBGView.backgroundColor = .whiteColor()
     view.addSubview(statusBarBGView)
 
-    if #available(iOS 9.0, *) {
-      UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = UIColor.groupTableViewBackgroundColor()
-    }
+    changeSearchBGColor(.groupTableViewBackgroundColor())
   }
 
   func initiateSearchBarResponder() {
@@ -104,6 +102,12 @@ class SearchUsersViewController: UIViewController {
   func keyboardWillShow(notification: NSNotification) {
     guard let kbHeight = notification.userInfo?[UIKeyboardFrameEndUserInfoKey]?.CGRectValue.height else { return }
     tvYconstraint.constant = kbHeight
+  }
+
+  func changeSearchBGColor(color : UIColor) {
+    if #available(iOS 9.0, *) {
+      UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).backgroundColor = color
+    }
   }
 }
 
@@ -177,6 +181,7 @@ extension SearchUsersViewController: UISearchResultsUpdating, UISearchController
 //    filteredUsers = users
     UIApplication.sharedApplication().statusBarStyle = .LightContent
     navigationController?.popViewControllerAnimated(true)
+    changeSearchBGColor(.whiteColor())
   }
 
   //MARK - SearchBarDelegate
